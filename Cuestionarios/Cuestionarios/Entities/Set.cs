@@ -1,7 +1,7 @@
 ﻿
 namespace Cuestionarios.Entities
 {
-    class Set
+    public class Set
     {
     }
 }

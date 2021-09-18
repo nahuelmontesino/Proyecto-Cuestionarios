@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuestionarios.Entities
 {
-    class Score
+    public class Score
     {
     }
 }
