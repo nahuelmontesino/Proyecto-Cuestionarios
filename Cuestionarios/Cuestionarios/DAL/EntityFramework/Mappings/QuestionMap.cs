@@ -10,27 +10,27 @@ namespace Cuestionarios.DAL.EntityFramework.Mappings
         /// </summary>
         public QuestionMap()
         {
-            this.ToTable("Question");
+            ToTable("Question");
 
-            this.HasKey(b => b.Id)
+            HasKey(b => b.Id)
                 .Property(b => b.Id)
                 .HasColumnName("id")
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            this.Property(b => b.QuestionSentence)
+            Property(b => b.QuestionSentence)
                 .IsRequired()
                 .HasColumnName("question");
 
-            this.Property(b => b.Difficulty)
+            Property(b => b.Difficulty)
                 .IsRequired()
                 .HasColumnName("dificulty");
 
-            this.Property(b => b.Category)
+            Property(b => b.Category)
                 .IsRequired()
                 .HasColumnName("category");
 
             //Maps the relation between Question and Option (One to Many)
-            this.HasMany<Option>(b => b.Options)
+            HasMany<Option>(b => b.Options)
                 .WithRequired(b => b.Question)
                 .HasForeignKey<int>(b => b.QuestionID)
                 .WillCascadeOnDelete();

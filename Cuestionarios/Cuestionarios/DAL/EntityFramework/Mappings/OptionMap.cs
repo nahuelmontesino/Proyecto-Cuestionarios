@@ -11,18 +11,18 @@ namespace Cuestionarios.DAL.EntityFramework.Mappings
         /// </summary>
         public OptionMap()
         {
-            this.ToTable("Option");
+            ToTable("Option");
 
-            this.HasKey(b => b.Id)
+            HasKey(b => b.Id)
                 .Property(b => b.Id)
                 .HasColumnName("id")
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            this.Property(b => b.Answer)
+            Property(b => b.Answer)
                 .IsRequired()
                 .HasColumnName("answer");
 
-            this.Property(b => b.Correct)
+            Property(b => b.Correct)
                 .IsRequired()
                 .HasColumnName("correct");
         }
