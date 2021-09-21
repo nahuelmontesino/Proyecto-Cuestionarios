@@ -2,7 +2,7 @@
 
 namespace Cuestionarios.DAL
 {
-    class DatabaseInitializationStrategy: DropCreateDatabaseAlways<QuestionnaireDbContext>
+    class DatabaseInitializationStrategy: DropCreateDatabaseIfModelChanges<QuestionnaireDbContext>
     {
     }
 }
