@@ -1,5 +1,4 @@
-﻿
-using Cuestionarios.DAL.EntityFramework.Mappings;
+﻿using Cuestionarios.DAL.EntityFramework.Mappings;
 using Cuestionarios.Entities;
 using System;
 using System.Data.Entity;
