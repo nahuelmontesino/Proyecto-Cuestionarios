@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Cuestionarios.DAL.EntityFramework
 {
@@ -11,12 +12,14 @@ namespace Cuestionarios.DAL.EntityFramework
         where TDbContext: DbContext
     {
         protected readonly TDbContext iDbContext;
+        internal DbSet<TEntity> dbSet;
 
         public Repository(TDbContext pContext)
         {
             try
             {
                 iDbContext = pContext;
+                dbSet = pContext.Set<TEntity>();
             }
             catch (Exception ex)
             {
@@ -31,13 +34,34 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             try
             {
-                iDbContext.Set<TEntity>().Add(pEntity);
+                dbSet.Add(pEntity);
             }
             catch (Exception ex)
             {
                 throw new NpgsqlException(ex.ToString());
             }
 
+        }
+
+        public IEnumerable<TEntity> Get(
+            Expression<Func<TEntity, bool>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
+        {
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            else
+            {
+                return query.ToList();
+            }
         }
 
         /// <summary>
@@ -47,7 +71,7 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             try
             {
-                return iDbContext.Set<TEntity>().Find(pId);
+                return dbSet.Find(pId);
             }
             catch (Exception ex)
             {
@@ -63,7 +87,7 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             try
             {
-                return iDbContext.Set<TEntity>().ToList();
+                return dbSet.ToList();
             }
             catch (Exception ex)
             {
@@ -80,7 +104,7 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             try
             {
-                iDbContext.Set<TEntity>().Remove(pEntity);
+                dbSet.Remove(pEntity);
             }
             catch (Exception ex)
             {
