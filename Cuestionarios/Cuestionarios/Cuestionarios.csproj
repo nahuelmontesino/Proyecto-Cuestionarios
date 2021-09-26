@@ -106,7 +106,6 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="Entities\Option.cs" />
     <Compile Include="Entities\Question.cs" />
-    <Compile Include="Entities\Score.cs" />
     <Compile Include="Entities\Set.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

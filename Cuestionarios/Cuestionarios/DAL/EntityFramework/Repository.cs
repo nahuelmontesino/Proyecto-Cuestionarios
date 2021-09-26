@@ -47,6 +47,7 @@ namespace Cuestionarios.DAL.EntityFramework
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
         {
+
             IQueryable<TEntity> query = dbSet;
 
             if (filter != null)
