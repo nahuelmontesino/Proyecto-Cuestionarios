@@ -5,7 +5,6 @@ namespace Cuestionarios.Source
 {
     public interface ISource
     {
-        string Url { get; }
         string Name { get; }
         Dictionary<int, string> CategoryDictionary { get; }
         Dictionary<int, string> DifficultyDictionary { get; }

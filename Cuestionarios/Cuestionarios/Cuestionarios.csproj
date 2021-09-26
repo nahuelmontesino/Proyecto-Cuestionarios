@@ -51,6 +51,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=5.0.10.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.5.0.10\lib\netstandard2.0\Npgsql.dll</HintPath>
     </Reference>
@@ -100,10 +103,14 @@
   <ItemGroup>
     <Compile Include="DAL\CuestionaryDbContext.cs" />
     <Compile Include="DAL\DatabaseInitializationStrategy.cs" />
+    <Compile Include="DAL\EntityFramework\IQuestionRepository.cs" />
     <Compile Include="DAL\EntityFramework\Mappings\OptionMap.cs" />
     <Compile Include="DAL\EntityFramework\Mappings\QuestionMap.cs" />
+    <Compile Include="DAL\EntityFramework\QuestionRepository.cs" />
     <Compile Include="DAL\EntityFramework\Repository.cs" />
+    <Compile Include="DAL\EntityFramework\UnitOfWork.cs" />
     <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\IUnitOfWork.cs" />
     <Compile Include="Entities\Option.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Session.cs" />
@@ -112,6 +119,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\ISource.cs" />
+    <Compile Include="Source\OpendbSource.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
