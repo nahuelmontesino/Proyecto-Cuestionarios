@@ -1,4 +1,4 @@
-﻿using Cuestionarios.Entities;
+﻿using Cuestionarios.Domain;
 using Cuestionarios.Source;
 using Npgsql;
 using System;

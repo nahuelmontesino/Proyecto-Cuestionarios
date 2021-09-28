@@ -1,4 +1,4 @@
-﻿namespace Cuestionarios.Entities
+﻿namespace Cuestionarios.Domain
 {
     public class Option
     {

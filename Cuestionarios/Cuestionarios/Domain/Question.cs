@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Cuestionarios.Entities
+namespace Cuestionarios.Domain
 {
     public class Question
     {

@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace Cuestionarios.Entities
+namespace Cuestionarios.Domain
 {
     public class Set
     {

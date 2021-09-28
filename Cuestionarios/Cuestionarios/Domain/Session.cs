@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 
-namespace Cuestionarios.Entities
+namespace Cuestionarios.Domain
 {
     public class Session
     {

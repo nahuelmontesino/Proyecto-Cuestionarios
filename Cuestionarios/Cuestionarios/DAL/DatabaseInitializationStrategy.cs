@@ -1,4 +1,4 @@
-﻿using Cuestionarios.Entities;
+﻿using Cuestionarios.Domain;
 using System.Data.Entity;
 
 namespace Cuestionarios.DAL

@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
-using Cuestionarios.Entities;
+using Cuestionarios.Domain;
 using System.Linq;
 
 namespace Cuestionarios.Source
