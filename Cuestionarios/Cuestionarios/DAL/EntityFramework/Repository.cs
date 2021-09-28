@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Cuestionarios.DAL.EntityFramework
 {
-    abstract class Repository<TEntity, TDbContext>: IRepository<TEntity>
+    public abstract class Repository<TEntity, TDbContext>: IRepository<TEntity>
         where TEntity: class
         where TDbContext: DbContext
     {

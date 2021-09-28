@@ -4,10 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cuestionarios.Entities
 {
-    [Table("Question")]
     public class Question
     {
-        [Key]
         public int Id { get; set; }
         public string QuestionSentence { get; set; }
         public virtual int Difficulty { get; set; }

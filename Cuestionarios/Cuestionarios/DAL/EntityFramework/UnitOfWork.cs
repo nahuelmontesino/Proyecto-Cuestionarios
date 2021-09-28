@@ -11,9 +11,13 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             iDbContext = pContext ?? throw new ArgumentNullException(nameof(pContext));
 
+            QuestionRepository = new QuestionRepository(this.iDbContext);
+            SetRepository = new SetRepository(this.iDbContext);
+
         }
 
         public IQuestionRepository QuestionRepository { get; private set; }
+        public SetRepository SetRepository { get; private set; }
 
         /// <summary>
         /// Persist the changes

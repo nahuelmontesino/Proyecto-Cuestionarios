@@ -116,7 +116,7 @@ namespace Cuestionarios.Source
 
             dificulty = pDificulty == "any dificulty" ? "" : "&difficulty=" + pDificulty.ToLower();
 
-            var apiUrl = UrlBase + "amount=" + "amount=" + pAmount + category + dificulty + "&type=multiple";
+            var apiUrl = UrlBase + "amount=" + pAmount + category + dificulty + "&type=multiple";
 
 
             dynamic mResponseJSON = CallTheTribiaApi(apiUrl);

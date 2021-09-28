@@ -20,6 +20,7 @@ namespace Cuestionarios.DAL
 
         public virtual DbSet<Question> Question { get; set; }
         public virtual DbSet<Option> Options { get; set; }
+        public virtual DbSet<Set> Sets { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder pModelBuilder)
         {
@@ -31,7 +32,7 @@ namespace Cuestionarios.DAL
             //Adds each entity map
             pModelBuilder.Configurations.Add(new OptionMap());
             pModelBuilder.Configurations.Add(new QuestionMap());
-
+            pModelBuilder.Configurations.Add(new SetMap());
             base.OnModelCreating(pModelBuilder);
         }
 

@@ -1,8 +1,20 @@
-﻿using System.Data.Entity;
+﻿using Cuestionarios.Entities;
+using System.Data.Entity;
 
 namespace Cuestionarios.DAL
 {
-    class DatabaseInitializationStrategy: DropCreateDatabaseIfModelChanges<QuestionnaireDbContext>
+    class DatabaseInitializationStrategy: DropCreateDatabaseAlways<QuestionnaireDbContext>
     {
+
+        protected override void Seed(QuestionnaireDbContext context)
+        {
+            //Adds the default set of questions
+            context.Sets.Add(new Set
+            {
+                Id = 1,
+                Name = "opentdb"
+            });
+
+        }
     }
 }

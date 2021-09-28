@@ -106,8 +106,10 @@
     <Compile Include="DAL\EntityFramework\IQuestionRepository.cs" />
     <Compile Include="DAL\EntityFramework\Mappings\OptionMap.cs" />
     <Compile Include="DAL\EntityFramework\Mappings\QuestionMap.cs" />
+    <Compile Include="DAL\EntityFramework\Mappings\SetMap.cs" />
     <Compile Include="DAL\EntityFramework\QuestionRepository.cs" />
     <Compile Include="DAL\EntityFramework\Repository.cs" />
+    <Compile Include="DAL\EntityFramework\SetRepository.cs" />
     <Compile Include="DAL\EntityFramework\UnitOfWork.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
