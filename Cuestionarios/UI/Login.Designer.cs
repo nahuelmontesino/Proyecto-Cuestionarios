@@ -35,16 +35,16 @@ namespace UI
             this.txtuser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.exitBox = new System.Windows.Forms.PictureBox();
+            this.minimizeBox = new System.Windows.Forms.PictureBox();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,7 +78,6 @@ namespace UI
             this.txtuser.Size = new System.Drawing.Size(413, 27);
             this.txtuser.TabIndex = 1;
             this.txtuser.Text = "User";
-            this.txtuser.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
             this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
             // 
@@ -108,27 +107,27 @@ namespace UI
             this.button1.Text = "GET IN";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // exitBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(750, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.exitBox.Image = ((System.Drawing.Image)(resources.GetObject("exitBox.Image")));
+            this.exitBox.Location = new System.Drawing.Point(750, 0);
+            this.exitBox.Name = "exitBox";
+            this.exitBox.Size = new System.Drawing.Size(35, 22);
+            this.exitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.exitBox.TabIndex = 8;
+            this.exitBox.TabStop = false;
+            this.exitBox.Click += new System.EventHandler(this.exitBox_Click);
             // 
-            // pictureBox2
+            // minimizeBox
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(719, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(34, 22);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.minimizeBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBox.Image")));
+            this.minimizeBox.Location = new System.Drawing.Point(719, 0);
+            this.minimizeBox.Name = "minimizeBox";
+            this.minimizeBox.Size = new System.Drawing.Size(34, 22);
+            this.minimizeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimizeBox.TabIndex = 9;
+            this.minimizeBox.TabStop = false;
+            this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
             // 
             // txtpass
             // 
@@ -141,7 +140,6 @@ namespace UI
             this.txtpass.Size = new System.Drawing.Size(413, 27);
             this.txtpass.TabIndex = 2;
             this.txtpass.Text = "Password";
-            this.txtpass.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.txtpass.Enter += new System.EventHandler(this.texpass_Enter);
             this.txtpass.Leave += new System.EventHandler(this.texpass_Leave);
             // 
@@ -152,7 +150,6 @@ namespace UI
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(413, 1);
             this.label3.TabIndex = 4;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -161,7 +158,6 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(413, 1);
             this.label1.TabIndex = 1;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // linkLabel1
             // 
@@ -181,8 +177,8 @@ namespace UI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(95)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.minimizeBox);
+            this.Controls.Add(this.exitBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtpass);
@@ -196,11 +192,10 @@ namespace UI
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,12 +208,10 @@ namespace UI
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.PictureBox exitBox;
+        private System.Windows.Forms.PictureBox minimizeBox;
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
     }

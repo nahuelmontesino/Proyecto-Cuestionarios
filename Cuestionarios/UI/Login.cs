@@ -16,32 +16,7 @@ namespace UI
         {
             InitializeComponent();
             
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-       
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        }   
         private void txtuser_Enter(object sender, EventArgs e)
         {
             if (txtuser.Text == "User")
@@ -61,16 +36,6 @@ namespace UI
                 txtuser.ForeColor = Color.DimGray;
 
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void texpass_Enter(object sender, EventArgs e)
@@ -93,6 +58,16 @@ namespace UI
                 txtpass.UseSystemPasswordChar = false;
 
             }
+        }
+
+        private void minimizeBox_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exitBox_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
