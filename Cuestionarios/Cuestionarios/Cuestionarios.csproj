@@ -101,6 +101,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="DAL\CuestionaryDbContext.cs" />
     <Compile Include="DAL\DatabaseInitializationStrategy.cs" />
     <Compile Include="DAL\IQuestionRepository.cs" />

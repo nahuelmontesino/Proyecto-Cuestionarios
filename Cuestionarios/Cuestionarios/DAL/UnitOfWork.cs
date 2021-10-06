@@ -17,7 +17,7 @@ namespace Cuestionarios.DAL.EntityFramework
         { 
             get
             {
-                if(this.questionRepository == null)
+                if(questionRepository == null)
                 {
                     questionRepository = new QuestionRepository(iDbContext);
                 }
