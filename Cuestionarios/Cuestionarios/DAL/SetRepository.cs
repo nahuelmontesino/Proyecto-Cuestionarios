@@ -17,8 +17,8 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             try
             {
-                iDbContext.Question.Attach(pQuestion);
-                iDbContext.Question.Add(pQuestion);
+                iDbContext.Questions.Attach(pQuestion);
+                iDbContext.Questions.Add(pQuestion);
                 iDbContext.SaveChanges();
             }
             catch (Exception ex)

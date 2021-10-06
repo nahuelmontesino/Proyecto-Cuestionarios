@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using System.IO;
-using System.Net;
+﻿using System.Collections.Generic;
 using Cuestionarios.Domain;
 using System.Linq;
+using System.Net;
+using System.IO;
+using System.Text;
+using Newtonsoft.Json;
+using System;
 
-namespace Cuestionarios.Source
+namespace Cuestionarios.Sources
 {
     class OpendbSource: ISource
     {
@@ -21,10 +21,33 @@ namespace Cuestionarios.Source
             UrlBase = "https://opentdb.com/api.php?";
             Name = "opentdb";
             CategoryDictionary = GetCategories();
-            DifficultyDictionary = GetDificulties();
+            DifficultyDictionary = GetDifficulties();
         }
 
-        private dynamic CallTheTribiaApi(string pUrl)
+        private Dictionary<int, string> GetCategories()
+        {
+            string url = "https://opentdb.com/api_category.php";
+
+            dynamic mResponseJSON = CallTheAPI(url);
+
+            Dictionary<int, string> categoriesDictionary = new Dictionary<int, string> { };
+
+            //Each of the results is iterated
+            foreach (var category in mResponseJSON.trivia_categories)
+            {
+                int id = category.id;
+                string name = category.name;
+                categoriesDictionary.Add(id, name);
+            }
+
+            return (categoriesDictionary);
+
+        }
+
+        /// <summary>
+        /// Gets a response form the URL
+        /// </summary>
+        private dynamic CallTheAPI(string pUrl)
         {
             // Establishment of the transport ssl protocol
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -45,7 +68,7 @@ namespace Cuestionarios.Source
                     // The response is parsed and JSON is serialized to a dynamic object
                     dynamic mResponseJSON = JsonConvert.DeserializeObject(reader.ReadToEnd());
 
-                    Console.WriteLine("Código de respuesta: {0}", mResponseJSON.response_code);
+                    System.Console.WriteLine("Código de respuesta: {0}", mResponseJSON.response_code);
 
                     if (mResponseJSON == null)
                     {
@@ -69,43 +92,22 @@ namespace Cuestionarios.Source
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: {0}", ex.Message);
+                System.Console.WriteLine("Error: {0}", ex.Message);
                 return null;
             }
         }
 
-        private Dictionary<int, string> GetCategories()
+        private Dictionary<int, string> GetDifficulties()
         {
-            string url = "https://opentdb.com/api_category.php";
+            var difficulties = new Dictionary<int, string>()
+                                            {
+                                                {0,"easy"},
+                                                {1,"medium"},
+                                                {2,"hard"},
+                                                {3,"any dificulty"},
+                                            };
 
-            dynamic mResponseJSON = CallTheTribiaApi(url);
-
-            Dictionary<int, string> categoriesDictionary = new Dictionary<int, string> { };
-
-            //Each of the results is iterated
-            foreach (var category in mResponseJSON.trivia_categories)
-            {
-                int id = category.id;
-                string name = category.name;
-                categoriesDictionary.Add(id, name);
-            }
-
-            return (categoriesDictionary);
-
-        }
-
-        private Dictionary<int, string> GetDificulties()
-        {
-            var categories = new Dictionary<int, string>()
-            {
-                {0,"any dificulty"},
-                {1,"easy"},
-                {2,"medium"},
-                {3,"hard"},
-                
-            };
-
-            return categories;
+            return difficulties;
         }
 
         public List<Question> GetQuestions(string pDificulty, int pCategory, int pAmount)
@@ -119,7 +121,7 @@ namespace Cuestionarios.Source
             var apiUrl = UrlBase + "amount=" + pAmount + category + dificulty + "&type=multiple";
 
 
-            dynamic mResponseJSON = CallTheTribiaApi(apiUrl);
+            dynamic mResponseJSON = CallTheAPI(apiUrl);
 
             List<Question> questionsList = new List<Question>();
 

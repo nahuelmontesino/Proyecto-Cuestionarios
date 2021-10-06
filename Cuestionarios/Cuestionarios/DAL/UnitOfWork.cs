@@ -5,19 +5,38 @@ namespace Cuestionarios.DAL.EntityFramework
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly QuestionnaireDbContext iDbContext;
+        private QuestionnaireDbContext iDbContext = new QuestionnaireDbContext();
+        private IQuestionRepository questionRepository;
+        private SetRepository setRepository;
 
-        public UnitOfWork(QuestionnaireDbContext pContext)
+        public UnitOfWork()
         {
-            iDbContext = pContext ?? throw new ArgumentNullException(nameof(pContext));
-
-            QuestionRepository = new QuestionRepository(this.iDbContext);
-            SetRepository = new SetRepository(this.iDbContext);
-
         }
 
-        public IQuestionRepository QuestionRepository { get; private set; }
-        public SetRepository SetRepository { get; private set; }
+        public IQuestionRepository QuestionRepository
+        { 
+            get
+            {
+                if(this.questionRepository == null)
+                {
+                    questionRepository = new QuestionRepository(iDbContext);
+                }
+
+                return questionRepository;
+            }
+        }
+        public SetRepository SetRepository
+        {
+            get
+            {
+                if (setRepository == null)
+                {
+                    setRepository = new SetRepository(iDbContext);
+                }
+
+                return setRepository;
+            }
+        }
 
         /// <summary>
         /// Persist the changes

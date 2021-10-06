@@ -81,6 +81,12 @@ namespace Cuestionarios.DAL.EntityFramework
 
         }
 
+        public virtual void Update(TEntity entityToUpdate)
+        {
+            dbSet.Attach(entityToUpdate);
+            iDbContext.Entry(entityToUpdate).State = EntityState.Modified;
+        }
+
         /// <summary>
         /// Gets all entities
         /// </summary>
@@ -105,6 +111,11 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             try
             {
+                if (iDbContext.Entry(pEntity).State == EntityState.Detached)
+                {
+                    dbSet.Attach(pEntity);
+                }
+
                 dbSet.Remove(pEntity);
             }
             catch (Exception ex)

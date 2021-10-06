@@ -18,7 +18,7 @@ namespace Cuestionarios.DAL
             Database.Initialize(false);
         }
 
-        public virtual DbSet<Question> Question { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Option> Options { get; set; }
         public virtual DbSet<Set> Sets { get; set; }
 

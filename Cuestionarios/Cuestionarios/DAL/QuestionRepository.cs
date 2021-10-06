@@ -1,10 +1,9 @@
 ﻿using Cuestionarios.Domain;
-using Cuestionarios.Source;
+using Cuestionarios.Sources;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 
 namespace Cuestionarios.DAL.EntityFramework
 {
@@ -38,7 +37,7 @@ namespace Cuestionarios.DAL.EntityFramework
 
                         //Add the question to the DB
                         question.SetID = 1;
-                        iDbContext.Question.Add(question);
+                        iDbContext.Questions.Add(question);
                         pUnitOfWork.SetRepository.AddQuestion(question);
 
                         //Add each option to the DB

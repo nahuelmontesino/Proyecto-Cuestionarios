@@ -1,11 +1,7 @@
 ﻿using Cuestionarios.DAL;
 using Cuestionarios.DAL.EntityFramework;
-using Cuestionarios.Source;
+using Cuestionarios.Sources;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Cuestionarios
 {
@@ -18,7 +14,7 @@ namespace Cuestionarios
         static void Main()
         {
             ISource source = new OpendbSource();
-            UnitOfWork iUOfW = new UnitOfWork(new QuestionnaireDbContext());
+            UnitOfWork iUOfW = new UnitOfWork();
 
             var repo = new QuestionRepository(new QuestionnaireDbContext());
             iUOfW.QuestionRepository.SaveQuestions(source, "hard", "General Knowledge", 11, iUOfW);
