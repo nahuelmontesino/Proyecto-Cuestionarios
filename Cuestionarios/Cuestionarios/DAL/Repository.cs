@@ -12,7 +12,7 @@ namespace Cuestionarios.DAL.EntityFramework
         where TDbContext: DbContext
     {
         protected readonly TDbContext iDbContext;
-        internal DbSet<TEntity> dbSet;
+        protected readonly DbSet<TEntity> dbSet;
 
         public Repository(TDbContext pContext)
         {
@@ -87,27 +87,11 @@ namespace Cuestionarios.DAL.EntityFramework
             iDbContext.Entry(entityToUpdate).State = EntityState.Modified;
         }
 
-        /// <summary>
-        /// Gets all entities
-        /// </summary>
-        public IEnumerable<TEntity> GetAll()
-        {
-            try
-            {
-                return dbSet.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
-
-        }
-
 
         /// <summary>
-        /// Remove an entity
+        /// Delete an entity
         /// </summary>
-        public void Remove(TEntity pEntity)
+        public void Delete(TEntity pEntity)
         {
             try
             {

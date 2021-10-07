@@ -6,6 +6,6 @@ namespace Cuestionarios.DAL
     {
         void Complete();
 
-        IQuestionRepository QuestionRepository { get; }
+        QuestionRepository QuestionRepository { get; }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Cuestionarios.DAL.EntityFramework
 {
-    public class QuestionRepository: Repository<Question, QuestionnaireDbContext>, IQuestionRepository
+    public class QuestionRepository: Repository<Question, QuestionnaireDbContext>
     {
 
         public QuestionRepository(QuestionnaireDbContext pContext): base(pContext)
@@ -77,7 +77,7 @@ namespace Cuestionarios.DAL.EntityFramework
         }
 
 
-        public List<Question> GetQuestions(int pSet, int pDifficulty, int pCategory, int pAmount)
+        public IEnumerable<Question> GetQuestions(int pSet, int pDifficulty, int pCategory, int pAmount)
         {
             List<Question> questionsList = new List<Question>();
 

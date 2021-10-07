@@ -6,14 +6,14 @@ namespace Cuestionarios.DAL.EntityFramework
     public class UnitOfWork : IUnitOfWork
     {
         private QuestionnaireDbContext iDbContext = new QuestionnaireDbContext();
-        private IQuestionRepository questionRepository;
+        private QuestionRepository questionRepository;
         private SetRepository setRepository;
 
         public UnitOfWork()
         {
         }
 
-        public IQuestionRepository QuestionRepository
+        public QuestionRepository QuestionRepository
         { 
             get
             {
