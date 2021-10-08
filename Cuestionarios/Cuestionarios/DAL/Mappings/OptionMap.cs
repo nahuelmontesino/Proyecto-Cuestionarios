@@ -25,6 +25,10 @@ namespace Cuestionarios.DAL.Mappings
             Property(b => b.Correct)
                 .IsRequired()
                 .HasColumnName("correct");
+
+            HasRequired(q => q.Question)
+                .WithMany(g => g.Options)
+                .HasForeignKey(s => s.QuestionID);
         }
 
     }

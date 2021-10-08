@@ -9,15 +9,14 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
-        public void LoadQuestions(ISource pSource, string pDificulty, string pCategory, int pAmount)
+        public void LoadQuestions(Set pSet, string pDificulty, string pCategory, int pAmount)
         {
-            iUOfW.QuestionRepository.SaveQuestions(pSource, pDificulty, pCategory, pAmount, iUOfW);
+            iUOfW.QuestionRepository.SaveQuestions(pSet, pDificulty, pCategory, pAmount);
         }
 
-        public IEnumerable<Question> GetQuestions(ISource pSource, int pDifficulty, int pCategory, int pAmount)
+        public IEnumerable<Question> GetQuestions(Set pSet, int pDifficulty, int pCategory, int pAmount)
         {
-            int set = iUOfW.SetRepository.GetSetByName(pSource.Name).Id;
-            return iUOfW.QuestionRepository.GetQuestions(set, pDifficulty, pCategory, pAmount);
+            return iUOfW.QuestionRepository.GetQuestions(pSet, pDifficulty, pCategory, pAmount);
         }
     }
 }

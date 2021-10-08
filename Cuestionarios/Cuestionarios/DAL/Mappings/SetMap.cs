@@ -24,8 +24,7 @@ namespace Cuestionarios.DAL.Mappings
 
             //Maps the relation between Set and Question (One to Many)
             HasMany(b => b.Questions)
-                .WithRequired()
-                .HasForeignKey<int>(b => b.SetID)
+                .WithRequired(s => s.Set)
                 .WillCascadeOnDelete();
         }
     }

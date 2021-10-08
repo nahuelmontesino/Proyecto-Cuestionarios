@@ -8,7 +8,7 @@ namespace Cuestionarios.Domain
         public string QuestionSentence { get; set; }
         public virtual int Difficulty { get; set; }
         public virtual int Category { get; set; }
-        public virtual IList<Option> Options { get; set; }
-        public virtual int SetID { get; set; }
+        public virtual ICollection<Option> Options { get; set; }
+        public virtual Set Set { get; set; }
     }
 }

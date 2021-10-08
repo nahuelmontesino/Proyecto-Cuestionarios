@@ -30,10 +30,13 @@ namespace Cuestionarios.DAL.Mappings
                 .HasColumnName("category");
 
             //Maps the relation between Question and Option (One to Many)
-            HasMany<Option>(b => b.Options)
+            HasMany(b => b.Options)
                 .WithRequired(b => b.Question)
-                .HasForeignKey<int>(b => b.QuestionID)
+                .HasForeignKey(b => b.QuestionID)
                 .WillCascadeOnDelete();
+
+            HasRequired(s => s.Set)
+                .WithMany(g => g.Questions);
         }
     }
 }
