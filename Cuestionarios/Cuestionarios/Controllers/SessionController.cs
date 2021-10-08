@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuestionarios.Controllers
 {
-    class SessionController
+    public class SessionController
     {
     }
 }
