@@ -92,7 +92,7 @@ namespace Cuestionarios.Sources
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine("Error: {0}", ex.Message);
+                Console.WriteLine("Error: {0}", ex.Message);
                 return null;
             }
         }

@@ -18,7 +18,7 @@ namespace Cuestionarios
 
             var repo = new QuestionRepository(new QuestionnaireDbContext());
             iUOfW.QuestionRepository.SaveQuestions(source, "hard", "General Knowledge", 11, iUOfW);
-            var list = repo.GetQuestions(1, 3, 9, 5);
+            var list = repo.GetQuestions(1, 2, 9, 5);
 
 
             Console.ReadKey();

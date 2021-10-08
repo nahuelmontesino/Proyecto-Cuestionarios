@@ -1,4 +1,5 @@
 ﻿using Cuestionarios.Domain;
+using Cuestionarios.Sources;
 using System.Data.Entity;
 
 namespace Cuestionarios.DAL
@@ -8,12 +9,16 @@ namespace Cuestionarios.DAL
 
         protected override void Seed(QuestionnaireDbContext context)
         {
-            //Adds the default set of questions
-            context.Sets.Add(new Set
+            var sourceFactory = new SourceFactory();
+
+            foreach (var source in sourceFactory.GetAllSources())
             {
-                Id = 1,
-                Name = "opentdb"
-            });
+                context.Sets.Add(new Set
+                {
+                    Name = source.Name
+                });
+            }
+           
 
         }
     }
