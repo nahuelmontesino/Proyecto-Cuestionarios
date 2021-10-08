@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Cuestionarios.Sources
 {
-   public class SourceFactory
+   public static class SourceFactory
     {
-        public ISource GetSourceByName(string name)
+        public static ISource GetSourceByName(string name)
         {
             //Add the new sources here
             switch (name)
