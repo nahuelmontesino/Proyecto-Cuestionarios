@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Cuestionarios.DAL.EntityFramework
+namespace Cuestionarios.DAL
 {
     public abstract class Repository<TEntity, TDbContext>: IRepository<TEntity>
         where TEntity: class

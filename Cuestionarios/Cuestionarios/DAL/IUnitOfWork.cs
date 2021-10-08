@@ -1,5 +1,4 @@
-﻿using Cuestionarios.DAL.EntityFramework;
-
+﻿
 namespace Cuestionarios.DAL
 {
     interface IUnitOfWork

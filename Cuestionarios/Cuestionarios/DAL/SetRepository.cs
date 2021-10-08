@@ -3,7 +3,7 @@ using Npgsql;
 using System;
 using System.Linq;
 
-namespace Cuestionarios.DAL.EntityFramework
+namespace Cuestionarios.DAL
 {
     public class SetRepository : Repository<Set, QuestionnaireDbContext>
     {

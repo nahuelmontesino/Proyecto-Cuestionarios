@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System;
 
-namespace Cuestionarios.DAL.EntityFramework
+namespace Cuestionarios.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {

@@ -1,7 +1,7 @@
 ﻿using Cuestionarios.Domain;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Cuestionarios.DAL.EntityFramework.Mappings
+namespace Cuestionarios.DAL.Mappings
 {
     class OptionMap: EntityTypeConfiguration<Option>
     {

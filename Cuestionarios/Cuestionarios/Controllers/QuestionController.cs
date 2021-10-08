@@ -1,11 +1,7 @@
-﻿using Cuestionarios.DAL.EntityFramework;
+﻿using Cuestionarios.DAL;
 using Cuestionarios.Domain;
 using Cuestionarios.Sources;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cuestionarios.Controllers
 {
