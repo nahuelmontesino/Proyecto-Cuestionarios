@@ -18,7 +18,7 @@ namespace Cuestionarios.DAL.EntityFramework
         {
             int categoryNumber = pSource.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
 
-            List<Question> questionsList = pSource.GetQuestions(pDificulty, categoryNumber, pAmount);
+            List<Question> questionsList = pSource.GetQuestions(pDificulty, categoryNumber, pAmount).ToList();
 
             try
             {

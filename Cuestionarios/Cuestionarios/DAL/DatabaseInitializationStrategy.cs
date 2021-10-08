@@ -9,17 +9,12 @@ namespace Cuestionarios.DAL
 
         protected override void Seed(QuestionnaireDbContext context)
         {
-            var sourceFactory = new SourceFactory();
-
-            foreach (var source in sourceFactory.GetAllSources())
+            //Initialize sets with available sources
+            context.Sets.Add(new Set
             {
-                context.Sets.Add(new Set
-                {
-                    Name = source.Name
-                });
-            }
-           
-
+                Name = "opentdb"
+            });
+            
         }
     }
 }

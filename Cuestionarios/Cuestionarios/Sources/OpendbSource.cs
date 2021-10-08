@@ -68,7 +68,7 @@ namespace Cuestionarios.Sources
                     // The response is parsed and JSON is serialized to a dynamic object
                     dynamic mResponseJSON = JsonConvert.DeserializeObject(reader.ReadToEnd());
 
-                    System.Console.WriteLine("Código de respuesta: {0}", mResponseJSON.response_code);
+                    Console.WriteLine("Código de respuesta: {0}", mResponseJSON.response_code);
 
                     if (mResponseJSON == null)
                     {
@@ -110,7 +110,7 @@ namespace Cuestionarios.Sources
             return difficulties;
         }
 
-        public List<Question> GetQuestions(string pDificulty, int pCategory, int pAmount)
+        public IEnumerable<Question> GetQuestions(string pDificulty, int pCategory, int pAmount)
         {
             string category, dificulty;
 
