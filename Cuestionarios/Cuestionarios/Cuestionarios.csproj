@@ -111,6 +111,7 @@
     <Compile Include="DAL\Mappings\SetMap.cs" />
     <Compile Include="DAL\QuestionRepository.cs" />
     <Compile Include="DAL\Repository.cs" />
+    <Compile Include="DAL\SessionRepository.cs" />
     <Compile Include="DAL\SetRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DAL\IRepository.cs" />

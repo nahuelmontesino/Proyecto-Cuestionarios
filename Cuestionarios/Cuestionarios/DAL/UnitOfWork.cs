@@ -8,6 +8,7 @@ namespace Cuestionarios.DAL
         private QuestionnaireDbContext iDbContext = new QuestionnaireDbContext();
         private QuestionRepository questionRepository;
         private SetRepository setRepository;
+        private SessionRepository sessionRepository;
 
         public UnitOfWork()
         {
@@ -35,6 +36,19 @@ namespace Cuestionarios.DAL
                 }
 
                 return setRepository;
+            }
+        }
+
+        public SessionRepository SessionRepository
+        {
+            get
+            {
+                if (sessionRepository == null)
+                {
+                    sessionRepository = new SessionRepository(iDbContext);
+                }
+
+                return sessionRepository;
             }
         }
 
