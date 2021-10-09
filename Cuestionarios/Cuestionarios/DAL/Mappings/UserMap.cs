@@ -28,7 +28,6 @@ namespace Cuestionarios.DAL.Mappings
                 .IsRequired()
                 .HasColumnName("isAdmin");
 
-            //Maps the relation between Question and Option (One to Many)
             HasMany(b => b.Sessions)
                 .WithRequired(b => b.User)
                 .WillCascadeOnDelete();
