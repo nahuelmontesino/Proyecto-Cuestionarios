@@ -29,23 +29,34 @@ namespace Cuestionarios.Controllers
         /// <summary>
         /// Get list of categories from questions in DB that correspond to a Set
         /// </summary>
-        public IList<string> GetCategoriesOfSet(Set pSet)
+        public IEnumerable<string> GetCategoriesOfSet(Set pSet)
         {
-            return iUOfW.QuestionRepository.GetCategoriesOfSet(pSet);
+            ISource source = SourceFactory.GetSourceByName(pSet.Name);
+
+            var categoriesKeys = iUOfW.QuestionRepository.GetCategoriesOfSet(pSet);
+
+            List<string> categories = new List<string>();
+
+            foreach (int key in categoriesKeys)
+            {
+                categories.Add(source.CategoryDictionary.FirstOrDefault(x => x.Key == key).Value);
+            }
+
+            return categories;
         }
 
         /// <summary>
         /// Get list of difficulties from questions in DB that correspond to a Set and a category
         /// </summary>
-        public IList<string> GetDifficultiesOfCategory(Set pSet, string pCategory)
+        public IEnumerable<string> GetDifficultiesOfCategory(Set pSet, string pCategory)
         {
             ISource source = SourceFactory.GetSourceByName(pSet.Name);
 
             int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
 
-            IList<int> difficultiesKeys = iUOfW.QuestionRepository.GetDifficultiesOfCategory(pSet, category).ToList();
+            IEnumerable<int> difficultiesKeys = iUOfW.QuestionRepository.GetDifficultiesOfCategory(pSet, category).ToList();
 
-            IList<string> difficulties = new List<string>();
+            List<string> difficulties = new List<string>();
 
             foreach (int key in difficultiesKeys)
             {

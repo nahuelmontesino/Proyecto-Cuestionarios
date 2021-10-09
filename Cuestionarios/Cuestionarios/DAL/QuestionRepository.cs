@@ -69,29 +69,18 @@ namespace Cuestionarios.DAL
             return questionsList;
         }
 
-        public IList<string> GetCategoriesOfSet(Set pSet)
+        public IEnumerable<int> GetCategoriesOfSet(Set pSet)
         {
-            ISource source = SourceFactory.GetSourceByName(pSet.Name);
+            IEnumerable<int> categoriesKeys = Get(q => q.Set.Id == pSet.Id).Select(q => q.Category).Distinct();
 
-            IEnumerable<Question> listQuestions = Get(q => q.Set.Id == pSet.Id).ToList();
-
-            List<int> categoriesKeys = listQuestions.Select(q => q.Category).Distinct().ToList();
-
-            List<string> categories = new List<string>();
-
-            foreach (int key in categoriesKeys)
-            {
-                categories.Add(source.CategoryDictionary.FirstOrDefault(x => x.Key == key).Value);
-            }
-
-            return categories;
+            return categoriesKeys;
         }
 
         public IEnumerable<int> GetDifficultiesOfCategory(Set pSet, int category)
         {
-            IEnumerable<Question> listQuestionsOfCategory = Get(q => q.Set.Id == pSet.Id && q.Category == category);
-
-            IEnumerable<int> difficultiesKeys = listQuestionsOfCategory.Select(q => q.Difficulty).Distinct();
+            IEnumerable<int> difficultiesKeys = Get(q => q.Set.Id == pSet.Id && q.Category == category)
+                                                      .Select(q => q.Difficulty)
+                                                      .Distinct();
 
             return difficultiesKeys;
         }
