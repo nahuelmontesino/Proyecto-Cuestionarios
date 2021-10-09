@@ -47,21 +47,27 @@ namespace Cuestionarios.DAL
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
         {
-
-            IQueryable<TEntity> query = dbSet;
-
-            if (filter != null)
+            try
             {
-                query = query.Where(filter);
+                IQueryable<TEntity> query = dbSet;
+
+                if (filter != null)
+                {
+                    query = query.Where(filter);
+                }
+
+                if (orderBy != null)
+                {
+                    return orderBy(query).ToList();
+                }
+                else
+                {
+                    return query.ToList();
+                }
             }
-
-            if (orderBy != null)
+            catch (Exception ex)
             {
-                return orderBy(query).ToList();
-            }
-            else
-            {
-                return query.ToList();
+                throw new NpgsqlException(ex.ToString());
             }
         }
 
@@ -78,13 +84,6 @@ namespace Cuestionarios.DAL
             {
                 throw new NpgsqlException(ex.ToString());
             }
-
-        }
-
-        public virtual void Update(TEntity entityToUpdate)
-        {
-            dbSet.Attach(entityToUpdate);
-            iDbContext.Entry(entityToUpdate).State = EntityState.Modified;
         }
 
 

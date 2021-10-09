@@ -11,7 +11,6 @@ namespace Cuestionarios.DAL
         TEntity GetByID(int pId);
         IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
-        void Update(TEntity entityToUpdate);
         void Delete(TEntity pEntity);
     }
 }
