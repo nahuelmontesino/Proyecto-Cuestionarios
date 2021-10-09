@@ -111,6 +111,7 @@
     <Compile Include="DAL\Mappings\QuestionMap.cs" />
     <Compile Include="DAL\Mappings\SessionMap.cs" />
     <Compile Include="DAL\Mappings\SetMap.cs" />
+    <Compile Include="DAL\Mappings\UserMap.cs" />
     <Compile Include="DAL\QuestionRepository.cs" />
     <Compile Include="DAL\Repository.cs" />
     <Compile Include="DAL\SessionRepository.cs" />
