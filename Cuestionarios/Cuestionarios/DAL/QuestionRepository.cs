@@ -1,5 +1,4 @@
 ﻿using Cuestionarios.Domain;
-using Cuestionarios.Sources;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -50,7 +49,7 @@ namespace Cuestionarios.DAL
 
                 if (questionsList.Count < pAmount)
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("The number of available questions is less than requested");
                 }
 
                 //hacer un Shuffle(questionsList);
