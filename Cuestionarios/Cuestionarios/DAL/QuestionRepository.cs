@@ -30,7 +30,7 @@ namespace Cuestionarios.DAL
             }
             catch (Exception ex)
             {
-                throw new NpgsqlException(ex.ToString());
+                throw new NpgsqlException("Error trying to load questions: " + ex.ToString());
             }
         }
 
