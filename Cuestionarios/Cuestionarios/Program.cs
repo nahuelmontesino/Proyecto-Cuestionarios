@@ -18,10 +18,11 @@ namespace Cuestionarios
             var sets = set.GetAllSets();
             var set_ = sets.ToList().FirstOrDefault();
             UnitOfWork iUOfW = new UnitOfWork();
-
+            var questionController = new QuestionController();
             var repo = new QuestionRepository(new QuestionnaireDbContext());
-            iUOfW.QuestionRepository.SaveQuestions(set_, "hard", "General Knowledge", 11);
+            questionController.LoadQuestions(set_, "hard", "General Knowledge", 11);
             var list = repo.GetQuestions(set_, 2, 9, 5);
+            var difficulties = questionController.GetDifficultiesOfCategory(set_, "General Knowledge");
 
 
 

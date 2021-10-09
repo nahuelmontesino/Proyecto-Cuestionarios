@@ -14,17 +14,11 @@ namespace Cuestionarios.DAL
         {
         }
 
-        public void SaveQuestions(Set set, string pDificulty, string pCategory, int pAmount)
+        public void SaveQuestions(Set set, IList<Question> pQuestionList)
         {
-            ISource source = SourceFactory.GetSourceByName(set.Name);
-
-            int categoryNumber = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
-
-            List<Question> questionsList = source.GetQuestions(pDificulty, categoryNumber, pAmount).ToList();
-
             try
             {
-                foreach (Question question in questionsList)
+                foreach (Question question in pQuestionList)
                 {
                     //Add the question to the DB
                     Set existing_set = iDbContext.Sets.Find(set.Id);
@@ -43,7 +37,7 @@ namespace Cuestionarios.DAL
 
         public IEnumerable<Question> GetQuestions(Set pSet, int pDifficulty, int pCategory, int pAmount)
         {
-            List<Question> questionsList = new List<Question>();
+            var questionsList = new List<Question>();
 
             try
             {
@@ -73,6 +67,33 @@ namespace Cuestionarios.DAL
             //}
 
             return questionsList;
+        }
+
+        public IList<string> GetCategoriesOfSet(Set pSet)
+        {
+            ISource source = SourceFactory.GetSourceByName(pSet.Name);
+
+            IEnumerable<Question> listQuestions = Get(q => q.Set.Id == pSet.Id).ToList();
+
+            List<int> categoriesKeys = listQuestions.Select(q => q.Category).Distinct().ToList();
+
+            List<string> categories = new List<string>();
+
+            foreach (int key in categoriesKeys)
+            {
+                categories.Add(source.CategoryDictionary.FirstOrDefault(x => x.Key == key).Value);
+            }
+
+            return categories;
+        }
+
+        public IEnumerable<int> GetDifficultiesOfCategory(Set pSet, int category)
+        {
+            IEnumerable<Question> listQuestionsOfCategory = Get(q => q.Set.Id == pSet.Id && q.Category == category);
+
+            IEnumerable<int> difficultiesKeys = listQuestionsOfCategory.Select(q => q.Difficulty).Distinct();
+
+            return difficultiesKeys;
         }
     }
 }
