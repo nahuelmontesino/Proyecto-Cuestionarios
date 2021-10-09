@@ -9,6 +9,7 @@ namespace Cuestionarios.DAL
         private QuestionRepository questionRepository;
         private SetRepository setRepository;
         private SessionRepository sessionRepository;
+        private UserRepository userRepository;
 
         public UnitOfWork()
         {
@@ -51,6 +52,20 @@ namespace Cuestionarios.DAL
                 return sessionRepository;
             }
         }
+
+        public UserRepository UserRepository
+        {
+            get
+            {
+                if (userRepository == null)
+                {
+                    userRepository = new UserRepository(iDbContext);
+                }
+
+                return userRepository;
+            }
+        }
+
 
         /// <summary>
         /// Persist the changes

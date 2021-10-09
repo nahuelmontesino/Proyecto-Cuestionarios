@@ -6,11 +6,12 @@ using System.Linq;
 
 namespace Cuestionarios.DAL
 {
-    class UserRepository: Repository<User, QuestionnaireDbContext>
+    public class UserRepository: Repository<User, QuestionnaireDbContext>
     {
         public UserRepository(QuestionnaireDbContext pContext) : base(pContext)
         {
         }
+
         /// <summary>
         /// Gets User by username
         /// </summary>

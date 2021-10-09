@@ -104,6 +104,7 @@
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\SetController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CuestionaryDbContext.cs" />
     <Compile Include="DAL\DatabaseInitializationStrategy.cs" />
     <Compile Include="DAL\Mappings\OptionMap.cs" />
