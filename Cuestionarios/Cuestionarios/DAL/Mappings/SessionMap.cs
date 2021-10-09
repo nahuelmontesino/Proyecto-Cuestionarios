@@ -21,6 +21,10 @@ namespace Cuestionarios.DAL.Mappings
                 .IsRequired()
                 .HasColumnName("score");
 
+            Property(b => b.TotalTime)
+                .IsRequired()
+                .HasColumnName("totalTime");
+
             Property(b => b.Date)
                 .IsRequired()
                 .HasColumnName("date");
