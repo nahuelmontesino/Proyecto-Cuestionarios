@@ -23,7 +23,7 @@ namespace Cuestionarios.DAL
                     //Add the question to the DB
                     Set existing_set = iDbContext.Sets.Find(set.Id);
                     question.Set = existing_set;
-                    iDbContext.Questions.Add(question);
+                    dbSet.Add(question);
                 }
 
                 iDbContext.SaveChanges();
