@@ -109,6 +109,7 @@
     <Compile Include="DAL\DatabaseInitializationStrategy.cs" />
     <Compile Include="DAL\Mappings\OptionMap.cs" />
     <Compile Include="DAL\Mappings\QuestionMap.cs" />
+    <Compile Include="DAL\Mappings\SessionMap.cs" />
     <Compile Include="DAL\Mappings\SetMap.cs" />
     <Compile Include="DAL\QuestionRepository.cs" />
     <Compile Include="DAL\Repository.cs" />
