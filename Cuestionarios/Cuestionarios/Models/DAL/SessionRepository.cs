@@ -18,7 +18,7 @@ namespace Cuestionarios.Models.DAL
             Session session = new Session
             {
                 TotalTime = pTotalTime,
-                ScoreValue = pScoreValue,
+                Score = pScoreValue,
                 User = user,
                 Date = DateTime.Now
             };

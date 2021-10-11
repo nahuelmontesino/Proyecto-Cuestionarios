@@ -17,7 +17,7 @@ namespace Cuestionarios.Models.DAL.Mappings
             HasRequired(q => q.User)
                 .WithMany(g => g.Sessions);
 
-            Property(b => b.ScoreValue)
+            Property(b => b.Score)
                 .IsRequired()
                 .HasColumnName("score");
 
