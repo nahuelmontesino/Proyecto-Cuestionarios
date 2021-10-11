@@ -21,6 +21,8 @@ namespace Cuestionarios.Models.DAL
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Option> Options { get; set; }
         public virtual DbSet<Set> Sets { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Sessions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder pModelBuilder)
         {
@@ -33,6 +35,8 @@ namespace Cuestionarios.Models.DAL
             pModelBuilder.Configurations.Add(new OptionMap());
             pModelBuilder.Configurations.Add(new QuestionMap());
             pModelBuilder.Configurations.Add(new SetMap());
+            pModelBuilder.Configurations.Add(new UserMap());
+            pModelBuilder.Configurations.Add(new SessionMap());
             base.OnModelCreating(pModelBuilder);
         }
 
