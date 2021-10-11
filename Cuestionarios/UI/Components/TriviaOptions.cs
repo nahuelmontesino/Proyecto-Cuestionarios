@@ -17,10 +17,10 @@ namespace UI
         private void TriviaOptionsComponent_Load(object sender, EventArgs e)
         {
             /// Load the sets into the comboBox
-            foreach (var item in _setController.GetAllSets())
-            {
-                cmbSet.Items.Add(item.Name.ToString());
-            }
+            //foreach (var item in _setController.GetAllSets())
+            //{
+            //    cmbSet.Items.Add(item.Name.ToString());
+            //}
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
