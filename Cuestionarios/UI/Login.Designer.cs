@@ -34,7 +34,7 @@ namespace UI
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtuser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGetIn = new System.Windows.Forms.Button();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
             this.txtpass = new System.Windows.Forms.TextBox();
@@ -93,20 +93,21 @@ namespace UI
             this.label2.TabIndex = 6;
             this.label2.Text = "LOGIN";
             // 
-            // button1
+            // btnGetIn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(97)))), ((int)(((byte)(99)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(308, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(413, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "GET IN";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGetIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(97)))), ((int)(((byte)(99)))));
+            this.btnGetIn.FlatAppearance.BorderSize = 0;
+            this.btnGetIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnGetIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnGetIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetIn.ForeColor = System.Drawing.Color.Transparent;
+            this.btnGetIn.Location = new System.Drawing.Point(308, 231);
+            this.btnGetIn.Name = "btnGetIn";
+            this.btnGetIn.Size = new System.Drawing.Size(413, 40);
+            this.btnGetIn.TabIndex = 0;
+            this.btnGetIn.Text = "GET IN";
+            this.btnGetIn.UseVisualStyleBackColor = false;
+            this.btnGetIn.Click += new System.EventHandler(this.button1_Click);
             // 
             // exitBox
             // 
@@ -167,12 +168,12 @@ namespace UI
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(440, 285);
+            this.linkLabel1.Location = new System.Drawing.Point(488, 284);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(153, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(61, 17);
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forgot your password?";
+            this.linkLabel1.Text = "Register";
             // 
             // Login
             // 
@@ -183,7 +184,7 @@ namespace UI
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.exitBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGetIn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtpass);
             this.Controls.Add(this.label3);
@@ -211,7 +212,7 @@ namespace UI
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGetIn;
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
         private System.Windows.Forms.TextBox txtpass;
