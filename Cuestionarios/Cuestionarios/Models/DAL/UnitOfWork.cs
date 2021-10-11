@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System;
 
-namespace Cuestionarios.DAL
+namespace Cuestionarios.Models.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -16,10 +16,10 @@ namespace Cuestionarios.DAL
         }
 
         public QuestionRepository QuestionRepository
-        { 
+        {
             get
             {
-                if(questionRepository == null)
+                if (questionRepository == null)
                 {
                     questionRepository = new QuestionRepository(iDbContext);
                 }

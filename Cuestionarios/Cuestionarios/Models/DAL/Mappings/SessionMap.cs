@@ -1,9 +1,9 @@
-﻿using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.Domain;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Cuestionarios.DAL.Mappings
+namespace Cuestionarios.Models.DAL.Mappings
 {
-    class SessionMap: EntityTypeConfiguration<Session>
+    class SessionMap : EntityTypeConfiguration<Session>
     {
         public SessionMap()
         {

@@ -1,10 +1,10 @@
-﻿using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.Domain;
 using Npgsql;
 using System;
 using System.Linq;
 
 
-namespace Cuestionarios.DAL
+namespace Cuestionarios.Models.DAL
 {
     public class UserRepository: Repository<User, QuestionnaireDbContext>
     {

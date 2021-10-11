@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Cuestionarios.Domain;
 using System.Linq;
 using System.Net;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 using System;
+using Cuestionarios.Models.Domain;
 
 namespace Cuestionarios.Sources
 {

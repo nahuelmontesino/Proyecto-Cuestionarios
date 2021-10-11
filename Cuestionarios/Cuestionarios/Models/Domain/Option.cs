@@ -1,4 +1,4 @@
-﻿namespace Cuestionarios.Domain
+﻿namespace Cuestionarios.Models.Domain
 {
     public class Option
     {

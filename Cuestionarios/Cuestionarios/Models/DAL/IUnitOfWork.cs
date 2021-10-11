@@ -1,5 +1,4 @@
-﻿
-namespace Cuestionarios.DAL
+﻿namespace Cuestionarios.Models.DAL
 {
     interface IUnitOfWork
     {

@@ -1,6 +1,5 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.DAL;
-using Cuestionarios.Sources;
+using Cuestionarios.Models.DAL;
 using System;
 using System.Linq;
 

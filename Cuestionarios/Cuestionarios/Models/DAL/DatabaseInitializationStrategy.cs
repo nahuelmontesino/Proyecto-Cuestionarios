@@ -1,10 +1,9 @@
-﻿using Cuestionarios.Domain;
-using Cuestionarios.Sources;
+﻿using Cuestionarios.Models.Domain;
 using System.Data.Entity;
 
-namespace Cuestionarios.DAL
+namespace Cuestionarios.Models.DAL
 {
-    class DatabaseInitializationStrategy: DropCreateDatabaseAlways<QuestionnaireDbContext>
+    class DatabaseInitializationStrategy : DropCreateDatabaseAlways<QuestionnaireDbContext>
     {
 
         protected override void Seed(QuestionnaireDbContext context)
@@ -14,7 +13,7 @@ namespace Cuestionarios.DAL
             {
                 Name = "opentdb"
             });
-            
+
         }
     }
 }

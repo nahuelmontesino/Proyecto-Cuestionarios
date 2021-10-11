@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-namespace Cuestionarios.Domain
+namespace Cuestionarios.Models.Domain
 {
     public class User
     {

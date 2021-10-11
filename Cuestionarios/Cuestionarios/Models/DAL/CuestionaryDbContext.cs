@@ -1,10 +1,10 @@
-﻿using Cuestionarios.DAL.Mappings;
-using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.DAL.Mappings;
+using Cuestionarios.Models.Domain;
 using System;
 using System.Data.Entity;
 
 
-namespace Cuestionarios.DAL
+namespace Cuestionarios.Models.DAL
 {
     public class QuestionnaireDbContext : DbContext
     {

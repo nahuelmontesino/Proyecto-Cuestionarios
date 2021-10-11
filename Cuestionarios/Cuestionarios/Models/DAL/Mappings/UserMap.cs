@@ -1,9 +1,7 @@
-﻿using Cuestionarios.Domain;
-using System;
-using System.Collections.Generic;
+﻿using Cuestionarios.Models.Domain;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Cuestionarios.DAL.Mappings
+namespace Cuestionarios.Models.DAL.Mappings
 {
     class UserMap: EntityTypeConfiguration<User>
     {

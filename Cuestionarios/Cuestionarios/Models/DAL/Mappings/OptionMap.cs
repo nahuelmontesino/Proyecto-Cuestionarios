@@ -1,9 +1,9 @@
-﻿using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.Domain;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Cuestionarios.DAL.Mappings
+namespace Cuestionarios.Models.DAL.Mappings
 {
-    class OptionMap: EntityTypeConfiguration<Option>
+    class OptionMap : EntityTypeConfiguration<Option>
     {
 
         /// <summary>

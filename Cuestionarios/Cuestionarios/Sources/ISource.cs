@@ -1,4 +1,4 @@
-﻿using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.Domain;
 using System.Collections.Generic;
 
 

@@ -1,15 +1,15 @@
-﻿using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.Domain;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cuestionarios.DAL
+namespace Cuestionarios.Models.DAL
 {
-    public class QuestionRepository: Repository<Question, QuestionnaireDbContext>
+    public class QuestionRepository : Repository<Question, QuestionnaireDbContext>
     {
 
-        public QuestionRepository(QuestionnaireDbContext pContext): base(pContext)
+        public QuestionRepository(QuestionnaireDbContext pContext) : base(pContext)
         {
         }
 

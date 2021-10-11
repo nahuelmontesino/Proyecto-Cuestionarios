@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cuestionarios.Domain
+namespace Cuestionarios.Models.Domain
 {
     public class Session
     {

@@ -1,10 +1,10 @@
-﻿using Cuestionarios.Domain;
+﻿using Cuestionarios.Models.Domain;
 using System.Data.Entity.ModelConfiguration;
 
 
-namespace Cuestionarios.DAL.Mappings
+namespace Cuestionarios.Models.DAL.Mappings
 {
-    class SetMap: EntityTypeConfiguration<Set>
+    class SetMap : EntityTypeConfiguration<Set>
     {
         /// <summary>
         /// Maps Set Class to the database
