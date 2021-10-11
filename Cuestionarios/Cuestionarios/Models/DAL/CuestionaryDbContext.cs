@@ -22,7 +22,7 @@ namespace Cuestionarios.Models.DAL
         public virtual DbSet<Option> Options { get; set; }
         public virtual DbSet<Set> Sets { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<User> Sessions { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder pModelBuilder)
         {
