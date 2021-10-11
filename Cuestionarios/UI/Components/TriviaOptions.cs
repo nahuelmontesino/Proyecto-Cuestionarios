@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cuestionarios.Controllers;
+using System;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class TriviaOptions : UserControl
     {
+        public SetController _setController;
+        public QuestionController _questionController;
+
         public TriviaOptions()
         {
             InitializeComponent();
         }
+
+        private void TriviaOptionsComponent_Load(object sender, EventArgs e)
+        {
+            /// Load the sets into the comboBox
+            foreach (var item in _setController.GetAllSets())
+            {
+                cmbSet.Items.Add(item.Name.ToString());
+            }
+        }
+
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -36,9 +43,6 @@ namespace UI
 
         }
 
-        private void TriviaOptionsComponent_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

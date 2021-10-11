@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cuestionarios.Controllers;
+using System;
 using System.Windows.Forms;
 
 namespace UI
@@ -13,7 +14,9 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            SetController setController = new SetController();
+            QuestionController questController = new QuestionController();
+            Application.Run(new CreateGame(setController, questController));
         }
     }
 }

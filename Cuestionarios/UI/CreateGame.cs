@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cuestionarios.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,11 @@ namespace UI
 {
     public partial class CreateGame : Form
     {
-        public CreateGame()
+        public CreateGame(SetController setControler, QuestionController questionController)
         {
             InitializeComponent();
-            
+            triviaOptionsComponent1._setController = setControler;
+            triviaOptionsComponent1._questionController = questionController;
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
