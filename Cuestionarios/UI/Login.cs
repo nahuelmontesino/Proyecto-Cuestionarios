@@ -62,7 +62,7 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-         
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void exitBox_Click(object sender, EventArgs e)
@@ -78,6 +78,14 @@ namespace UI
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Game game = new Game();
+            game.ShowDialog();
+            this.Close();
         }
     }
 }

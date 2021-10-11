@@ -139,6 +139,7 @@ namespace UI
             this.Controls.Add(this.minimizeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateGame";
             this.Load += new System.EventHandler(this.CreateGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
