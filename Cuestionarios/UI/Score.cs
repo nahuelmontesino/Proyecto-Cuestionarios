@@ -24,7 +24,7 @@ namespace UI
             try
             {
                 dataGridView1.DataSource = _sessionController.GetHighScores().Select(o => new
-                { Username = o.User, Score = o.ScoreValue, TimeOnSeconds = o.TotalTime, DateOfScore = o.Date }).ToList();
+                { Username = o.User, Score = o.Score, TimeOnSeconds = o.TotalTime, DateOfScore = o.Date }).ToList();
             }
             catch (Exception exc)
             {

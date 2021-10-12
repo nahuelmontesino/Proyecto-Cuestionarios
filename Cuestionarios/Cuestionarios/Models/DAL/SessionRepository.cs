@@ -36,7 +36,7 @@ namespace Cuestionarios.Models.DAL
 
             try
             {
-                var query = Get(null, session => session.OrderByDescending(x => x.ScoreValue));
+                var query = Get(null, session => session.OrderByDescending(x => x.Score));
                 sessionList = query.Take(20).ToList();
             }
             catch (Exception ex)
