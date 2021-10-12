@@ -71,21 +71,6 @@ namespace Cuestionarios.Models.DAL
             }
         }
 
-        /// <summary>
-        /// Gets the entity by its id
-        /// </summary>
-        public TEntity GetByID(int pId)
-        {
-            try
-            {
-                return dbSet.Find(pId);
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
-        }
-
 
         /// <summary>
         /// Delete an entity
