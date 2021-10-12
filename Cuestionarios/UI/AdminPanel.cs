@@ -16,10 +16,5 @@ namespace UI
         {
             InitializeComponent();
         }
-
-        private void lblGame_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -14,9 +14,10 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            SetController setController = new SetController();
-            QuestionController questController = new QuestionController();
-            Application.Run(new CreateGame(setController, questController));
+            //SetController setController = new SetController();
+            //QuestionController questController = new QuestionController();
+            //Application.Run(new CreateGame(setController, questController));
+            Application.Run(new Menu());
         }
     }
 }
