@@ -8,12 +8,11 @@ namespace Cuestionarios.Models.DAL
 {
     public class SessionRepository : Repository<Session, QuestionnaireDbContext>
     {
-        
-
         public SessionRepository(QuestionnaireDbContext pContext) : base(pContext)
         {
-            
-        }
+
+        } 
+
         public void SaveSession(User pUser, double pScoreValue, TimeSpan pTotalTime)
         {
             User user = iDbContext.Users.Find(pUser.Id);
