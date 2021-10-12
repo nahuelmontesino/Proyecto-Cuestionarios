@@ -1,12 +1,5 @@
 ﻿using Cuestionarios.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -15,7 +8,7 @@ namespace UI
     {
         private readonly SetController _setController;
         private readonly QuestionController _questController;
-        private readonly SessionController _sessionController;
+        private SessionController _sessionController;
 
         public Menu()
         {
@@ -45,6 +38,7 @@ namespace UI
 
         private void btnHighScore_Click(object sender, EventArgs e)
         {
+            _sessionController = new SessionController();
             Score score = new Score(_sessionController);
             score.Owner = this;
             score.Show();

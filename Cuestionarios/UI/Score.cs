@@ -1,13 +1,6 @@
 ﻿using Cuestionarios.Controllers;
-using Microsoft.Build.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -23,8 +16,7 @@ namespace UI
 
             try
             {
-                dataGridView1.DataSource = _sessionController.GetHighScores().Select(o => new
-                { Username = o.User, Score = o.Score, TimeOnSeconds = o.TotalTime, DateOfScore = o.Date }).ToList();
+                dataGridView1.DataSource = _sessionController.GetHighScores().ToList();
             }
             catch (Exception exc)
             {
