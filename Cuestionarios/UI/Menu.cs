@@ -15,6 +15,7 @@ namespace UI
     {
         private readonly SetController _setController;
         private readonly QuestionController _questController;
+        private readonly SessionController _sessionController;
 
         public Menu()
         {
@@ -44,7 +45,7 @@ namespace UI
 
         private void btnHighScore_Click(object sender, EventArgs e)
         {
-            Score score = new Score();
+            Score score = new Score(_sessionController);
             score.Owner = this;
             score.Show();
             this.Hide();

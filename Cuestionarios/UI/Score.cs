@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cuestionarios.Controllers;
+using Microsoft.Build.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,22 @@ namespace UI
 {
     public partial class Score : Form
     {
-        public Score()
+        private readonly SessionController _sessionController;
+        public Score(SessionController sessionController)
         {
+            _sessionController = sessionController;
+
             InitializeComponent();
-        }
 
-        private void lblAdminPanel_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                dataGridView1.DataSource = _sessionController.GetHighScores().Select(o => new
+                { Username = o.User, Score = o.ScoreValue, TimeOnSeconds = o.TotalTime, DateOfScore = o.Date }).ToList();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Couldn't access highscores: ", exc.Message);
+            }
         }
     }
 }
