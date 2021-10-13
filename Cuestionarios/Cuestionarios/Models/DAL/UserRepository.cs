@@ -19,7 +19,7 @@ namespace Cuestionarios.Models.DAL
         {
             try
             {
-                return Get(user => user.Username == pUserName).Single();
+                return Get(user => user.Username == pUserName).FirstOrDefault();
             }
             catch (Exception ex)
             {

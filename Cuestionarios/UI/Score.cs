@@ -23,5 +23,23 @@ namespace UI
                 MessageBox.Show("Couldn't access highscores: ", exc.Message);
             }
         }
+
+        private void brnAtras_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu menu = new Menu();
+            menu.ShowDialog();
+            this.Close();
+        }
+
+        private void exitBox_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeBox_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

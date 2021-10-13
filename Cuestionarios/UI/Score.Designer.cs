@@ -33,14 +33,19 @@ namespace UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Score));
             this.lblScores = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.minimizeBox = new System.Windows.Forms.PictureBox();
+            this.exitBox = new System.Windows.Forms.PictureBox();
+            this.brnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScores
@@ -49,9 +54,10 @@ namespace UI
             this.lblScores.BackColor = System.Drawing.Color.Transparent;
             this.lblScores.Font = new System.Drawing.Font("Gadugi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScores.ForeColor = System.Drawing.Color.White;
-            this.lblScores.Location = new System.Drawing.Point(292, 55);
+            this.lblScores.Location = new System.Drawing.Point(224, 33);
+            this.lblScores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblScores.Name = "lblScores";
-            this.lblScores.Size = new System.Drawing.Size(102, 35);
+            this.lblScores.Size = new System.Drawing.Size(81, 28);
             this.lblScores.TabIndex = 4;
             this.lblScores.Text = "Scores";
             this.lblScores.UseWaitCursor = true;
@@ -69,17 +75,13 @@ namespace UI
             this.totalTimeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.sessionBindingSource;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(57, 141);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 63);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(654, 217);
+            this.dataGridView1.Size = new System.Drawing.Size(490, 236);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // sessionBindingSource
-            // 
-            this.sessionBindingSource.DataSource = typeof(Cuestionarios.Models.Domain.Session);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -121,20 +123,72 @@ namespace UI
             this.totalTimeDataGridViewTextBoxColumn.Name = "totalTimeDataGridViewTextBoxColumn";
             this.totalTimeDataGridViewTextBoxColumn.Width = 125;
             // 
+            // sessionBindingSource
+            // 
+            this.sessionBindingSource.DataSource = typeof(Cuestionarios.Models.Domain.Session);
+            // 
+            // minimizeBox
+            // 
+            this.minimizeBox.BackColor = System.Drawing.Color.Transparent;
+            this.minimizeBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBox.Image")));
+            this.minimizeBox.Location = new System.Drawing.Point(486, 0);
+            this.minimizeBox.Margin = new System.Windows.Forms.Padding(2);
+            this.minimizeBox.Name = "minimizeBox";
+            this.minimizeBox.Size = new System.Drawing.Size(26, 18);
+            this.minimizeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimizeBox.TabIndex = 25;
+            this.minimizeBox.TabStop = false;
+            this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
+            // 
+            // exitBox
+            // 
+            this.exitBox.BackColor = System.Drawing.Color.Transparent;
+            this.exitBox.Image = ((System.Drawing.Image)(resources.GetObject("exitBox.Image")));
+            this.exitBox.Location = new System.Drawing.Point(516, 0);
+            this.exitBox.Margin = new System.Windows.Forms.Padding(2);
+            this.exitBox.Name = "exitBox";
+            this.exitBox.Size = new System.Drawing.Size(26, 18);
+            this.exitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.exitBox.TabIndex = 24;
+            this.exitBox.TabStop = false;
+            this.exitBox.Click += new System.EventHandler(this.exitBox_Click);
+            // 
+            // brnAtras
+            // 
+            this.brnAtras.BackColor = System.Drawing.Color.White;
+            this.brnAtras.FlatAppearance.BorderSize = 0;
+            this.brnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brnAtras.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnAtras.ForeColor = System.Drawing.Color.Black;
+            this.brnAtras.Location = new System.Drawing.Point(381, 317);
+            this.brnAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.brnAtras.Name = "brnAtras";
+            this.brnAtras.Size = new System.Drawing.Size(151, 38);
+            this.brnAtras.TabIndex = 26;
+            this.brnAtras.Text = "Back";
+            this.brnAtras.UseVisualStyleBackColor = false;
+            this.brnAtras.Click += new System.EventHandler(this.brnAtras_Click);
+            // 
             // Score
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(723, 450);
+            this.ClientSize = new System.Drawing.Size(543, 366);
+            this.Controls.Add(this.brnAtras);
+            this.Controls.Add(this.minimizeBox);
+            this.Controls.Add(this.exitBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblScores);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Score";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Score";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +204,8 @@ namespace UI
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource sessionBindingSource;
+        private System.Windows.Forms.PictureBox minimizeBox;
+        private System.Windows.Forms.PictureBox exitBox;
+        private System.Windows.Forms.Button brnAtras;
     }
 }

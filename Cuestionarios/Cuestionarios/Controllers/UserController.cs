@@ -5,11 +5,16 @@ using System.Collections.Generic;
 
 namespace Cuestionarios.Controllers
 {
-    class UserController
+    public class UserController
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
         public UserController() { }
+
+        public User GetUserByName(string name)
+        {
+            return iUOfW.UserRepository.GetByUserName(name);
+        }
 
         public void AddUser(string pUsername, string pPassword, bool pAdmin)
         {

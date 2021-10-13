@@ -17,7 +17,7 @@ namespace UI
             //SetController setController = new SetController();
             //QuestionController questController = new QuestionController();
             //Application.Run(new CreateGame(setController, questController));
-            Application.Run(new Menu());
+            Application.Run(new Login());
         }
     }
 }
