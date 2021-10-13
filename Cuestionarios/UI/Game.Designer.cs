@@ -94,15 +94,6 @@ namespace UI
             this.txtMin.TabIndex = 6;
             this.txtMin.TextChanged += new System.EventHandler(this.txtMin_TextChanged);
             // 
-            // txtMil
-            // 
-            this.txtMil.Location = new System.Drawing.Point(618, 55);
-            this.txtMil.Multiline = true;
-            this.txtMil.Name = "txtMil";
-            this.txtMil.ReadOnly = true;
-            this.txtMil.Size = new System.Drawing.Size(42, 27);
-            this.txtMil.TabIndex = 7;
-            // 
             // txtSeg
             // 
             this.txtSeg.Location = new System.Drawing.Point(805, 244);
