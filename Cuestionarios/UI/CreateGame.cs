@@ -27,32 +27,15 @@ namespace UI
 
         private void exitBox_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void triviaOptionsComponent1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreateGame_Load(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            Menu menu = new Menu();
+            menu.ShowDialog();
+            this.Close();
         }
     }
 }

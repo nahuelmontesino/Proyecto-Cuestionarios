@@ -39,21 +39,24 @@ namespace UI
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Black;
-            this.btnLogout.Location = new System.Drawing.Point(3, 14);
+            this.btnLogout.Location = new System.Drawing.Point(2, 11);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(128, 45);
+            this.btnLogout.Size = new System.Drawing.Size(96, 37);
             this.btnLogout.TabIndex = 0;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // LogOutComponent
+            // LogOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnLogout);
-            this.Name = "LogOutComponent";
-            this.Size = new System.Drawing.Size(148, 73);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "LogOut";
+            this.Size = new System.Drawing.Size(111, 59);
             this.ResumeLayout(false);
 
         }

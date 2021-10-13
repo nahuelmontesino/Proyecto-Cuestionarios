@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Cuestionarios.Controllers;
+using Cuestionarios.Models.Domain;
+using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +15,17 @@ namespace UI
 {
     public partial class Login : Form
     {
-        public Login()
+        private readonly UserController _userController;
+        private readonly SetController _setController;
+        private readonly QuestionController _questionController;
+        private readonly SessionController _sessionController;
+
+        public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController)
         {
+            _userController = usrController;
+            _setController = setController;
+            _questionController = questionController;
+            _sessionController = sessionController;
             InitializeComponent();
             
         }   
@@ -22,7 +34,6 @@ namespace UI
             if (txtuser.Text == "User")
             {
                 txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
 
 
             }
@@ -33,7 +44,6 @@ namespace UI
             if (txtuser.Text == "")
             {
                 txtuser.Text = "User";
-                txtuser.ForeColor = Color.DimGray;
 
             }
         }
@@ -43,7 +53,6 @@ namespace UI
             if (txtpass.Text == "Password")
             {
                 txtpass.Text = "";
-                txtpass.ForeColor = Color.LightGray;
                 txtpass.UseSystemPasswordChar = true;
 
             }
@@ -54,7 +63,6 @@ namespace UI
             if (txtpass.Text == "")
             {
                 txtpass.Text = "Password";
-                txtpass.ForeColor = Color.DimGray;
                 txtpass.UseSystemPasswordChar = false;
 
             }
@@ -70,21 +78,53 @@ namespace UI
             Application.Exit();
         }
 
-        private void txtuser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                User usr = _userController.GetUserByName(txtuser.Text);
+
+                if (usr == null)
+                {
+                    MessageBox.Show("Couldn't log in: incorrect username");
+                }
+                else if (usr.Password != txtpass.Text)
+                {
+                    MessageBox.Show("Couldn't log in: incorrect password");
+                }
+                else
+                {
+                    if (usr.Admin)
+                    {
+                        this.Hide();
+                        Menu menu = new Menu();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        Menu menu = new Menu();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                }
+            }
+            catch (NpgsqlException exc)
+            {
+                MessageBox.Show("Error on the database operation: ", exc.Message);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Unknown Error: ", exc.Message);
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             this.Hide();
-            Game game = new Game();
-            game.ShowDialog();
+            NewUser newUser = new NewUser();
+            newUser.ShowDialog();
             this.Close();
         }
     }

@@ -15,34 +15,39 @@ namespace UI
             InitializeComponent();
         }
 
-        private void logOutComponent1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             CreateGame createGame = new CreateGame(_setController, _questController);
             createGame.Owner = this;
-            createGame.Show();
-            this.Hide();
+            createGame.ShowDialog();
+            this.Close();
         }
 
         private void btnGameManager_Click(object sender, EventArgs e)
         {
             AdminPanel adminPanel = new AdminPanel();
             adminPanel.Owner = this;
-            adminPanel.Show();
-            this.Hide();
+            adminPanel.ShowDialog();
+            this.Close();
         }
 
         private void btnHighScore_Click(object sender, EventArgs e)
         {
             _sessionController = new SessionController();
             Score score = new Score(_sessionController);
-            score.Owner = this;
-            score.Show();
             this.Hide();
+            score.ShowDialog();
+            this.Close();
+        }
+
+        private void exitBox_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeBox_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

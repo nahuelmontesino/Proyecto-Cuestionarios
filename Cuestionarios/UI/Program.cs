@@ -14,10 +14,11 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //SetController setController = new SetController();
-            //QuestionController questController = new QuestionController();
-            //Application.Run(new CreateGame(setController, questController));
-            Application.Run(new Menu());
+            UserController userController = new UserController();
+            SetController setController = new SetController();
+            QuestionController questionController = new QuestionController();
+            SessionController sessionController = new SessionController();
+            Application.Run(new Login(userController, setController, questionController, sessionController));
         }
     }
 }

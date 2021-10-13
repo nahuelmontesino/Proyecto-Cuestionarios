@@ -32,9 +32,13 @@ namespace UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             this.triviaOptions1 = new UI.TriviaOptions();
             this.lblAdminPanel = new System.Windows.Forms.Label();
-            this.logOut1 = new UI.LogOut();
             this.btnSaveQuestion = new System.Windows.Forms.Button();
             this.btnDeleteQuestion = new System.Windows.Forms.Button();
+            this.exitBox = new System.Windows.Forms.PictureBox();
+            this.minimizeBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // triviaOptions1
@@ -61,15 +65,6 @@ namespace UI
             this.lblAdminPanel.Text = "Admin Panel";
             this.lblAdminPanel.UseWaitCursor = true;
             // 
-            // logOut1
-            // 
-            this.logOut1.BackColor = System.Drawing.Color.Transparent;
-            this.logOut1.Location = new System.Drawing.Point(220, 297);
-            this.logOut1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.logOut1.Name = "logOut1";
-            this.logOut1.Size = new System.Drawing.Size(111, 59);
-            this.logOut1.TabIndex = 4;
-            // 
             // btnSaveQuestion
             // 
             this.btnSaveQuestion.BackColor = System.Drawing.Color.White;
@@ -78,7 +73,7 @@ namespace UI
             this.btnSaveQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveQuestion.ForeColor = System.Drawing.Color.Black;
             this.btnSaveQuestion.Location = new System.Drawing.Point(346, 116);
-            this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveQuestion.Name = "btnSaveQuestion";
             this.btnSaveQuestion.Size = new System.Drawing.Size(151, 49);
             this.btnSaveQuestion.TabIndex = 19;
@@ -93,12 +88,54 @@ namespace UI
             this.btnDeleteQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteQuestion.ForeColor = System.Drawing.Color.Black;
             this.btnDeleteQuestion.Location = new System.Drawing.Point(346, 195);
-            this.btnDeleteQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteQuestion.Name = "btnDeleteQuestion";
             this.btnDeleteQuestion.Size = new System.Drawing.Size(151, 49);
             this.btnDeleteQuestion.TabIndex = 20;
             this.btnDeleteQuestion.Text = "Delete Questions";
             this.btnDeleteQuestion.UseVisualStyleBackColor = false;
+            // 
+            // exitBox
+            // 
+            this.exitBox.BackColor = System.Drawing.Color.Transparent;
+            this.exitBox.Image = ((System.Drawing.Image)(resources.GetObject("exitBox.Image")));
+            this.exitBox.Location = new System.Drawing.Point(516, 0);
+            this.exitBox.Margin = new System.Windows.Forms.Padding(2);
+            this.exitBox.Name = "exitBox";
+            this.exitBox.Size = new System.Drawing.Size(26, 18);
+            this.exitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.exitBox.TabIndex = 22;
+            this.exitBox.TabStop = false;
+            this.exitBox.Click += new System.EventHandler(this.exitBox_Click);
+            // 
+            // minimizeBox
+            // 
+            this.minimizeBox.BackColor = System.Drawing.Color.Transparent;
+            this.minimizeBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBox.Image")));
+            this.minimizeBox.Location = new System.Drawing.Point(486, 0);
+            this.minimizeBox.Margin = new System.Windows.Forms.Padding(2);
+            this.minimizeBox.Name = "minimizeBox";
+            this.minimizeBox.Size = new System.Drawing.Size(26, 18);
+            this.minimizeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimizeBox.TabIndex = 21;
+            this.minimizeBox.TabStop = false;
+            this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(436, 318);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 37);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AdminPanel
             // 
@@ -106,16 +143,20 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(543, 366);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exitBox);
+            this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.btnDeleteQuestion);
             this.Controls.Add(this.btnSaveQuestion);
-            this.Controls.Add(this.logOut1);
             this.Controls.Add(this.lblAdminPanel);
             this.Controls.Add(this.triviaOptions1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
+            ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,8 +166,10 @@ namespace UI
 
         private TriviaOptions triviaOptions1;
         private System.Windows.Forms.Label lblAdminPanel;
-        private LogOut logOut1;
         private System.Windows.Forms.Button btnSaveQuestion;
         private System.Windows.Forms.Button btnDeleteQuestion;
+        private System.Windows.Forms.PictureBox exitBox;
+        private System.Windows.Forms.PictureBox minimizeBox;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -5,24 +5,29 @@ using System.Collections.Generic;
 
 namespace Cuestionarios.Controllers
 {
-    class UserController
+    public class UserController
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
         public UserController() { }
 
+        public User GetUserByName(string name)
+        {
+            return iUOfW.UserRepository.GetByUserName(name);
+        }
+
         public void AddUser(string pUsername, string pPassword, bool pAdmin)
         {
-            User usr = new User
+            if (GetUserByName(pUsername) == null)
             {
-                Username = pUsername,
-                Password = pPassword,
-                Admin = pAdmin,
-                Sessions = new List<Session>()
-            };
+                User usr = new User
+                {
+                    Username = pUsername,
+                    Password = pPassword,
+                    Admin = pAdmin,
+                    Sessions = new List<Session>()
+                };
 
-            if (iUOfW.UserRepository.GetByUserName(pUsername) == null)
-            {
                 iUOfW.UserRepository.Add(usr);
                 iUOfW.Complete();
             }

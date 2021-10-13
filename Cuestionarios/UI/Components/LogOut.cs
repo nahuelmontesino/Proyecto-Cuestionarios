@@ -17,9 +17,13 @@ namespace UI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            Form someForm = (Form)this.Parent;
+            someForm.Hide();
+            //Login login = new Login();
+            //login.ShowDialog();
+            someForm.Close();
         }
     }
 }
