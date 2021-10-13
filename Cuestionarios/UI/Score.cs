@@ -1,4 +1,5 @@
 ﻿using Cuestionarios.Controllers;
+using Cuestionarios.Models.Domain;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,7 +17,8 @@ namespace UI
 
             try
             {
-                dataGridView1.DataSource = _sessionController.GetHighScores().ToList();
+                dataGridView1.DataSource = _sessionController.GetHighScores().Select(o => new
+                { Username = o.User.Username, Score = o.Score, TimeOnSeconds = o.TotalTime, DateOfScore = o.Date }).ToList();
             }
             catch (Exception exc)
             {
