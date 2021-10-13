@@ -15,10 +15,17 @@ namespace UI
 {
     public partial class Login : Form
     {
-        private readonly UserController _usrController = new UserController();
-        private readonly SessionController _sessionController = new SessionController();
-        public Login()
+        private readonly UserController _userController;
+        private readonly SetController _setController;
+        private readonly QuestionController _questionController;
+        private readonly SessionController _sessionController;
+
+        public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController)
         {
+            _userController = usrController;
+            _setController = setController;
+            _questionController = questionController;
+            _sessionController = sessionController;
             _usrController.AddUser("p", "p", false);
             User u = _usrController.GetUserByName("p");
             TimeSpan duration1 = new TimeSpan(0, 0, 23, 62);
@@ -84,7 +91,7 @@ namespace UI
         {
             try
             {
-                User usr = _usrController.GetUserByName(txtuser.Text);
+                User usr = _userController.GetUserByName(txtuser.Text);
 
                 if (usr == null)
                 {
