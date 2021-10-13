@@ -65,8 +65,8 @@ namespace UI
                 MessageBox.Show("User added successfully");
                 
                 this.Hide();
-                Login login = new Login();
-                login.ShowDialog();
+                //Login login = new Login();
+                //login.ShowDialog();
                 this.Close();
             }
             catch (NpgsqlException exc)
@@ -82,8 +82,8 @@ namespace UI
         private void brnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
+            //Login login = new Login();
+            //login.ShowDialog();
             this.Close();
         }
 
