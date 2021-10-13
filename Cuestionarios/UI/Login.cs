@@ -26,8 +26,8 @@ namespace UI
             _setController = setController;
             _questionController = questionController;
             _sessionController = sessionController;
-            _usrController.AddUser("p", "p", false);
-            User u = _usrController.GetUserByName("p");
+            _userController.AddUser("p", "p", false);
+            User u = _userController.GetUserByName("p");
             TimeSpan duration1 = new TimeSpan(0, 0, 23, 62);
             TimeSpan duration2 = new TimeSpan(0, 0, 10, 0);
             TimeSpan duration3 = new TimeSpan(0, 0, 15, 6);
