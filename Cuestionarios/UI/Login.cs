@@ -103,20 +103,10 @@ namespace UI
                 }
                 else
                 {
-                    if (usr.Admin)
-                    {
-                        this.Hide();
-                        Menu menu = new Menu();
-                        menu.ShowDialog();
-                        this.Close();
-                    }
-                    else
-                    {
-                        this.Hide();
-                        Menu menu = new Menu();
-                        menu.ShowDialog();
-                        this.Close();
-                    }
+                    this.Hide();
+                    Menu menu = new Menu(usr);
+                    menu.ShowDialog();
+                    this.Close();
                 }
             }
             catch (NpgsqlException exc)

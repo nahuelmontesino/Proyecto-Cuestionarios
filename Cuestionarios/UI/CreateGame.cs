@@ -1,4 +1,5 @@
 ﻿using Cuestionarios.Controllers;
+using Cuestionarios.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,10 @@ namespace UI
 {
     public partial class CreateGame : Form
     {
-        public CreateGame(SetController setControler, QuestionController questionController)
+        private User user = null;
+        public CreateGame(SetController setControler, QuestionController questionController, User user)
         {
+            this.user = user;
             InitializeComponent();
             triviaOptionsComponent1._setController = setControler;
             triviaOptionsComponent1._questionController = questionController;
@@ -33,7 +36,7 @@ namespace UI
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu menu = new Menu();
+            Menu menu = new Menu(this.user);
             menu.ShowDialog();
             this.Close();
         }

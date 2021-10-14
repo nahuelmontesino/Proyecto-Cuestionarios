@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cuestionarios.Models.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace UI
 {
     public partial class AdminPanel : Form
     {
-        public AdminPanel()
+        private User user = null;
+        public AdminPanel(User user)
         {
+            this.user = user;
             InitializeComponent();
         }
 
@@ -30,7 +33,7 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu menu = new Menu();
+            Menu menu = new Menu(this.user);
             menu.ShowDialog();
             this.Close();
         }

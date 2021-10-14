@@ -37,6 +37,8 @@ namespace UI
             this.lblGame = new System.Windows.Forms.Label();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblUserData = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +50,7 @@ namespace UI
             this.btnGameManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGameManager.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGameManager.ForeColor = System.Drawing.Color.Black;
-            this.btnGameManager.Location = new System.Drawing.Point(37, 181);
+            this.btnGameManager.Location = new System.Drawing.Point(37, 255);
             this.btnGameManager.Margin = new System.Windows.Forms.Padding(2);
             this.btnGameManager.Name = "btnGameManager";
             this.btnGameManager.Size = new System.Drawing.Size(271, 49);
@@ -89,7 +91,7 @@ namespace UI
             this.btnHighScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHighScore.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHighScore.ForeColor = System.Drawing.Color.Black;
-            this.btnHighScore.Location = new System.Drawing.Point(37, 255);
+            this.btnHighScore.Location = new System.Drawing.Point(37, 183);
             this.btnHighScore.Margin = new System.Windows.Forms.Padding(2);
             this.btnHighScore.Name = "btnHighScore";
             this.btnHighScore.Size = new System.Drawing.Size(271, 49);
@@ -102,12 +104,12 @@ namespace UI
             // 
             this.lblGame.AutoSize = true;
             this.lblGame.BackColor = System.Drawing.Color.Transparent;
-            this.lblGame.Font = new System.Drawing.Font("Gadugi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGame.Font = new System.Drawing.Font("Gadugi", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGame.ForeColor = System.Drawing.Color.White;
             this.lblGame.Location = new System.Drawing.Point(32, 44);
             this.lblGame.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGame.Name = "lblGame";
-            this.lblGame.Size = new System.Drawing.Size(75, 28);
+            this.lblGame.Size = new System.Drawing.Size(82, 31);
             this.lblGame.TabIndex = 23;
             this.lblGame.Text = "Menu";
             this.lblGame.UseWaitCursor = true;
@@ -138,12 +140,38 @@ namespace UI
             this.minimizeBox.TabStop = false;
             this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
             // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(0, 0);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(54, 24);
+            this.lblUser.TabIndex = 26;
+            this.lblUser.Text = "User:";
+            // 
+            // lblUserData
+            // 
+            this.lblUserData.AutoSize = true;
+            this.lblUserData.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserData.ForeColor = System.Drawing.Color.White;
+            this.lblUserData.Location = new System.Drawing.Point(49, 0);
+            this.lblUserData.Name = "lblUserData";
+            this.lblUserData.Size = new System.Drawing.Size(25, 24);
+            this.lblUserData.TabIndex = 27;
+            this.lblUserData.Text = "...";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(348, 331);
+            this.Controls.Add(this.lblUserData);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.lblGame);
@@ -171,5 +199,7 @@ namespace UI
         private System.Windows.Forms.Label lblGame;
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblUserData;
     }
 }

@@ -9,10 +9,11 @@ namespace UI
     public partial class Score : Form
     {
         private readonly SessionController _sessionController;
-        public Score(SessionController sessionController)
+        private User user = null;
+        public Score(SessionController sessionController, User user)
         {
             _sessionController = sessionController;
-
+            this.user = user;
             InitializeComponent();
 
             try
@@ -29,7 +30,7 @@ namespace UI
         private void brnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu menu = new Menu();
+            Menu menu = new Menu(user);
             menu.ShowDialog();
             this.Close();
         }
