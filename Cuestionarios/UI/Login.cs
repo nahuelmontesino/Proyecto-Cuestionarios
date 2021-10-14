@@ -26,9 +26,21 @@ namespace UI
             _setController = setController;
             _questionController = questionController;
             _sessionController = sessionController;
+            _userController.AddUser("p", "p", false);
+            User u = _userController.GetUserByName("p");
+            TimeSpan duration1 = new TimeSpan(0, 0, 23, 62);
+            TimeSpan duration2 = new TimeSpan(0, 0, 10, 0);
+            TimeSpan duration3 = new TimeSpan(0, 0, 15, 6);
+            TimeSpan duration4 = new TimeSpan(0, 0, 23, 2);
+
+            _sessionController.SaveSession(u, 12.0, duration1);
+            _sessionController.SaveSession(u, 20.0, duration2);
+            _sessionController.SaveSession(u, 45.0, duration3);
+            _sessionController.SaveSession(u, 5.0, duration4);
+
             InitializeComponent();
             
-        }   
+        }
         private void txtuser_Enter(object sender, EventArgs e)
         {
             if (txtuser.Text == "User")
@@ -44,7 +56,6 @@ namespace UI
             if (txtuser.Text == "")
             {
                 txtuser.Text = "User";
-
             }
         }
 
@@ -54,7 +65,6 @@ namespace UI
             {
                 txtpass.Text = "";
                 txtpass.UseSystemPasswordChar = true;
-
             }
         }
 
@@ -64,7 +74,6 @@ namespace UI
             {
                 txtpass.Text = "Password";
                 txtpass.UseSystemPasswordChar = false;
-
             }
         }
 
@@ -119,7 +128,6 @@ namespace UI
                 MessageBox.Show("Unknown Error: ", exc.Message);
             }
         }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();

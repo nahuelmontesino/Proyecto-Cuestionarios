@@ -14,6 +14,14 @@ namespace Cuestionarios.Models.DAL
                 Name = "opentdb"
             });
 
+            //Adds the default admin user
+            context.Users.Add(new User
+            {
+                Username = "admin",
+                Password = "admin",
+                Admin = true
+            });
+
         }
     }
 }
