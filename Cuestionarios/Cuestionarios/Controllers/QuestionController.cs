@@ -13,17 +13,19 @@ namespace Cuestionarios.Controllers
         public void LoadQuestions(Set pSet, string pDificulty, string pCategory, int pAmount)
         {
             ISource source = SourceFactory.GetSourceByName(pSet.Name);
-
             int categoryNumber = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
-
             List<Question> questionsList = source.GetQuestions(pDificulty, categoryNumber, pAmount).ToList();
 
             iUOfW.QuestionRepository.SaveQuestions(pSet, questionsList);
         }
 
-        public IEnumerable<Question> GetQuestions(Set pSet, int pDifficulty, int pCategory, int pAmount)
+        public IEnumerable<Question> GetQuestions(Set pSet,string pDifficulty, string pCategory, int pAmount)
         {
-            return iUOfW.QuestionRepository.GetQuestions(pSet, pDifficulty, pCategory, pAmount);
+            ISource source = SourceFactory.GetSourceByName(pSet.Name);
+            int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
+            int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
+
+            return iUOfW.QuestionRepository.GetQuestions(pSet, difficulty, category, pAmount);
         }
 
         /// <summary>
@@ -32,11 +34,8 @@ namespace Cuestionarios.Controllers
         public IEnumerable<string> GetCategoriesOfSet(Set pSet)
         {
             ISource source = SourceFactory.GetSourceByName(pSet.Name);
-
             var categoriesKeys = iUOfW.QuestionRepository.GetCategoriesOfSet(pSet);
-
             List<string> categories = new List<string>();
-
             foreach (int key in categoriesKeys)
             {
                 categories.Add(source.CategoryDictionary.FirstOrDefault(x => x.Key == key).Value);
@@ -51,13 +50,9 @@ namespace Cuestionarios.Controllers
         public IEnumerable<string> GetDifficultiesOfCategory(Set pSet, string pCategory)
         {
             ISource source = SourceFactory.GetSourceByName(pSet.Name);
-
             int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
-
             IEnumerable<int> difficultiesKeys = iUOfW.QuestionRepository.GetDifficultiesOfCategory(pSet, category).ToList();
-
             List<string> difficulties = new List<string>();
-
             foreach (int key in difficultiesKeys)
             {
                 difficulties.Add(source.DifficultyDictionary.FirstOrDefault(x => x.Key == key).Value);

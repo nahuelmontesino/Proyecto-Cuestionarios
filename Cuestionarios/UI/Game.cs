@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections.Generic;
+using Cuestionarios.Controllers;
+using Cuestionarios.Models.Domain;
+using System.Linq;
 
 namespace UI
 {
     public partial class Game : Form
     {
         Stopwatch stopwatch = new Stopwatch();
-        public Game()
+        private readonly QuestionController _questController;
+        private int questionNumber;
+        private List<Question> questionsList;
+
+        public Game(Set pset, string pDifficulty, string pCategory, int pAmount)
         {
             InitializeComponent();
-        }
+            questionNumber = 1;
+            lblQustionNumber.Text = questionNumber.ToString();
 
-        private void lblSet_Click(object sender, EventArgs e)
-        {
-
+            questionsList = _questController.GetQuestions(pset, pDifficulty, pCategory, pAmount).ToList();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace UI
 
             txtMin.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
             txtSeg.Text = ts.Seconds.ToString().Length < 2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
-            txtMil.Text = ts.Milliseconds.ToString();
+
         }
 
         private void btnplay_Click(object sender, EventArgs e)
@@ -49,7 +49,6 @@ namespace UI
             stopwatch.Reset();
             txtMin.Text = "00";
             txtSeg.Text = "00";
-            txtMil.Text = "000";
             timer1.Enabled = false;
         }
 
