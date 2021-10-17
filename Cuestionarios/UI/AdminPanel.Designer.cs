@@ -30,13 +30,13 @@ namespace UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
-            this.triviaOptions1 = new UI.TriviaOptions();
+            this.triviaOptions1 = new UI.TriviaOptions(user);
             this.lblAdminPanel = new System.Windows.Forms.Label();
             this.btnSaveQuestion = new System.Windows.Forms.Button();
             this.btnDeleteQuestion = new System.Windows.Forms.Button();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.logOut1 = new UI.LogOut();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +45,7 @@ namespace UI
             // 
             this.triviaOptions1.BackColor = System.Drawing.Color.Transparent;
             this.triviaOptions1.Location = new System.Drawing.Point(36, 107);
-            this.triviaOptions1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.triviaOptions1.Margin = new System.Windows.Forms.Padding(2);
             this.triviaOptions1.Name = "triviaOptions1";
             this.triviaOptions1.Size = new System.Drawing.Size(268, 170);
             this.triviaOptions1.TabIndex = 0;
@@ -121,21 +121,14 @@ namespace UI
             this.minimizeBox.TabStop = false;
             this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
             // 
-            // button1
+            // logOut1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(436, 318);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 37);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.logOut1.BackColor = System.Drawing.Color.Transparent;
+            this.logOut1.Location = new System.Drawing.Point(431, 306);
+            this.logOut1.Margin = new System.Windows.Forms.Padding(2);
+            this.logOut1.Name = "logOut1";
+            this.logOut1.Size = new System.Drawing.Size(111, 59);
+            this.logOut1.TabIndex = 23;
             // 
             // AdminPanel
             // 
@@ -143,7 +136,7 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(543, 366);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.logOut1);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.btnDeleteQuestion);
@@ -170,6 +163,6 @@ namespace UI
         private System.Windows.Forms.Button btnDeleteQuestion;
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
-        private System.Windows.Forms.Button button1;
+        private LogOut logOut1;
     }
 }

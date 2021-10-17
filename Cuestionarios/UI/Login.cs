@@ -103,10 +103,20 @@ namespace UI
                 }
                 else
                 {
-                    this.Hide();
-                    Menu menu = new Menu(usr);
-                    menu.ShowDialog();
-                    this.Close();
+                    if(usr.Admin)
+                    {
+                        this.Hide();
+                        AdminPanel admin = new AdminPanel(_setController, _questionController, _sessionController, usr);
+                        admin.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        Menu menu = new Menu(_setController, _questionController, _sessionController, usr);
+                        menu.ShowDialog();
+                        this.Close();
+                    }                    
                 }
             }
             catch (NpgsqlException exc)
@@ -121,7 +131,7 @@ namespace UI
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            NewUser newUser = new NewUser();
+            NewUser newUser = new NewUser(_setController, _questionController, _sessionController, _userController);
             newUser.ShowDialog();
             this.Close();
         }

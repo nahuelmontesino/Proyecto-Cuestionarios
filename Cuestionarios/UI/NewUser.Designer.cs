@@ -34,7 +34,7 @@ namespace UI
             this.txtpass = new System.Windows.Forms.TextBox();
             this.txtuser = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.brnAtras = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
             this.exitBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
@@ -101,21 +101,21 @@ namespace UI
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // brnAtras
+            // btnAtras
             // 
-            this.brnAtras.BackColor = System.Drawing.Color.White;
-            this.brnAtras.FlatAppearance.BorderSize = 0;
-            this.brnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.brnAtras.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brnAtras.ForeColor = System.Drawing.Color.Black;
-            this.brnAtras.Location = new System.Drawing.Point(117, 195);
-            this.brnAtras.Margin = new System.Windows.Forms.Padding(2);
-            this.brnAtras.Name = "brnAtras";
-            this.brnAtras.Size = new System.Drawing.Size(151, 38);
-            this.brnAtras.TabIndex = 21;
-            this.brnAtras.Text = "Back";
-            this.brnAtras.UseVisualStyleBackColor = false;
-            this.brnAtras.Click += new System.EventHandler(this.brnAtras_Click);
+            this.btnAtras.BackColor = System.Drawing.Color.White;
+            this.btnAtras.FlatAppearance.BorderSize = 0;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.ForeColor = System.Drawing.Color.Black;
+            this.btnAtras.Location = new System.Drawing.Point(117, 195);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(151, 38);
+            this.btnAtras.TabIndex = 21;
+            this.btnAtras.Text = "Back";
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.brnAtras_Click);
             // 
             // minimizeBox
             // 
@@ -151,7 +151,7 @@ namespace UI
             this.ClientSize = new System.Drawing.Size(544, 268);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.exitBox);
-            this.Controls.Add(this.brnAtras);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtpass);
             this.Controls.Add(this.txtuser);
@@ -161,7 +161,6 @@ namespace UI
             this.Name = "NewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewUser";
-            this.Load += new System.EventHandler(this.NewUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
             this.ResumeLayout(false);
@@ -175,7 +174,7 @@ namespace UI
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button brnAtras;
+        private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.PictureBox minimizeBox;
         private System.Windows.Forms.PictureBox exitBox;
     }

@@ -8,6 +8,8 @@ namespace UI
 {
     public partial class Score : Form
     {
+        private readonly SetController _setController;
+        private readonly QuestionController _questController;
         private readonly SessionController _sessionController;
         private User user = null;
         public Score(SessionController sessionController, User user)
@@ -30,7 +32,7 @@ namespace UI
         private void brnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu menu = new Menu(user);
+            Menu menu = new Menu(_setController, _questController, _sessionController, user);
             menu.ShowDialog();
             this.Close();
         }

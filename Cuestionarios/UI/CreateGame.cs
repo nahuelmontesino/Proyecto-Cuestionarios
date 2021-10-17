@@ -14,13 +14,19 @@ namespace UI
 {
     public partial class CreateGame : Form
     {
+        private readonly SetController _setController;
+        private readonly QuestionController _questController;
+        private SessionController _sessionController;
         private User user = null;
-        public CreateGame(SetController setControler, QuestionController questionController, User user)
+        public CreateGame(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
         {
             this.user = user;
+            this._sessionController = _sessionController;
+            this._setController = _setController;
+            this._questController = _questController;
             InitializeComponent();
-            triviaOptionsComponent1._setController = setControler;
-            triviaOptionsComponent1._questionController = questionController;
+            triviaOptionsComponent1._setController = _setController;
+            triviaOptionsComponent1._questionController = _questController;
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
@@ -36,7 +42,7 @@ namespace UI
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu menu = new Menu(this.user);
+            Menu menu = new Menu(_setController, _questController, _sessionController, this.user);
             menu.ShowDialog();
             this.Close();
         }

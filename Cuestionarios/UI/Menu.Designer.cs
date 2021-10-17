@@ -30,7 +30,6 @@ namespace UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.btnGameManager = new System.Windows.Forms.Button();
             this.logOutComponent1 = new UI.LogOut();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnHighScore = new System.Windows.Forms.Button();
@@ -42,22 +41,6 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnGameManager
-            // 
-            this.btnGameManager.BackColor = System.Drawing.Color.White;
-            this.btnGameManager.FlatAppearance.BorderSize = 0;
-            this.btnGameManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGameManager.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGameManager.ForeColor = System.Drawing.Color.Black;
-            this.btnGameManager.Location = new System.Drawing.Point(37, 255);
-            this.btnGameManager.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGameManager.Name = "btnGameManager";
-            this.btnGameManager.Size = new System.Drawing.Size(271, 49);
-            this.btnGameManager.TabIndex = 19;
-            this.btnGameManager.Text = "Game Manager";
-            this.btnGameManager.UseVisualStyleBackColor = false;
-            this.btnGameManager.Click += new System.EventHandler(this.btnGameManager_Click);
             // 
             // logOutComponent1
             // 
@@ -169,7 +152,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(348, 331);
+            this.ClientSize = new System.Drawing.Size(348, 249);
             this.Controls.Add(this.lblUserData);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.exitBox);
@@ -178,7 +161,6 @@ namespace UI
             this.Controls.Add(this.btnHighScore);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.logOutComponent1);
-            this.Controls.Add(this.btnGameManager);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -191,8 +173,6 @@ namespace UI
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGameManager;
         private LogOut logOutComponent1;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Button btnHighScore;

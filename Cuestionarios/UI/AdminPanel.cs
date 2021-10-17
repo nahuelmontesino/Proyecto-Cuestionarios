@@ -1,4 +1,5 @@
-﻿using Cuestionarios.Models.Domain;
+﻿using Cuestionarios.Controllers;
+using Cuestionarios.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,15 @@ namespace UI
 {
     public partial class AdminPanel : Form
     {
+        private readonly SetController _setController;
+        private readonly QuestionController _questController;
+        private SessionController _sessionController;
         private User user = null;
-        public AdminPanel(User user)
+        public AdminPanel(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
         {
+            this._setController = _setController;
+            this._questController = _questController;
+            this._sessionController = _sessionController;
             this.user = user;
             InitializeComponent();
         }
@@ -28,14 +35,6 @@ namespace UI
         private void minimizeBox_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Menu menu = new Menu(this.user);
-            menu.ShowDialog();
-            this.Close();
         }
     }
 }

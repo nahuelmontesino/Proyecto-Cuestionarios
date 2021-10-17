@@ -14,9 +14,16 @@ namespace UI
 {
     public partial class NewUser : Form
     {
-        private readonly UserController _usrController = new UserController();
-        public NewUser()
+        private UserController _usrController;
+        private SetController _setController;
+        private QuestionController _questController;
+        private SessionController _sessionController;
+        public NewUser(SetController _setController, QuestionController _questController, SessionController _sessionController, UserController _usrController)
         {
+            this._sessionController = _sessionController;
+            this._questController = _questController;
+            this._setController = _setController;
+            this._usrController = _usrController;
             InitializeComponent();
         }
 
@@ -65,8 +72,8 @@ namespace UI
                 MessageBox.Show("User added successfully");
                 
                 this.Hide();
-                //Login login = new Login();
-                //login.ShowDialog();
+                Login login = new Login(_usrController, _setController, _questController, _sessionController);
+                login.ShowDialog();
                 this.Close();
             }
             catch (NpgsqlException exc)
@@ -82,8 +89,8 @@ namespace UI
         private void brnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //Login login = new Login();
-            //login.ShowDialog();
+            Login login = new Login(_usrController, _setController, _questController, _sessionController);
+            login.ShowDialog();
             this.Close();
         }
 
@@ -95,11 +102,6 @@ namespace UI
         private void minimizeBox_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void NewUser_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
