@@ -18,7 +18,8 @@ namespace UI
             SetController setController = new SetController();
             QuestionController questionController = new QuestionController();
             SessionController sessionController = new SessionController();
-            Application.Run(new Login(userController, setController, questionController, sessionController));
+            SourceController sourceController = new SourceController();
+            Application.Run(new Login(userController, setController, questionController, sessionController, sourceController));
         }
     }
 }

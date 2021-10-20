@@ -10,6 +10,10 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
+        public Set GetSetByName(string name)
+        {
+            return iUOfW.SetRepository.GetSetByName(name);
+        }
 
         public IEnumerable<Set> GetAllSets()
         {

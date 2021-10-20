@@ -35,14 +35,14 @@ namespace UI
             this.lblDificulty = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.cmbSet = new System.Windows.Forms.ComboBox();
+            this.setBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.cmbDificulty = new System.Windows.Forms.ComboBox();
             this.nupAmount = new System.Windows.Forms.NumericUpDown();
-            this.setBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.setBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.setBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSet
@@ -102,12 +102,17 @@ namespace UI
             this.cmbSet.TabIndex = 4;
             this.cmbSet.SelectedIndexChanged += new System.EventHandler(this.cmbSet_SelectedIndexChanged);
             // 
+            // setBindingSource1
+            // 
+            this.setBindingSource1.DataSource = typeof(Cuestionarios.Models.Domain.Set);
+            // 
             // setBindingSource
             // 
             this.setBindingSource.DataSource = typeof(Cuestionarios.Models.Domain.Set);
             // 
             // cmbCategory
             // 
+            this.cmbCategory.Enabled = false;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(119, 62);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -118,6 +123,7 @@ namespace UI
             // 
             // cmbDificulty
             // 
+            this.cmbDificulty.Enabled = false;
             this.cmbDificulty.FormattingEnabled = true;
             this.cmbDificulty.Location = new System.Drawing.Point(119, 113);
             this.cmbDificulty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -128,16 +134,13 @@ namespace UI
             // 
             // nupAmount
             // 
+            this.nupAmount.Enabled = false;
             this.nupAmount.Location = new System.Drawing.Point(119, 162);
             this.nupAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nupAmount.Name = "nupAmount";
             this.nupAmount.Size = new System.Drawing.Size(211, 22);
             this.nupAmount.TabIndex = 8;
             this.nupAmount.ValueChanged += new System.EventHandler(this.nupAmount_ValueChanged);
-            // 
-            // setBindingSource1
-            // 
-            this.setBindingSource1.DataSource = typeof(Cuestionarios.Models.Domain.Set);
             // 
             // TriviaOptions
             // 
@@ -156,9 +159,9 @@ namespace UI
             this.Name = "TriviaOptions";
             this.Size = new System.Drawing.Size(357, 209);
             this.Load += new System.EventHandler(this.TriviaOptionsComponent_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.setBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.setBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

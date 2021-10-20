@@ -19,13 +19,16 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
+        private readonly SourceController _sourceController;
 
-        public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController)
+        public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController, SourceController sourceController)
         {
             _userController = usrController;
             _setController = setController;
             _questionController = questionController;
             _sessionController = sessionController;
+            _sourceController = sourceController;
+
             _userController.AddUser("p", "p", false);
             User u = _userController.GetUserByName("p");
             TimeSpan duration1 = new TimeSpan(0, 0, 23, 62);
@@ -106,7 +109,7 @@ namespace UI
                     if(usr.Admin)
                     {
                         this.Hide();
-                        AdminPanel admin = new AdminPanel(_setController, usr);
+                        AdminPanel admin = new AdminPanel(_setController ,_sourceController, usr);
                         admin.ShowDialog();
                         this.Close();
                     }
@@ -130,10 +133,8 @@ namespace UI
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             NewUser newUser = new NewUser(_setController, _questionController, _sessionController, _userController);
             newUser.ShowDialog();
-            this.Close();
         }
     }
 }

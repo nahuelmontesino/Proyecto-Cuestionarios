@@ -112,7 +112,8 @@ namespace UI
             // triviaOptions
             // 
             this.triviaOptions.BackColor = System.Drawing.Color.Transparent;
-            this.triviaOptions.Location = new System.Drawing.Point(76, 127);
+            this.triviaOptions.IsAdmin = true;
+            this.triviaOptions.Location = new System.Drawing.Point(68, 113);
             this.triviaOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.triviaOptions.Name = "triviaOptions";
             this.triviaOptions.Size = new System.Drawing.Size(357, 209);
@@ -135,7 +136,6 @@ namespace UI
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
-            this.Load += new System.EventHandler(this.AdminPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             this.ResumeLayout(false);
@@ -151,6 +151,7 @@ namespace UI
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
         private LogOut logOut1;
+        private TriviaOptions triviaOptions1;
         private TriviaOptions triviaOptions;
     }
 }

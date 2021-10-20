@@ -70,10 +70,7 @@ namespace UI
                 _usrController.AddUser(txtuser.Text, txtpass.Text, false);
 
                 MessageBox.Show("User added successfully");
-                
-                this.Hide();
-                Login login = new Login(_usrController, _setController, _questController, _sessionController);
-                login.ShowDialog();
+
                 this.Close();
             }
             catch (NpgsqlException exc)
@@ -88,9 +85,6 @@ namespace UI
 
         private void brnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login login = new Login(_usrController, _setController, _questController, _sessionController);
-            login.ShowDialog();
             this.Close();
         }
 
