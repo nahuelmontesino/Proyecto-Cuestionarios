@@ -16,14 +16,14 @@ namespace UI
     {
         private readonly SetController _setController;
         private readonly QuestionController _questController;
-        private SessionController _sessionController;
-        private User user = null;
-        public CreateGame(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
+        private readonly SessionController _sessionController;
+        private User _user = null;
+        public CreateGame(SetController setController, QuestionController questController, SessionController sessionController, User user)
         {
-            this.user = user;
-            this._sessionController = _sessionController;
-            this._setController = _setController;
-            this._questController = _questController;
+            _user = user;
+            _sessionController = sessionController;
+            _setController = setController;
+            _questController = questController;
             InitializeComponent();
         }
 
@@ -40,9 +40,17 @@ namespace UI
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Menu menu = new Menu(_setController, _questController, _sessionController, this.user);
+            Menu menu = new Menu(_setController, _questController, _sessionController, _user);
             menu.ShowDialog();
             this.Close();
+        }
+
+        private void CreateGame_Load(object sender, EventArgs e)
+        {
+            triviaOptions.cmbSet.DataSource = _setController.GetAllSets().ToList();
+            //TODO obtener las categorias disponibles una vez obtenido el set
+            //triviaOptions.cmbCategory.DataSource = _questController.GetCategoriesOfSet();
+            //triviaOptions1.cbmCategories = setController.GetAllDifficulties().ToList();
         }
     }
 }
