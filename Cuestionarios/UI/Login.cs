@@ -50,7 +50,6 @@ namespace UI
             {
                 txtuser.Text = "";
 
-
             }
         }
 
@@ -108,17 +107,17 @@ namespace UI
                 {
                     if(usr.Admin)
                     {
-                        this.Hide();
                         AdminPanel admin = new AdminPanel(_setController ,_sourceController, usr);
+                        this.Hide();
                         admin.ShowDialog();
-                        this.Close();
+                        this.Show();
                     }
                     else
                     {
                         this.Hide();
                         Menu menu = new Menu(_setController, _questionController, _sessionController, usr);
                         menu.ShowDialog();
-                        this.Close();
+                        this.Show();
                     }                    
                 }
             }
