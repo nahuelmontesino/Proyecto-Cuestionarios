@@ -1,13 +1,7 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Models.Domain;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -15,16 +9,13 @@ namespace UI
     public partial class AdminPanel : Form
     {
         private readonly SetController _setController;
-        private readonly QuestionController _questController;
-        private SessionController _sessionController;
-        private User user = null;
-        public AdminPanel(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
+        private User _user = null;
+        public AdminPanel(SetController setController, User user)
         {
-            this._setController = _setController;
-            this._questController = _questController;
-            this._sessionController = _sessionController;
-            this.user = user;
+            _setController = setController;
+            _user = user;
             InitializeComponent();
+            
         }
 
         private void exitBox_Click(object sender, EventArgs e)
@@ -35,6 +26,14 @@ namespace UI
         private void minimizeBox_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void AdminPanel_Load(object sender, EventArgs e)
+        {
+            triviaOptions.cmbSet.DataSource = _setController.GetAllSets().ToList();
+            //TODO obtener las categorias disponibles directamente desde el source
+            //triviaOptions1.cbmCategories = setController.GetAllCategories().ToList();
+            //triviaOptions1.cbmCategories = setController.GetAllDifficulties().ToList();
         }
     }
 }

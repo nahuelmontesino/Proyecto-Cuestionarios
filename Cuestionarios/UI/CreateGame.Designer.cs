@@ -35,7 +35,7 @@ namespace UI
             this.btnNewGame = new System.Windows.Forms.Button();
             this.lblCreateGame = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.triviaOptionsComponent1 = new UI.TriviaOptions(user);
+            this.triviaOptionsComponent1 = new UI.TriviaOptions();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             this.SuspendLayout();

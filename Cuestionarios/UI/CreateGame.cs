@@ -25,8 +25,6 @@ namespace UI
             this._setController = _setController;
             this._questController = _questController;
             InitializeComponent();
-            triviaOptionsComponent1._setController = _setController;
-            triviaOptionsComponent1._questionController = _questController;
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
