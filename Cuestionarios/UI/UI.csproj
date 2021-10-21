@@ -152,12 +152,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Components\TriviaOptions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Components\TriviaOptions.Designer.cs">
-      <DependentUpon>TriviaOptions.cs</DependentUpon>
-    </Compile>
     <Compile Include="Score.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,9 +194,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Components\TriviaOptions.resx">
-      <DependentUpon>TriviaOptions.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Score.resx">
       <DependentUpon>Score.cs</DependentUpon>
       <SubType>Designer</SubType>

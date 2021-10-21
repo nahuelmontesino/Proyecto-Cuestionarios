@@ -7,10 +7,10 @@ namespace UI
 {
     public partial class Menu : Form
     {
-        private SetController _setController;
-        private QuestionController _questController;
-        private SessionController _sessionController;
-        private User user;
+        private readonly SetController _setController;
+        private readonly QuestionController _questController;
+        private readonly SessionController _sessionController;
+        private readonly User user;
 
         public Menu(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
         {
@@ -24,8 +24,10 @@ namespace UI
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            CreateGame createGame = new CreateGame(_setController, _questController, _sessionController, user);
-            createGame.Owner = this;
+            CreateGame createGame = new CreateGame(_setController, _questController, _sessionController, user)
+            {
+                Owner = this
+            };
             createGame.ShowDialog();
             this.Close();
         }

@@ -22,6 +22,18 @@ namespace Cuestionarios.Models.DAL
                 Admin = true
             });
 
+            //Adds the default admin user
+            context.Users.Add(new User
+            {
+                Username = "user",
+                Password = "user",
+                Admin = false
+            });
+
+            context.SaveChanges();
+
+            base.Seed(context);
+
         }
     }
 }

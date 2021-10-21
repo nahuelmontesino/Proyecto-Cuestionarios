@@ -35,9 +35,18 @@ namespace UI
             this.btnDeleteQuestion = new System.Windows.Forms.Button();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
-            this.triviaOptions = new UI.TriviaOptions();
+            this.nupAmount = new System.Windows.Forms.NumericUpDown();
+            this.cmbDificulty = new System.Windows.Forms.ComboBox();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.cmbSet = new System.Windows.Forms.ComboBox();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblDificulty = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblSet = new System.Windows.Forms.Label();
+            this.logOutComponent = new UI.LogOut();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdminPanel
@@ -67,6 +76,7 @@ namespace UI
             this.btnSaveQuestion.TabIndex = 19;
             this.btnSaveQuestion.Text = "Save Question";
             this.btnSaveQuestion.UseVisualStyleBackColor = false;
+            this.btnSaveQuestion.Click += new System.EventHandler(this.btnSaveQuestion_Click);
             // 
             // btnDeleteQuestion
             // 
@@ -109,15 +119,104 @@ namespace UI
             this.minimizeBox.TabStop = false;
             this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
             // 
-            // triviaOptions
+            // nupAmount
             // 
-            this.triviaOptions.BackColor = System.Drawing.Color.Transparent;
-            this.triviaOptions.IsAdmin = true;
-            this.triviaOptions.Location = new System.Drawing.Point(68, 113);
-            this.triviaOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.triviaOptions.Name = "triviaOptions";
-            this.triviaOptions.Size = new System.Drawing.Size(357, 209);
-            this.triviaOptions.TabIndex = 23;
+            this.nupAmount.Enabled = false;
+            this.nupAmount.Location = new System.Drawing.Point(205, 293);
+            this.nupAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nupAmount.Name = "nupAmount";
+            this.nupAmount.Size = new System.Drawing.Size(211, 22);
+            this.nupAmount.TabIndex = 30;
+            // 
+            // cmbDificulty
+            // 
+            this.cmbDificulty.Enabled = false;
+            this.cmbDificulty.FormattingEnabled = true;
+            this.cmbDificulty.Location = new System.Drawing.Point(205, 244);
+            this.cmbDificulty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbDificulty.Name = "cmbDificulty";
+            this.cmbDificulty.Size = new System.Drawing.Size(211, 24);
+            this.cmbDificulty.TabIndex = 29;
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.Enabled = false;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(205, 193);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(211, 24);
+            this.cmbCategory.TabIndex = 28;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
+            // 
+            // cmbSet
+            // 
+            this.cmbSet.DisplayMember = "Name";
+            this.cmbSet.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbSet.FormattingEnabled = true;
+            this.cmbSet.Location = new System.Drawing.Point(205, 143);
+            this.cmbSet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbSet.Name = "cmbSet";
+            this.cmbSet.Size = new System.Drawing.Size(211, 24);
+            this.cmbSet.TabIndex = 27;
+            this.cmbSet.SelectedIndexChanged += new System.EventHandler(this.cmbSet_SelectedIndexChanged);
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.BackColor = System.Drawing.Color.Transparent;
+            this.lblAmount.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmount.ForeColor = System.Drawing.Color.White;
+            this.lblAmount.Location = new System.Drawing.Point(90, 289);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(81, 24);
+            this.lblAmount.TabIndex = 26;
+            this.lblAmount.Text = "Amount";
+            // 
+            // lblDificulty
+            // 
+            this.lblDificulty.AutoSize = true;
+            this.lblDificulty.BackColor = System.Drawing.Color.Transparent;
+            this.lblDificulty.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDificulty.ForeColor = System.Drawing.Color.White;
+            this.lblDificulty.Location = new System.Drawing.Point(90, 241);
+            this.lblDificulty.Name = "lblDificulty";
+            this.lblDificulty.Size = new System.Drawing.Size(82, 24);
+            this.lblDificulty.TabIndex = 25;
+            this.lblDificulty.Text = "Dificulty";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.BackColor = System.Drawing.Color.Transparent;
+            this.lblCategory.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.ForeColor = System.Drawing.Color.White;
+            this.lblCategory.Location = new System.Drawing.Point(89, 190);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(90, 24);
+            this.lblCategory.TabIndex = 24;
+            this.lblCategory.Text = "Category";
+            // 
+            // lblSet
+            // 
+            this.lblSet.AutoSize = true;
+            this.lblSet.BackColor = System.Drawing.Color.Transparent;
+            this.lblSet.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSet.ForeColor = System.Drawing.Color.Transparent;
+            this.lblSet.Location = new System.Drawing.Point(89, 140);
+            this.lblSet.Name = "lblSet";
+            this.lblSet.Size = new System.Drawing.Size(38, 24);
+            this.lblSet.TabIndex = 23;
+            this.lblSet.Text = "Set";
+            // 
+            // logOutComponent
+            // 
+            this.logOutComponent.BackColor = System.Drawing.Color.Transparent;
+            this.logOutComponent.Location = new System.Drawing.Point(12, 364);
+            this.logOutComponent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logOutComponent.Name = "logOutComponent";
+            this.logOutComponent.Size = new System.Drawing.Size(129, 75);
+            this.logOutComponent.TabIndex = 31;
             // 
             // AdminPanel
             // 
@@ -125,7 +224,15 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(724, 450);
-            this.Controls.Add(this.triviaOptions);
+            this.Controls.Add(this.logOutComponent);
+            this.Controls.Add(this.nupAmount);
+            this.Controls.Add(this.cmbDificulty);
+            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.cmbSet);
+            this.Controls.Add(this.lblAmount);
+            this.Controls.Add(this.lblDificulty);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.lblSet);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.btnDeleteQuestion);
@@ -136,8 +243,10 @@ namespace UI
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
+            this.Load += new System.EventHandler(this.AdminPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +260,14 @@ namespace UI
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
         private LogOut logOut1;
-        private TriviaOptions triviaOptions1;
-        private TriviaOptions triviaOptions;
+        public System.Windows.Forms.NumericUpDown nupAmount;
+        public System.Windows.Forms.ComboBox cmbDificulty;
+        public System.Windows.Forms.ComboBox cmbCategory;
+        public System.Windows.Forms.ComboBox cmbSet;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblDificulty;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Label lblSet;
+        private LogOut logOutComponent;
     }
 }

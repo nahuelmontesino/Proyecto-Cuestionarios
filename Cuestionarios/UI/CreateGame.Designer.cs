@@ -35,7 +35,6 @@ namespace UI
             this.btnNewGame = new System.Windows.Forms.Button();
             this.lblCreateGame = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.triviaOptions = new UI.TriviaOptions();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             this.SuspendLayout();
@@ -109,15 +108,6 @@ namespace UI
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // triviaOptions
-            // 
-            this.triviaOptions.BackColor = System.Drawing.Color.Transparent;
-            this.triviaOptions.Location = new System.Drawing.Point(48, 132);
-            this.triviaOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.triviaOptions.Name = "triviaOptions";
-            this.triviaOptions.Size = new System.Drawing.Size(357, 208);
-            this.triviaOptions.TabIndex = 13;
-            // 
             // CreateGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -127,7 +117,6 @@ namespace UI
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblCreateGame);
             this.Controls.Add(this.btnNewGame);
-            this.Controls.Add(this.triviaOptions);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.minimizeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -147,7 +136,6 @@ namespace UI
 
         private System.Windows.Forms.PictureBox minimizeBox;
         private System.Windows.Forms.PictureBox exitBox;
-        private TriviaOptions triviaOptions;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label lblCreateGame;
         private System.Windows.Forms.Button btnBack;

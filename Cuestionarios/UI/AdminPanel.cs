@@ -10,9 +10,14 @@ namespace UI
     {
         private readonly SetController _setController;
         private readonly SourceController _sourceController;
+        private readonly QuestionController _questionController;
+        private readonly SessionController _sessionController;
+        private Set setSelected;
         private User _user = null;
-        public AdminPanel(SetController setController, SourceController sourceController, User user)
+        public AdminPanel(SetController setController, SessionController sessionController, SourceController sourceController, QuestionController questionController, User user)
         {
+            _sessionController = sessionController;
+            _questionController = questionController;
             _setController = setController;
             _sourceController = sourceController;
             _user = user;
@@ -27,6 +32,47 @@ namespace UI
         private void minimizeBox_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void AdminPanel_Load(object sender, EventArgs e)
+        {
+            cmbSet.DataSource = _setController.GetAllSets().ToList();
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbCategory.Enabled = true;
+            cmbDificulty.Enabled = true;
+            nupAmount.Enabled = true;
+
+            cmbCategory.Items.Clear();
+
+            setSelected = _setController.GetSetByName(cmbSet.Text);
+
+            cmbCategory.DataSource = _sourceController.GetAllCategories(setSelected.Name).ToList();
+            
+            cmbDificulty.DataSource = _sourceController.GetAllDifficulties(setSelected.Name).ToList();
+
+        }
+
+        private void btnSaveQuestion_Click(object sender, EventArgs e)
+        {
+            _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value));
+            MessageBox.Show("Questions saved successfully");
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu menu = new Menu(_setController, _questionController, _sessionController, _user);
+            menu.ShowDialog();
+            this.Close();
         }
     }
 }

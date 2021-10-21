@@ -2,13 +2,6 @@
 using Cuestionarios.Models.Domain;
 using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -107,7 +100,7 @@ namespace UI
                 {
                     if(usr.Admin)
                     {
-                        AdminPanel admin = new AdminPanel(_setController ,_sourceController, usr);
+                        AdminPanel admin = new AdminPanel(_setController, _sessionController, _sourceController, _questionController, usr);
                         this.Hide();
                         admin.ShowDialog();
                         this.Show();
