@@ -17,6 +17,7 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
+        private Set selectedSet;
         private User _user = null;
         public CreateGame(SetController setController, QuestionController questionController, SessionController sessionController, User user)
         {
@@ -25,6 +26,11 @@ namespace UI
             _setController = setController;
             _questionController = questionController;
             InitializeComponent();
+
+            btnNewGame.Enabled = false;
+
+            /// Load the sets into the comboBox
+            cmbSet.DataSource = _setController.GetAllSets().ToList();
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
@@ -48,6 +54,28 @@ namespace UI
         private void CreateGame_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbCategory.Enabled = true;
+            selectedSet = _setController.GetSetByName(cmbSet.Text);
+
+            cmbCategory.DataSource = _questionController.GetCategoriesOfSet(selectedSet);
+        }
+
+        private void cmbDificulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nupAmount.Enabled = true;
+
+            btnNewGame.Enabled = true;
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbDificulty.Enabled = true;
+
+            cmbDificulty.DataSource = _questionController.GetDifficultiesOfCategory(selectedSet, cmbCategory.Text);
         }
     }
 }
