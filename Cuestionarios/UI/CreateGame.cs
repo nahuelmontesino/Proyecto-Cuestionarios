@@ -76,5 +76,15 @@ namespace UI
 
             cmbDificulty.DataSource = _questionController.GetDifficultiesOfCategory(selectedSet, cmbCategory.Text);
         }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+           var questionsList = _questionController.GetQuestions(selectedSet, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
+
+            this.Hide();
+            Game game = new Game(questionsList);
+            game.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -88,6 +88,7 @@ namespace UI
             this.btnNewGame.TabIndex = 17;
             this.btnNewGame.Text = "Start Game";
             this.btnNewGame.UseVisualStyleBackColor = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // lblCreateGame
             // 

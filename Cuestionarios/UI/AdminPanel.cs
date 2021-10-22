@@ -72,7 +72,7 @@ namespace UI
             this.Hide();
             Menu menu = new Menu(_setController, _questionController, _sessionController, _user);
             menu.ShowDialog();
-            this.Close();
+            this.Show();
         }
     }
 }

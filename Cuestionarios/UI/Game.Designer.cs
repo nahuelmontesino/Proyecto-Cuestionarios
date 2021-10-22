@@ -41,9 +41,10 @@ namespace UI
             this.btnOption2 = new System.Windows.Forms.Button();
             this.btnOption3 = new System.Windows.Forms.Button();
             this.btnOption4 = new System.Windows.Forms.Button();
-            this.lblQustionNumber = new System.Windows.Forms.Label();
+            this.lblQuestionNumber = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPlayer
@@ -82,7 +83,6 @@ namespace UI
             this.lblUserNameData.TabIndex = 5;
             this.lblUserNameData.Text = "...";
             this.lblUserNameData.UseWaitCursor = true;
-            this.lblUserNameData.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtMin
             // 
@@ -105,7 +105,7 @@ namespace UI
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // btnOption1
             // 
@@ -164,17 +164,17 @@ namespace UI
             this.btnOption4.Text = "Option 4";
             this.btnOption4.UseVisualStyleBackColor = false;
             // 
-            // lblQustionNumber
+            // lblQuestionNumber
             // 
-            this.lblQustionNumber.AutoSize = true;
-            this.lblQustionNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblQustionNumber.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQustionNumber.Location = new System.Drawing.Point(127, 86);
-            this.lblQustionNumber.Name = "lblQustionNumber";
-            this.lblQustionNumber.Size = new System.Drawing.Size(22, 24);
-            this.lblQustionNumber.TabIndex = 4;
-            this.lblQustionNumber.Text = "...";
-            this.lblQustionNumber.UseWaitCursor = true;
+            this.lblQuestionNumber.AutoSize = true;
+            this.lblQuestionNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuestionNumber.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestionNumber.Location = new System.Drawing.Point(367, 83);
+            this.lblQuestionNumber.Name = "lblQuestionNumber";
+            this.lblQuestionNumber.Size = new System.Drawing.Size(22, 24);
+            this.lblQuestionNumber.TabIndex = 4;
+            this.lblQuestionNumber.Text = "...";
+            this.lblQuestionNumber.UseWaitCursor = true;
             // 
             // Time
             // 
@@ -200,12 +200,29 @@ namespace UI
             this.lblQuestion.Text = "Question:";
             this.lblQuestion.UseWaitCursor = true;
             // 
+            // btnQuit
+            // 
+            this.btnQuit.BackColor = System.Drawing.Color.White;
+            this.btnQuit.FlatAppearance.BorderSize = 0;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.ForeColor = System.Drawing.Color.Black;
+            this.btnQuit.Location = new System.Drawing.Point(738, 457);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(132, 42);
+            this.btnQuit.TabIndex = 24;
+            this.btnQuit.Text = "Quit";
+            this.btnQuit.UseVisualStyleBackColor = false;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(884, 504);
+            this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.btnOption4);
@@ -215,7 +232,7 @@ namespace UI
             this.Controls.Add(this.txtSeg);
             this.Controls.Add(this.txtMin);
             this.Controls.Add(this.lblUserNameData);
-            this.Controls.Add(this.lblQustionNumber);
+            this.Controls.Add(this.lblQuestionNumber);
             this.Controls.Add(this.lblGame);
             this.Controls.Add(this.lblPlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -239,8 +256,9 @@ namespace UI
         private System.Windows.Forms.Button btnOption2;
         private System.Windows.Forms.Button btnOption3;
         private System.Windows.Forms.Button btnOption4;
-        private System.Windows.Forms.Label lblQustionNumber;
+        private System.Windows.Forms.Label lblQuestionNumber;
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Label lblQuestion;
+        private System.Windows.Forms.Button btnQuit;
     }
 }
