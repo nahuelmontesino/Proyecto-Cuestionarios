@@ -82,9 +82,9 @@ namespace UI
            var questionsList = _questionController.GetQuestions(selectedSet, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
 
             this.Hide();
-            Game game = new Game(questionsList);
+            Game game = new Game(questionsList, _sessionController, _user);
             game.ShowDialog();
-            this.Close();
+            this.Show();
         }
     }
 }

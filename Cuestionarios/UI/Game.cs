@@ -5,19 +5,25 @@ using System.Collections.Generic;
 using Cuestionarios.Controllers;
 using Cuestionarios.Models.Domain;
 using System.Linq;
+using Npgsql;
 
 namespace UI
 {
     public partial class Game : Form
     {
+        private readonly SessionController _sessionController;
+        private readonly User _user;
         private int questionNumber;
         private List<Question> _questionsList;
         private Stopwatch stopwatch;
         private int totalQuestions;
+        private int correctAnswers;
 
-        public Game(List<Question> questionsList)
+        public Game(List<Question> questionsList, SessionController sessionController, User user)
         {
+            _sessionController = sessionController;
             _questionsList = questionsList;
+            _user = user;
             InitializeComponent();
             questionNumber = 1;
             lblQuestionNumber.Text = questionNumber.ToString();
@@ -51,6 +57,35 @@ namespace UI
 
                 lblQuestion.Text = "Question " + questionNumber + "/" + totalQuestions + ":";
             }
+
+            else
+            {
+                timer1.Stop();
+                stopwatch.Stop();
+
+                var time = stopwatch.Elapsed;
+
+                try
+                {
+                    //TODO: hacer una funcion que calcule el puntaje 
+                    //var score = session.getScore()
+                    _sessionController.SaveSession(_user, 11, time);
+                }
+                catch (NpgsqlException exc)
+                {
+                    MessageBox.Show("Error on the database operation: ", exc.Message);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Unknown Error: ", exc.Message);
+
+                }
+
+                this.Close();
+            }
+
+            
+
         }
 
         private void btnplay_Click(object sender, EventArgs e)
@@ -59,25 +94,24 @@ namespace UI
             timer1.Enabled = true;
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
+        private void CheckAnswer(int optionSelected)
         {
-            stopwatch.Reset();
-            txtMin.Text = "00";
-            txtSeg.Text = "00";
-            timer1.Enabled = false;
+            if (_questionsList[questionNumber - 1].Options[optionSelected - 1].Correct)
+            {
+                MessageBox.Show("Correct Answer");
+                correctAnswers += 1;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Answer");
+            }
+
+            //Show next question
+            questionNumber++;
+            ShowQuestion();
         }
 
         private void txtMin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblQuestion_Click(object sender, EventArgs e)
         {
 
         }
@@ -95,6 +129,26 @@ namespace UI
         private void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnOption1_Click(object sender, EventArgs e)
+        {
+            CheckAnswer(1);
+        }
+
+        private void btnOption2_Click(object sender, EventArgs e)
+        {
+            CheckAnswer(2);
+        }
+
+        private void btnOption3_Click(object sender, EventArgs e)
+        {
+            CheckAnswer(3);
+        }
+
+        private void btnOption4_Click(object sender, EventArgs e)
+        {
+            CheckAnswer(4);
         }
     }
 }

@@ -120,6 +120,7 @@ namespace UI
             this.btnOption1.TabIndex = 18;
             this.btnOption1.Text = "Option 1";
             this.btnOption1.UseVisualStyleBackColor = false;
+            this.btnOption1.Click += new System.EventHandler(this.btnOption1_Click);
             // 
             // btnOption2
             // 
@@ -134,6 +135,7 @@ namespace UI
             this.btnOption2.TabIndex = 19;
             this.btnOption2.Text = "Option2";
             this.btnOption2.UseVisualStyleBackColor = false;
+            this.btnOption2.Click += new System.EventHandler(this.btnOption2_Click);
             // 
             // btnOption3
             // 
@@ -148,7 +150,7 @@ namespace UI
             this.btnOption3.TabIndex = 20;
             this.btnOption3.Text = "Option 3";
             this.btnOption3.UseVisualStyleBackColor = false;
-            this.btnOption3.Click += new System.EventHandler(this.button2_Click);
+            this.btnOption3.Click += new System.EventHandler(this.btnOption3_Click);
             // 
             // btnOption4
             // 
@@ -163,6 +165,7 @@ namespace UI
             this.btnOption4.TabIndex = 21;
             this.btnOption4.Text = "Option 4";
             this.btnOption4.UseVisualStyleBackColor = false;
+            this.btnOption4.Click += new System.EventHandler(this.btnOption4_Click);
             // 
             // lblQuestionNumber
             // 
