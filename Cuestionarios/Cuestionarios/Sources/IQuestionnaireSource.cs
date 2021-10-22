@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Cuestionarios.Sources
 {
-    public interface ISource
+    public interface IQuestionnaireSource
     {
         string UrlBase { get; }
         string Name { get; }

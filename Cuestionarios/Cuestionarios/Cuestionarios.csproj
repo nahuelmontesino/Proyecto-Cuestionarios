@@ -127,7 +127,7 @@
     <Compile Include="Models\Domain\Set.cs" />
     <Compile Include="Models\Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sources\ISource.cs" />
+    <Compile Include="Sources\IQuestionnaireSource.cs" />
     <Compile Include="Sources\OpendbSource.cs" />
     <Compile Include="Sources\SourceFactory.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

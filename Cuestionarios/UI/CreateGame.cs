@@ -18,7 +18,7 @@ namespace UI
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
         private Set selectedSet;
-        private User _user = null;
+        private readonly User _user = null;
         public CreateGame(SetController setController, QuestionController questionController, SessionController sessionController, User user)
         {
             _user = user;
@@ -27,10 +27,6 @@ namespace UI
             _questionController = questionController;
             InitializeComponent();
 
-            btnNewGame.Enabled = false;
-
-            /// Load the sets into the comboBox
-            cmbSet.DataSource = _setController.GetAllSets().ToList();
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
@@ -53,7 +49,10 @@ namespace UI
 
         private void CreateGame_Load(object sender, EventArgs e)
         {
+            btnNewGame.Enabled = false;
 
+            // Load the sets into the comboBox
+            cmbSet.DataSource = _setController.GetAllSets().ToList();
         }
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)

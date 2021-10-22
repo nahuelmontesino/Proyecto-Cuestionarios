@@ -6,7 +6,7 @@ namespace Cuestionarios.Sources
 {
    public static class SourceFactory
     {
-        public static ISource GetSourceByName(string name)
+        public static IQuestionnaireSource GetSourceByName(string name)
         {
             //Add the new sources here
             switch (name)

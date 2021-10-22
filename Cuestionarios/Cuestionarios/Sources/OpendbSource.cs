@@ -9,7 +9,7 @@ using Cuestionarios.Models.Domain;
 
 namespace Cuestionarios.Sources
 {
-    class OpendbSource: ISource
+    class OpendbSource: IQuestionnaireSource
     {
         public string UrlBase { get; private set; }
         public string Name { get; private set; }

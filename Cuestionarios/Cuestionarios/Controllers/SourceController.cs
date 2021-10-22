@@ -7,13 +7,13 @@ namespace Cuestionarios.Controllers
     {
         public IEnumerable<string> GetAllCategories(string name)
         {
-            ISource source = SourceFactory.GetSourceByName(name);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(name);
             return source.CategoryDictionary.Values;
         }
 
         public IEnumerable<string> GetAllDifficulties(string name)
         {
-            ISource source = SourceFactory.GetSourceByName(name);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(name);
             return source.DifficultyDictionary.Values;
         }
     }
