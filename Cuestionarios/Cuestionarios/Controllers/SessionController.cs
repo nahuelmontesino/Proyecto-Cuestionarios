@@ -2,6 +2,7 @@
 using Cuestionarios.Models.DAL;
 using Cuestionarios.Models.Domain;
 using System;
+using Cuestionarios.Sources;
 
 namespace Cuestionarios.Controllers
 {
@@ -21,7 +22,14 @@ namespace Cuestionarios.Controllers
             iUOfW.Complete();
         }
 
-    }
+        public double getScore(IQuestionnaireSource qSource, int correctAnswers, int totalQuestions, int difficulty, double time)
+        {
+            int difficultyFactor, timeFactor;
 
-        
+            difficultyFactor = qSource.GetDifficultyFactor(difficulty);
+            timeFactor = qSource.GetTimeFactor(time);
+
+            return (((double)correctAnswers / (double)totalQuestions) * (double)difficultyFactor * (double)timeFactor);
+        }
+    }        
 }

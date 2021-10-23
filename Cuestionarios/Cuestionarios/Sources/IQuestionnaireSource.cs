@@ -11,5 +11,7 @@ namespace Cuestionarios.Sources
         Dictionary<int, string> CategoryDictionary { get; }
         Dictionary<int, string> DifficultyDictionary { get; }
         IEnumerable<Question> GetQuestions(string pDificulty, int pCategory, int pAmount);
+        int GetDifficultyFactor(int pDificulty);
+        int GetTimeFactor(double time);
     }
 }

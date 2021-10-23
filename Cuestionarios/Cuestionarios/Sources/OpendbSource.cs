@@ -157,5 +157,36 @@ namespace Cuestionarios.Sources
 
             return (questionsList);
         }
+
+        public int GetDifficultyFactor(int difficulty)
+        {
+            switch (difficulty)
+            {
+                case 0:
+                    return 1;
+                case 1:
+                    return 3;
+                case 2:
+                    return 5;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(difficulty));
+            }
+        }
+
+        public int GetTimeFactor(double time)
+        {
+            if (time < 5)
+            {
+                return 5;
+            }
+            else if (time >= 5 && time <= 20)
+            {
+                return 3;
+            }
+            else
+            {
+                return 1;
+            }
+        }
     }
 }

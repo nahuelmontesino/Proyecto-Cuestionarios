@@ -69,6 +69,7 @@ namespace UI
                 {
                     //TODO: hacer una funcion que calcule el puntaje 
                     //var score = session.getScore()
+                    //var score = _sessionController.getScore(pSource, correctAnswers, totalQuestions, difficulty, time);
                     _sessionController.SaveSession(_user, 11, time);
                 }
                 catch (NpgsqlException exc)
