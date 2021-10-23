@@ -77,5 +77,10 @@ namespace UI
 
             cmbDificulty.DataSource = _questionController.GetDifficultiesOfCategory(selectedSet, cmbCategory.Text);
         }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

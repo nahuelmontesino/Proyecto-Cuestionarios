@@ -36,8 +36,7 @@ namespace UI
             this.lblGame = new System.Windows.Forms.Label();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.lblUserData = new System.Windows.Forms.Label();
+            this.currentUser1 = new UI.CurrentUser(this.user.Username);
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             this.SuspendLayout();
@@ -123,29 +122,13 @@ namespace UI
             this.minimizeBox.TabStop = false;
             this.minimizeBox.Click += new System.EventHandler(this.minimizeBox_Click);
             // 
-            // lblUser
+            // currentUser1
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.BackColor = System.Drawing.Color.Transparent;
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(0, 0);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(54, 24);
-            this.lblUser.TabIndex = 26;
-            this.lblUser.Text = "User:";
-            // 
-            // lblUserData
-            // 
-            this.lblUserData.AutoSize = true;
-            this.lblUserData.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserData.ForeColor = System.Drawing.Color.White;
-            this.lblUserData.Location = new System.Drawing.Point(49, 0);
-            this.lblUserData.Name = "lblUserData";
-            this.lblUserData.Size = new System.Drawing.Size(25, 24);
-            this.lblUserData.TabIndex = 27;
-            this.lblUserData.Text = "...";
+            this.currentUser1.BackColor = System.Drawing.Color.Transparent;
+            this.currentUser1.Location = new System.Drawing.Point(12, 12);
+            this.currentUser1.Name = "currentUser1";
+            this.currentUser1.Size = new System.Drawing.Size(113, 27);
+            this.currentUser1.TabIndex = 26;
             // 
             // Menu
             // 
@@ -153,8 +136,7 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(348, 249);
-            this.Controls.Add(this.lblUserData);
-            this.Controls.Add(this.lblUser);
+            this.Controls.Add(this.currentUser1);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.lblGame);
@@ -179,7 +161,6 @@ namespace UI
         private System.Windows.Forms.Label lblGame;
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
-        private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Label lblUserData;
+        private CurrentUser currentUser1;
     }
 }

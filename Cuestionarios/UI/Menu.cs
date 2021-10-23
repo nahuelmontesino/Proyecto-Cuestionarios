@@ -17,9 +17,8 @@ namespace UI
             this.user = user;
             this._sessionController = _sessionController;
             this._questController = _questController;
-            this._setController = _setController;            
+            this._setController = _setController;
             InitializeComponent();
-            lblUserData.Text = user.Username;
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)

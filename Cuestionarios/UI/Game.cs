@@ -14,9 +14,11 @@ namespace UI
         private readonly QuestionController _questController;
         private int questionNumber;
         private List<Question> questionsList;
+        private readonly String userName;
 
-        public Game(Set pset, string pDifficulty, string pCategory, int pAmount)
+        public Game(Set pset, string pDifficulty, string pCategory, int pAmount, String usrName)
         {
+            this.userName = usrName;
             InitializeComponent();
             questionNumber = 1;
             lblQustionNumber.Text = questionNumber.ToString();
