@@ -31,10 +31,8 @@ namespace UI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            this.currentUser1 = new UI.CurrentUser(this.userName);
-            this.lblPlayer = new System.Windows.Forms.Label();
+            this.currentUser1 = new UI.CurrentUser(this._user.Username);
             this.lblGame = new System.Windows.Forms.Label();
-            this.lblUserNameData = new System.Windows.Forms.Label();
             this.txtMin = new System.Windows.Forms.TextBox();
             this.txtSeg = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -48,18 +46,6 @@ namespace UI
             this.btnQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblPlayer
-            // 
-            this.lblPlayer.AutoSize = true;
-            this.lblPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlayer.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer.Location = new System.Drawing.Point(12, 466);
-            this.lblPlayer.Name = "lblPlayer";
-            this.lblPlayer.Size = new System.Drawing.Size(73, 29);
-            this.lblPlayer.TabIndex = 1;
-            this.lblPlayer.Text = "Player:";
-            this.lblPlayer.UseWaitCursor = true;
-            // 
             // lblGame
             // 
             this.lblGame.AutoSize = true;
@@ -72,18 +58,6 @@ namespace UI
             this.lblGame.TabIndex = 2;
             this.lblGame.Text = "Game";
             this.lblGame.UseWaitCursor = true;
-            // 
-            // lblUserNameData
-            // 
-            this.lblUserNameData.AutoSize = true;
-            this.lblUserNameData.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserNameData.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserNameData.Location = new System.Drawing.Point(100, 472);
-            this.lblUserNameData.Name = "lblUserNameData";
-            this.lblUserNameData.Size = new System.Drawing.Size(22, 23);
-            this.lblUserNameData.TabIndex = 5;
-            this.lblUserNameData.Text = "...";
-            this.lblUserNameData.UseWaitCursor = true;
             // 
             // txtMin
             // 
@@ -219,6 +193,7 @@ namespace UI
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            //
             // currentUser1
             // 
             this.currentUser1.BackColor = System.Drawing.Color.Transparent;
@@ -243,10 +218,8 @@ namespace UI
             this.Controls.Add(this.btnOption1);
             this.Controls.Add(this.txtSeg);
             this.Controls.Add(this.txtMin);
-            this.Controls.Add(this.lblUserNameData);
             this.Controls.Add(this.lblQuestionNumber);
             this.Controls.Add(this.lblGame);
-            this.Controls.Add(this.lblPlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -257,10 +230,7 @@ namespace UI
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblPlayer;
         private System.Windows.Forms.Label lblGame;
-        private System.Windows.Forms.Label lblUserNameData;
         private System.Windows.Forms.TextBox txtMin;
         private System.Windows.Forms.TextBox txtSeg;
         private System.Windows.Forms.Timer timer1;

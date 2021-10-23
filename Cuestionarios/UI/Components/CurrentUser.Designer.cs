@@ -64,7 +64,7 @@ namespace UI
             this.Controls.Add(this.lblUserData);
             this.Controls.Add(this.lblUser);
             this.Name = "CurrentUser";
-            this.Size = new System.Drawing.Size(113, 27);
+            this.Size = new System.Drawing.Size(138, 27);
             this.ResumeLayout(false);
             this.PerformLayout();
 
