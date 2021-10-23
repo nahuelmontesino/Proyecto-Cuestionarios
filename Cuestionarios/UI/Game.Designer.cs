@@ -31,6 +31,7 @@ namespace UI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
+            this.currentUser1 = new UI.CurrentUser(this.userName);
             this.lblPlayer = new System.Windows.Forms.Label();
             this.lblGame = new System.Windows.Forms.Label();
             this.lblUserNameData = new System.Windows.Forms.Label();
@@ -218,6 +219,13 @@ namespace UI
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // currentUser1
+            // 
+            this.currentUser1.BackColor = System.Drawing.Color.Transparent;
+            this.currentUser1.Location = new System.Drawing.Point(12, 12);
+            this.currentUser1.Name = "currentUser1";
+            this.currentUser1.Size = new System.Drawing.Size(113, 27);
+            this.currentUser1.TabIndex = 26;
             // 
             // Game
             // 
@@ -228,6 +236,7 @@ namespace UI
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.Time);
+            this.Controls.Add(this.currentUser1);
             this.Controls.Add(this.btnOption4);
             this.Controls.Add(this.btnOption3);
             this.Controls.Add(this.btnOption2);
@@ -263,5 +272,6 @@ namespace UI
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Button btnQuit;
+        private CurrentUser currentUser1;
     }
 }
