@@ -19,10 +19,13 @@ namespace Cuestionarios.Models.DAL
             {
                 foreach (Question question in pQuestionList)
                 {
-                    //Add the question to the DB
-                    Set existing_set = iDbContext.Sets.Find(set.Id);
-                    question.Set = existing_set;
-                    dbSet.Add(question);
+                    if (!IsAlreadySaved(question.QuestionSentence))
+                    {
+                        //Add the question to the DB
+                        Set existing_set = iDbContext.Sets.Find(set.Id);
+                        question.Set = existing_set;
+                        dbSet.Add(question);
+                    }
                 }
 
                 iDbContext.SaveChanges();
@@ -82,6 +85,19 @@ namespace Cuestionarios.Models.DAL
                                                       .Distinct();
 
             return difficultiesKeys;
+        }
+
+        /// <summary>
+        /// Returns if the question is already in the database
+        /// </summary>
+        private bool IsAlreadySaved(string pQuestion)
+        {
+            IEnumerable<Question> questionsList = new List<Question>();
+            questionsList = Get();
+
+            Question result = questionsList.ToList().Find(s => s.QuestionSentence == pQuestion);
+
+            return result != null;
         }
     }
 }
