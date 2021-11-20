@@ -47,8 +47,6 @@ namespace Cuestionarios.Models.DAL
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
         {
-            try
-            {
                 IQueryable<TEntity> query = dbSet;
 
                 if (filter != null)
@@ -64,11 +62,6 @@ namespace Cuestionarios.Models.DAL
                 {
                     return query.ToList();
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
         }
 
 

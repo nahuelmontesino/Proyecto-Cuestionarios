@@ -16,9 +16,9 @@ namespace Cuestionarios.Controllers
             return iUOfW.UserRepository.GetByUserName(name);
         }
 
-        public void AddUser(string pUsername, string pPassword, bool pAdmin)
+        public void AddUser(string pUsername, string pPassword, bool pAdmin = false)
         {
-            if (GetUserByName(pUsername) == null)
+            if (iUOfW.UserRepository.GetByUserName(pUsername) == null)
             {
                 User usr = new User
                 {

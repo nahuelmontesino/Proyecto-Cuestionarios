@@ -8,6 +8,7 @@ namespace Cuestionarios.Models.DAL
 {
     public class QuestionRepository : Repository<Question, QuestionnaireDbContext>
     {
+        //private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
         public QuestionRepository(QuestionnaireDbContext pContext) : base(pContext)
         {
@@ -30,9 +31,9 @@ namespace Cuestionarios.Models.DAL
 
                 iDbContext.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new NpgsqlException("Error trying to load questions: " + ex.ToString());
+                throw new NpgsqlException("Error trying to load questions");
             }
         }
 
@@ -58,9 +59,9 @@ namespace Cuestionarios.Models.DAL
                 //hacer un Shuffle(questionsList);
                 questionsList.Take(pAmount);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new NpgsqlException("Error trying to get questions: ", ex);
+                throw new NpgsqlException("Error trying to get questions");
             }
 
             //foreach (Question question in questionsList)

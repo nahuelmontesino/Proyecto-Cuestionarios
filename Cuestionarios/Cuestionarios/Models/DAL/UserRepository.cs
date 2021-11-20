@@ -17,14 +17,18 @@ namespace Cuestionarios.Models.DAL
         /// </summary>
         public User GetByUserName(string pUserName)
         {
+
             try
             {
                 return Get(user => user.Username == pUserName).FirstOrDefault();
             }
             catch (Exception ex)
             {
-                throw new NpgsqlException(ex.ToString());
+                throw new NpgsqlException("Error try to get user", ex);
             }
+
+
+             
         }
     }
 }

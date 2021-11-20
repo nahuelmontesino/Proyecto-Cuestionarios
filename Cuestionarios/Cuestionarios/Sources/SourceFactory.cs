@@ -13,7 +13,7 @@ namespace Cuestionarios.Sources
             {
                 case "opentdb": return new OpendbSource();
                 default:
-                    throw new ArgumentException("Invalid type", "type");
+                    throw new ArgumentException("Invalid source type");
             }
         }
 

@@ -47,10 +47,9 @@ namespace UI
             this.lblNewUser.BackColor = System.Drawing.Color.Transparent;
             this.lblNewUser.Font = new System.Drawing.Font("Gadugi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewUser.ForeColor = System.Drawing.Color.White;
-            this.lblNewUser.Location = new System.Drawing.Point(218, 24);
-            this.lblNewUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNewUser.Location = new System.Drawing.Point(291, 30);
             this.lblNewUser.Name = "lblNewUser";
-            this.lblNewUser.Size = new System.Drawing.Size(114, 28);
+            this.lblNewUser.Size = new System.Drawing.Size(143, 35);
             this.lblNewUser.TabIndex = 4;
             this.lblNewUser.Text = "New User";
             this.lblNewUser.UseWaitCursor = true;
@@ -61,14 +60,12 @@ namespace UI
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.Black;
-            this.txtpass.Location = new System.Drawing.Point(117, 136);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(2);
+            this.txtpass.Location = new System.Drawing.Point(156, 167);
+            this.txtpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(310, 22);
+            this.txtpass.Size = new System.Drawing.Size(413, 27);
             this.txtpass.TabIndex = 7;
             this.txtpass.Text = "Password";
-            this.txtpass.Enter += new System.EventHandler(this.texpass_Enter);
-            this.txtpass.Leave += new System.EventHandler(this.texpass_Leave);
             // 
             // txtuser
             // 
@@ -76,14 +73,12 @@ namespace UI
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.Black;
-            this.txtuser.Location = new System.Drawing.Point(117, 87);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(2);
+            this.txtuser.Location = new System.Drawing.Point(156, 107);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(310, 22);
+            this.txtuser.Size = new System.Drawing.Size(413, 27);
             this.txtuser.TabIndex = 5;
             this.txtuser.Text = "User";
-            this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
-            this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
             // 
             // btnRegister
             // 
@@ -92,10 +87,10 @@ namespace UI
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.Black;
-            this.btnRegister.Location = new System.Drawing.Point(276, 195);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegister.Location = new System.Drawing.Point(368, 240);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(151, 38);
+            this.btnRegister.Size = new System.Drawing.Size(201, 47);
             this.btnRegister.TabIndex = 20;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -108,10 +103,10 @@ namespace UI
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtras.ForeColor = System.Drawing.Color.Black;
-            this.btnAtras.Location = new System.Drawing.Point(117, 195);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtras.Location = new System.Drawing.Point(156, 240);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(151, 38);
+            this.btnAtras.Size = new System.Drawing.Size(201, 47);
             this.btnAtras.TabIndex = 21;
             this.btnAtras.Text = "Back";
             this.btnAtras.UseVisualStyleBackColor = false;
@@ -121,10 +116,10 @@ namespace UI
             // 
             this.minimizeBox.BackColor = System.Drawing.Color.Transparent;
             this.minimizeBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBox.Image")));
-            this.minimizeBox.Location = new System.Drawing.Point(488, -1);
-            this.minimizeBox.Margin = new System.Windows.Forms.Padding(2);
+            this.minimizeBox.Location = new System.Drawing.Point(651, -1);
+            this.minimizeBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minimizeBox.Name = "minimizeBox";
-            this.minimizeBox.Size = new System.Drawing.Size(26, 18);
+            this.minimizeBox.Size = new System.Drawing.Size(35, 22);
             this.minimizeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.minimizeBox.TabIndex = 23;
             this.minimizeBox.TabStop = false;
@@ -134,10 +129,10 @@ namespace UI
             // 
             this.exitBox.BackColor = System.Drawing.Color.Transparent;
             this.exitBox.Image = ((System.Drawing.Image)(resources.GetObject("exitBox.Image")));
-            this.exitBox.Location = new System.Drawing.Point(518, -1);
-            this.exitBox.Margin = new System.Windows.Forms.Padding(2);
+            this.exitBox.Location = new System.Drawing.Point(691, -1);
+            this.exitBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitBox.Name = "exitBox";
-            this.exitBox.Size = new System.Drawing.Size(26, 18);
+            this.exitBox.Size = new System.Drawing.Size(35, 22);
             this.exitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.exitBox.TabIndex = 22;
             this.exitBox.TabStop = false;
@@ -145,10 +140,10 @@ namespace UI
             // 
             // NewUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(544, 268);
+            this.ClientSize = new System.Drawing.Size(725, 330);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.btnAtras);
@@ -157,7 +152,7 @@ namespace UI
             this.Controls.Add(this.txtuser);
             this.Controls.Add(this.lblNewUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewUser";

@@ -1,13 +1,6 @@
 ﻿using Cuestionarios.Controllers;
 using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -27,55 +20,28 @@ namespace UI
             InitializeComponent();
         }
 
-        private void txtuser_Enter(object sender, EventArgs e)
-        {
-            if (txtuser.Text == "User")
-            {
-                txtuser.Text = "";
-            }
-        }
-
-        private void txtuser_Leave(object sender, EventArgs e)
-        {
-            if (txtuser.Text == "")
-            {
-                txtuser.Text = "User";
-            }
-        }
-
-        private void texpass_Enter(object sender, EventArgs e)
-        {
-            if (txtpass.Text == "Password")
-            {
-                txtpass.Text = "";
-                txtpass.UseSystemPasswordChar = true;
-
-            }
-        }
-
-        private void texpass_Leave(object sender, EventArgs e)
-        {
-            if (txtpass.Text == "")
-            {
-                txtpass.Text = "Password";
-                txtpass.UseSystemPasswordChar = false;
-
-            }
-        }
-
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
             {
-                _usrController.AddUser(txtuser.Text, txtpass.Text, false);
-
-                MessageBox.Show("User added successfully");
-
-                this.Close();
+                if (!string.IsNullOrEmpty(txtuser.Text) && !string.IsNullOrEmpty(txtpass.Text))
+                {
+                    _usrController.AddUser(txtuser.Text, txtpass.Text);
+                    MessageBox.Show("User added successfully");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("You must enter all fields");
+                }
             }
             catch (NpgsqlException exc)
             {
                 MessageBox.Show("Error on the database operation: ", exc.Message);
+            }
+            catch(InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception exc)
             {

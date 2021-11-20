@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Models.Domain;
+using Npgsql;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -62,9 +63,28 @@ namespace UI
 
         private void btnSaveQuestion_Click(object sender, EventArgs e)
         {
-            _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value));
-            MessageBox.Show("Questions saved successfully");
+            try
+            {
+                _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
 
+                MessageBox.Show("Questions saved successfully");
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

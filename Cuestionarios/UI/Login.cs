@@ -114,13 +114,13 @@ namespace UI
                     }                    
                 }
             }
-            catch (NpgsqlException exc)
+            catch (NpgsqlException ex)
             {
-                MessageBox.Show("Error on the database operation: ", exc.Message);
+                MessageBox.Show(ex.Message);
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
-                MessageBox.Show("Unknown Error: ", exc.Message);
+                MessageBox.Show("Unknown Error");
             }
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
