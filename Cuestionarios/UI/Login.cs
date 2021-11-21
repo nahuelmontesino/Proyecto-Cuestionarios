@@ -13,6 +13,7 @@ namespace UI
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
         private readonly SourceController _sourceController;
+        private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController, SourceController sourceController)
         {
@@ -116,11 +117,13 @@ namespace UI
             }
             catch (NpgsqlException ex)
             {
+                logger.Debug(ex.ToString());
                 MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unknown Error");
+                logger.Debug(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

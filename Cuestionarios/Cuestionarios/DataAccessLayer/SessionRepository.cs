@@ -15,18 +15,25 @@ namespace Cuestionarios.Models.DAL
 
         public void SaveSession(User pUser, double pScoreValue, TimeSpan pTotalTime)
         {
-            User user = iDbContext.Users.Find(pUser.Id);
-
-            Session session = new Session
+            try
             {
-                TotalTime = pTotalTime,
-                Score = pScoreValue,
-                User = user,
-                Date = DateTime.Now
-            };
+                User user = iDbContext.Users.Find(pUser.Id);
 
-            dbSet.Add(session);
+                Session session = new Session
+                {
+                    TotalTime = pTotalTime,
+                    Score = pScoreValue,
+                    User = user,
+                    Date = DateTime.Now
+                };
 
+                dbSet.Add(session);
+
+            }
+            catch(Exception ex)
+            {
+                throw new NpgsqlException("Error trying to save session ", ex);
+            }     
         }
 
         public IEnumerable<Session> GetHighScores()
@@ -40,7 +47,7 @@ namespace Cuestionarios.Models.DAL
             }
             catch (Exception ex)
             {
-                throw new NpgsqlException("Error trying to get questions: ", ex);
+                throw new NpgsqlException("Error trying to get scores: ", ex);
             }
 
             return sessionList;

@@ -79,9 +79,7 @@ namespace UI
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
-                logger.Info(ex.StackTrace);
-                logger.Error(ex.StackTrace);
-                logger.Debug(ex.StackTrace);
+                logger.Debug(ex.ToString());
             }
             catch (NpgsqlException ex)
             {
@@ -90,7 +88,7 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                logger.Error(ex.StackTrace);
+                logger.Debug(ex.ToString);
                 
             }
         }

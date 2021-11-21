@@ -74,6 +74,7 @@ namespace Cuestionarios.Models.DAL
 
         public IEnumerable<int> GetCategoriesOfSet(Set pSet)
         {
+
             IEnumerable<int> categoriesKeys = Get(q => q.Set.Id == pSet.Id).Select(q => q.Category).Distinct();
 
             return categoriesKeys;

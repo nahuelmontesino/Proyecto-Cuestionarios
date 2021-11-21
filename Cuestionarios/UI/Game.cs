@@ -18,6 +18,7 @@ namespace UI
         private Stopwatch stopwatch;
         private int totalQuestions;
         private int correctAnswers;
+        private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public Game(List<Question> questionsList, SessionController sessionController, User user)
         {
@@ -72,21 +73,19 @@ namespace UI
                     //var score = _sessionController.getScore(pSource, correctAnswers, totalQuestions, difficulty, time);
                     _sessionController.SaveSession(_user, 11, time);
                 }
-                catch (NpgsqlException exc)
+                catch (NpgsqlException ex)
                 {
-                    MessageBox.Show("Error on the database operation: ", exc.Message);
+                    logger.Debug(ex.ToString());
+                    MessageBox.Show(ex.Message);
                 }
-                catch (Exception exc)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Unknown Error: ", exc.Message);
-
+                    logger.Debug(ex.ToString());
+                    MessageBox.Show(ex.Message);
                 }
 
                 this.Close();
             }
-
-            
-
         }
 
         private void btnplay_Click(object sender, EventArgs e)

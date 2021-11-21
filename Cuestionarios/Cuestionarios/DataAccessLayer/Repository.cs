@@ -16,15 +16,8 @@ namespace Cuestionarios.Models.DAL
 
         public Repository(TDbContext pContext)
         {
-            try
-            {
-                iDbContext = pContext;
-                dbSet = pContext.Set<TEntity>();
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
+            iDbContext = pContext;
+            dbSet = pContext.Set<TEntity>();
         }
 
         /// <summary>
@@ -32,15 +25,7 @@ namespace Cuestionarios.Models.DAL
         /// </summary>
         public void Add(TEntity pEntity)
         {
-            try
-            {
-                dbSet.Add(pEntity);
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
-
+            dbSet.Add(pEntity);
         }
 
         public IEnumerable<TEntity> Get(
@@ -70,20 +55,12 @@ namespace Cuestionarios.Models.DAL
         /// </summary>
         public void Delete(TEntity pEntity)
         {
-            try
+            if (iDbContext.Entry(pEntity).State == EntityState.Detached)
             {
-                if (iDbContext.Entry(pEntity).State == EntityState.Detached)
-                {
-                    dbSet.Attach(pEntity);
-                }
-
-                dbSet.Remove(pEntity);
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
+                dbSet.Attach(pEntity);
             }
 
+            dbSet.Remove(pEntity);
         }
     }
 }
