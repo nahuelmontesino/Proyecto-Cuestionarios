@@ -15,6 +15,8 @@ namespace UI
         private readonly SessionController _sessionController;
         private Set setSelected;
         private User _user = null;
+        private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public AdminPanel(SetController setController, SessionController sessionController, SourceController sourceController, QuestionController questionController, User user)
         {
             _sessionController = sessionController;
@@ -72,10 +74,14 @@ namespace UI
             catch (NullReferenceException ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.Debug("The API doesn't have enough questions for your query:" + ex.StackTrace);
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.Info(ex.StackTrace);
+                logger.Error(ex.StackTrace);
+                logger.Debug(ex.StackTrace);
             }
             catch (NpgsqlException ex)
             {
@@ -84,6 +90,8 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.Error(ex.StackTrace);
+                
             }
         }
 
