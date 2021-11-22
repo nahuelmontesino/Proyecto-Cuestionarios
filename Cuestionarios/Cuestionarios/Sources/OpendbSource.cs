@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 using System;
-using Cuestionarios.Models.Domain;
+using Cuestionarios.Domain;
 
 namespace Cuestionarios.Sources
 {

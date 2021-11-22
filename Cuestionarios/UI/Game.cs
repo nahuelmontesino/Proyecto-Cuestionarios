@@ -3,9 +3,9 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Collections.Generic;
 using Cuestionarios.Controllers;
-using Cuestionarios.Models.Domain;
 using System.Linq;
 using Npgsql;
+using Cuestionarios.Domain;
 
 namespace UI
 {

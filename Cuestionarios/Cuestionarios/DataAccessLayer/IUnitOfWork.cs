@@ -1,4 +1,4 @@
-﻿namespace Cuestionarios.Models.DAL
+﻿namespace Cuestionarios.DataAccessLayer
 {
     interface IUnitOfWork
     {

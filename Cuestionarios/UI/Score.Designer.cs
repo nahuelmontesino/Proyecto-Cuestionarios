@@ -1,4 +1,6 @@
 ﻿
+using Cuestionarios.Domain;
+
 namespace UI
 {
     partial class Score
@@ -72,7 +74,7 @@ namespace UI
             // 
             // sessionBindingSource
             // 
-            this.sessionBindingSource.DataSource = typeof(Cuestionarios.Models.Domain.Session);
+            this.sessionBindingSource.DataSource = typeof(Session);
             // 
             // minimizeBox
             // 

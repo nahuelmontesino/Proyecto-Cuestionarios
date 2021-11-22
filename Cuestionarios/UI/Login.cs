@@ -1,5 +1,5 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.Models.Domain;
+using Cuestionarios.Domain;
 using Npgsql;
 using System;
 using System.Windows.Forms;

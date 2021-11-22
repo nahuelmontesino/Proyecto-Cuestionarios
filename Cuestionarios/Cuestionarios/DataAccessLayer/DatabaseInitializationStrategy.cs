@@ -1,7 +1,7 @@
-﻿using Cuestionarios.Models.Domain;
+﻿using Cuestionarios.Domain;
 using System.Data.Entity;
 
-namespace Cuestionarios.Models.DAL
+namespace Cuestionarios.DataAccessLayer
 {
     class DatabaseInitializationStrategy : DropCreateDatabaseAlways<QuestionnaireDbContext>
     {
