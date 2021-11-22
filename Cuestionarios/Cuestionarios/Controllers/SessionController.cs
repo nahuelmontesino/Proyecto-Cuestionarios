@@ -3,6 +3,7 @@ using Cuestionarios.DataAccessLayer;
 using System;
 using Cuestionarios.Sources;
 using Cuestionarios.Domain;
+using System.Linq;
 
 namespace Cuestionarios.Controllers
 {
@@ -22,14 +23,17 @@ namespace Cuestionarios.Controllers
             iUOfW.Complete();
         }
 
-        public double getScore(IQuestionnaireSource qSource, int correctAnswers, int totalQuestions, int difficulty, double time)
+        public double GetScore(Set set, int correctAnswers, int totalQuestions, string difficulty, double time)
         {
             int difficultyFactor, timeFactor;
 
-            difficultyFactor = qSource.GetDifficultyFactor(difficulty);
-            timeFactor = qSource.GetTimeFactor(time);
+            var source = SourceFactory.GetSourceByName(set.Name);
+            int difficultyKey = source.DifficultyDictionary.FirstOrDefault(x => x.Value == difficulty).Key;
 
-            return (((double)correctAnswers / (double)totalQuestions) * (double)difficultyFactor * (double)timeFactor);
+            difficultyFactor = source.GetDifficultyFactor(difficultyKey);
+            timeFactor = source.GetTimeFactor(time);
+
+            return ((double)correctAnswers / (double)totalQuestions) * (double)difficultyFactor * (double)timeFactor;
         }
     }        
 }

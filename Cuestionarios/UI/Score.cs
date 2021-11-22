@@ -11,10 +11,12 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questController;
         private readonly SessionController _sessionController;
+        private readonly SourceController _sourceController;
         private User user = null;
-        public Score(SessionController sessionController, User user)
+        public Score(SessionController sessionController, SourceController sourceController, User user)
         {
             _sessionController = sessionController;
+            _sourceController = sourceController;
             this.user = user;
             InitializeComponent();
 

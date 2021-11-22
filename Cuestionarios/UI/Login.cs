@@ -101,7 +101,7 @@ namespace UI
                 {
                     if(usr.Admin)
                     {
-                        AdminPanel admin = new AdminPanel(_setController, _sessionController, _sourceController, _questionController, usr);
+                        AdminPanel admin = new AdminPanel(_setController, _sessionController, _questionController, usr, _sourceController);
                         this.Hide();
                         admin.ShowDialog();
                         this.Show();

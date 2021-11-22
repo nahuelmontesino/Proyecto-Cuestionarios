@@ -1,6 +1,7 @@
 ﻿using Cuestionarios.DataAccessLayer;
 using Cuestionarios.Domain;
 using Cuestionarios.Sources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,10 +25,20 @@ namespace Cuestionarios.Controllers
         public IEnumerable<Question> GetQuestions(Set pSet,string pDifficulty, string pCategory, int pAmount)
         {
             IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
-            int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
-            int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
+            var questionsList = new List<Question>();
 
-            return iUOfW.QuestionRepository.GetQuestions(pSet, difficulty, category, pAmount);
+            if (source.DifficultyDictionary.ContainsValue(pDifficulty) && source.CategoryDictionary.ContainsValue(pCategory))
+            {
+                int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
+                int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
+                questionsList = iUOfW.QuestionRepository.GetQuestions(pSet, difficulty, category, pAmount).ToList();
+            }
+            else
+            {
+                throw new ArgumentException("One of the parameters entered is not valid");
+            }
+
+            return questionsList;
         }
 
         /// <summary>

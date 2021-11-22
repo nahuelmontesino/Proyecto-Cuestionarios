@@ -17,7 +17,7 @@ namespace UI
         private User _user = null;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public AdminPanel(SetController setController, SessionController sessionController, SourceController sourceController, QuestionController questionController, User user)
+        public AdminPanel(SetController setController, SessionController sessionController, QuestionController questionController, User user, SourceController sourceController)
         {
             _sessionController = sessionController;
             _questionController = questionController;

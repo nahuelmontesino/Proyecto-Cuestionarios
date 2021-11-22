@@ -1,13 +1,7 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Domain;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -28,8 +22,8 @@ namespace UI
             _setController = setController;
             _questionController = questionController;
             InitializeComponent();
-            
-
+            // Load the sets into the comboBox
+            cmbSet.DataSource = _setController.GetAllSets().ToList();
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
@@ -48,14 +42,6 @@ namespace UI
             Menu menu = new Menu(_setController, _questionController, _sessionController, _user);
             menu.ShowDialog();
             this.Close();
-        }
-
-        private void CreateGame_Load(object sender, EventArgs e)
-        {
-            btnNewGame.Enabled = false;
-
-            // Load the sets into the comboBox
-            cmbSet.DataSource = _setController.GetAllSets().ToList();
         }
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,7 +87,7 @@ namespace UI
             {
                 var questionsList = _questionController.GetQuestions(selectedSet, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
                 this.Hide();
-                Game game = new Game(questionsList, _sessionController, _user);
+                Game game = new Game(questionsList, _sessionController, _user, cmbDificulty.Text, selectedSet);
                 game.ShowDialog();
                 this.Show();
             }
@@ -110,9 +96,14 @@ namespace UI
                 MessageBox.Show(ex.Message);
                 logger.Debug(ex.ToString());
             }
-           
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Debug(ex.ToString());
+            }
 
-           
+
+
         }
 
         private void nupAmount_ValueChanged(object sender, EventArgs e)

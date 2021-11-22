@@ -235,7 +235,6 @@ namespace UI
             this.Name = "CreateGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateGame";
-            this.Load += new System.EventHandler(this.CreateGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupAmount)).EndInit();

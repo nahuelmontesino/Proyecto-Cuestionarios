@@ -6,25 +6,32 @@ using Cuestionarios.Controllers;
 using System.Linq;
 using Npgsql;
 using Cuestionarios.Domain;
+using Cuestionarios.Sources;
 
 namespace UI
 {
     public partial class Game : Form
     {
         private readonly SessionController _sessionController;
+        private readonly SourceController _sourceController;
         private readonly User _user;
         private int questionNumber;
         private List<Question> _questionsList;
+        private readonly string difficulty;
         private Stopwatch stopwatch;
         private int totalQuestions;
         private int correctAnswers;
+        private readonly Set selectedSet;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> questionsList, SessionController sessionController, User user)
+        public Game(List<Question> questionsList, SessionController sessionController, User user, string pDifficulty, Set pSet)
         {
             _sessionController = sessionController;
             _questionsList = questionsList;
             _user = user;
+            selectedSet = pSet;
+            difficulty = pDifficulty;
+
             InitializeComponent();
             questionNumber = 1;
             lblQuestionNumber.Text = questionNumber.ToString();
@@ -65,13 +72,12 @@ namespace UI
                 stopwatch.Stop();
 
                 var time = stopwatch.Elapsed;
+                double timeNumber = Convert.ToDouble(time.Seconds.ToString());
 
                 try
                 {
-                    //TODO: hacer una funcion que calcule el puntaje 
-                    //var score = session.getScore()
-                    //var score = _sessionController.getScore(pSource, correctAnswers, totalQuestions, difficulty, time);
-                    _sessionController.SaveSession(_user, 11, time);
+                    var score = _sessionController.GetScore(selectedSet, correctAnswers, totalQuestions, difficulty, timeNumber);
+                    _sessionController.SaveSession(_user, score, time);
                 }
                 catch (NpgsqlException ex)
                 {
