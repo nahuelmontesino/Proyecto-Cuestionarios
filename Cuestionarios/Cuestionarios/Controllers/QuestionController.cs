@@ -67,7 +67,7 @@ namespace Cuestionarios.Controllers
             int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
             int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
 
-            var numbersQuestions = iUOfW.QuestionRepository.GetNumberQuestions(pSet, difficulty, category);
+            var numbersQuestions = iUOfW.QuestionRepository.GetMaxNumberQuestions(pSet, difficulty, category);
             return numbersQuestions;
         }
 

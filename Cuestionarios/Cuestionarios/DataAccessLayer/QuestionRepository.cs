@@ -49,15 +49,8 @@ namespace Cuestionarios.DataAccessLayer
 
 
                 questionsList = query.ToList();
+            }
 
-                if (questionsList.Count < pAmount)
-                {
-                    throw new InvalidOperationException("The number of available questions is less than requested");
-                }
-
-            catch (Exception ex)
-                //questionsList.;
-                throw new NpgsqlException("Error trying to get questions: ", ex);
             catch (Exception)
             {
                 throw new NpgsqlException("Error trying to get questions");
@@ -68,12 +61,18 @@ namespace Cuestionarios.DataAccessLayer
                 Shuffle(question.Options); ;
             }
 
+            if (questionsList.Count < pAmount)
+            {
+                throw new InvalidOperationException("The number of available questions is less than requested");
+            }
+
             return questionsList.Take(pAmount);
         }
 
-        public int GetNumberQuestions(Set pSet, int pDifficulty, int pCategory)
+        public int GetMaxNumberQuestions(Set pSet, int pDifficulty, int pCategory)
         {
-            int numberQuestions = new int();
+            int numberQuestions = 0;
+
             try
             {
                 var number = Get(question => question.Set.Id == pSet.Id &&
@@ -81,14 +80,12 @@ namespace Cuestionarios.DataAccessLayer
                                             question.Category == pCategory);
 
                 numberQuestions = number.Count();
-       
+
             }
             catch (Exception ex)
             {
                 throw new NpgsqlException("Error trying to get number of questions: ", ex);
             }
-
-
 
             return numberQuestions;
         }
@@ -140,7 +137,7 @@ namespace Cuestionarios.DataAccessLayer
             pSentence = pSentence.Replace("&uacute;", "ú");
             pSentence = pSentence.Replace("&ocirc;", "ô");
 
-            return difficultiesKeys;
+            return pSentence;
         }
 
         /// <summary>
@@ -153,7 +150,7 @@ namespace Cuestionarios.DataAccessLayer
 
             Question result = questionsList.ToList().Find(s => s.QuestionSentence == pQuestion);
 
-            return difficultiesKeys;
+            return result != null;
         }
     }
 }

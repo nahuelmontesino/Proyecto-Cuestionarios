@@ -19,6 +19,8 @@ namespace UI
         private readonly SessionController _sessionController;
         private Set selectedSet;
         private readonly User _user = null;
+        private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public CreateGame(SetController setController, QuestionController questionController, SessionController sessionController, User user)
         {
             _user = user;
@@ -95,12 +97,22 @@ namespace UI
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-           var questionsList = _questionController.GetQuestions(selectedSet, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
+            try
+            {
+                var questionsList = _questionController.GetQuestions(selectedSet, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
+                this.Hide();
+                Game game = new Game(questionsList, _sessionController, _user);
+                game.ShowDialog();
+                this.Show();
+            }
+            catch(InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Debug(ex.ToString());
+            }
+           
 
-            this.Hide();
-            Game game = new Game(questionsList, _sessionController, _user);
-            game.ShowDialog();
-            this.Show();
+           
         }
 
         private void nupAmount_ValueChanged(object sender, EventArgs e)
