@@ -8,8 +8,7 @@ namespace Cuestionarios.DataAccessLayer
 {
     public class QuestionRepository : Repository<Question, QuestionnaireDbContext>
     {
-        //private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-
+        private static readonly Random rng = new Random();
         public QuestionRepository(QuestionnaireDbContext pContext) : base(pContext)
         {
         }
@@ -50,26 +49,45 @@ namespace Cuestionarios.DataAccessLayer
 
 
                 questionsList = query.ToList();
-
-                if (questionsList.Count < pAmount)
-                {
-                    throw new InvalidOperationException("The number of available questions is less than requested");
-                }
-
-                //hacer un Shuffle(questionsList);
-                questionsList.Take(pAmount);
             }
+
             catch (Exception)
             {
                 throw new NpgsqlException("Error trying to get questions");
             }
 
-            //foreach (Question question in questionsList)
-            //{
-            //    Shuffle(question.Options); ;
-            //}
+            foreach (Question question in questionsList)
+            {
+                Shuffle(question.Options); ;
+            }
 
-            return questionsList;
+            if (questionsList.Count < pAmount)
+            {
+                throw new InvalidOperationException("The number of available questions is less than requested");
+            }
+
+            return questionsList.Take(pAmount);
+        }
+
+        public int GetMaxNumberQuestions(Set pSet, int pDifficulty, int pCategory)
+        {
+            int numberQuestions = 0;
+
+            try
+            {
+                var number = Get(question => question.Set.Id == pSet.Id &&
+                                            question.Difficulty == pDifficulty &&
+                                            question.Category == pCategory);
+
+                numberQuestions = number.Count();
+
+            }
+            catch (Exception ex)
+            {
+                throw new NpgsqlException("Error trying to get number of questions: ", ex);
+            }
+
+            return numberQuestions;
         }
 
         public IEnumerable<int> GetCategoriesOfSet(Set pSet)
@@ -87,6 +105,39 @@ namespace Cuestionarios.DataAccessLayer
                                                       .Distinct();
 
             return difficultiesKeys;
+        }
+
+        private void Shuffle<T>(IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+
+        private string CleanString(string pSentence)
+        {
+            pSentence = pSentence.Replace("&amp;", "&");
+            pSentence = pSentence.Replace("&quot;", "\"");
+            pSentence = pSentence.Replace("&ldquo;", "`");
+            pSentence = pSentence.Replace("&rdquo;", "´");
+            pSentence = pSentence.Replace("&#039;", "'");
+            pSentence = pSentence.Replace("&rsquo;", "'");
+            pSentence = pSentence.Replace("&ouml;", "ö");
+            pSentence = pSentence.Replace("&uuml;", "ü");
+            pSentence = pSentence.Replace("&aacute;", "á");
+            pSentence = pSentence.Replace("&eacute;", "é");
+            pSentence = pSentence.Replace("&iacute;", "í");
+            pSentence = pSentence.Replace("&oacute;", "ó");
+            pSentence = pSentence.Replace("&uacute;", "ú");
+            pSentence = pSentence.Replace("&ocirc;", "ô");
+
+            return pSentence;
         }
 
         /// <summary>
