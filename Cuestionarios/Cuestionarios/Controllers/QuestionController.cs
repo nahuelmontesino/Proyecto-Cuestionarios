@@ -17,6 +17,8 @@ namespace Cuestionarios.Controllers
             List<Question> questionsList = source.GetQuestions(pDificulty, categoryNumber, pAmount).ToList();
 
             iUOfW.QuestionRepository.SaveQuestions(pSet, questionsList);
+
+            iUOfW.Complete();
         }
 
         public IEnumerable<Question> GetQuestions(Set pSet,string pDifficulty, string pCategory, int pAmount)

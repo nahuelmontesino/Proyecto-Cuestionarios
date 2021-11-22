@@ -19,16 +19,16 @@ namespace Cuestionarios.DataAccessLayer
             {
                 foreach (Question question in pQuestionList)
                 {
-                    if (!IsAlreadySaved(question.QuestionSentence))
+                    if (!IsAlreadySaved(CleanString(question.QuestionSentence)))
                     {
                         //Add the question to the DB
                         Set existing_set = iDbContext.Sets.Find(set.Id);
+
                         question.Set = existing_set;
+                        question.QuestionSentence = CleanString(question.QuestionSentence);
                         dbSet.Add(question);
                     }
                 }
-
-                iDbContext.SaveChanges();
             }
             catch (Exception)
             {
@@ -107,6 +107,9 @@ namespace Cuestionarios.DataAccessLayer
             return difficultiesKeys;
         }
 
+        /// <summary>
+        /// Question list shuffle
+        /// </summary>
         private void Shuffle<T>(IList<T> list)
         {
             int n = list.Count;
@@ -120,6 +123,9 @@ namespace Cuestionarios.DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Clear sentence string to save in database
+        /// </summary>
         private string CleanString(string pSentence)
         {
             pSentence = pSentence.Replace("&amp;", "&");
