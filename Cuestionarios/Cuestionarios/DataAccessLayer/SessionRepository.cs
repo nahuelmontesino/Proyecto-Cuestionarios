@@ -27,7 +27,7 @@ namespace Cuestionarios.DataAccessLayer
                     Date = DateTime.Now
                 };
 
-                dbSet.Add(session);
+                Add(session);
 
             }
             catch(Exception ex)
