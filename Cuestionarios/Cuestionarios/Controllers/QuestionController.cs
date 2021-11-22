@@ -61,5 +61,15 @@ namespace Cuestionarios.Controllers
             return difficulties;
         }
 
+        public int GetNumberQuestions(Set pSet, string pCategory, string pDifficulty)
+        {
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
+            int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
+            int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
+
+            var numbersQuestions = iUOfW.QuestionRepository.GetNumberQuestions(pSet, difficulty, category);
+            return numbersQuestions;
+        }
+
     }
 }

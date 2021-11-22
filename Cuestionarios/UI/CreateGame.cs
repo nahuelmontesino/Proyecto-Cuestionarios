@@ -26,6 +26,7 @@ namespace UI
             _setController = setController;
             _questionController = questionController;
             InitializeComponent();
+            
 
         }
 
@@ -68,6 +69,21 @@ namespace UI
             nupAmount.Enabled = true;
 
             btnNewGame.Enabled = true;
+
+            this.nupAmount.Maximum = _questionController.GetNumberQuestions(selectedSet, cmbCategory.Text, cmbDificulty.Text);
+           
+        }
+
+        private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
+        {
+            int maxAmount = _questionController.GetNumberQuestions(selectedSet, cmbCategory.Text, cmbDificulty.Text);
+
+            if (!(e.KeyData == Keys.Back || e.KeyData == Keys.Delete))
+                if (nupAmount.Value >= maxAmount || e.KeyValue == 109)
+                {
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                }
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,6 +101,11 @@ namespace UI
             Game game = new Game(questionsList, _sessionController, _user);
             game.ShowDialog();
             this.Show();
+        }
+
+        private void nupAmount_ValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
