@@ -10,6 +10,7 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questController;
         private readonly SessionController _sessionController;
+        private readonly SourceController _sourceController;
         private readonly User user;
 
         public Menu(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
@@ -18,6 +19,7 @@ namespace UI
             this._sessionController = _sessionController;
             this._questController = _questController;
             this._setController = _setController;
+
             InitializeComponent();
         }
 
@@ -33,7 +35,7 @@ namespace UI
 
         private void btnHighScore_Click(object sender, EventArgs e)
         {
-            Score score = new Score(_sessionController, user);
+            Score score = new Score(_sessionController, _sourceController, user);
             this.Hide();
             score.ShowDialog();
             this.Close();

@@ -6,21 +6,25 @@ using Cuestionarios.Controllers;
 using System.Linq;
 using Npgsql;
 using Cuestionarios.Domain;
+using Cuestionarios.Sources;
 
 namespace UI
 {
     public partial class Game : Form
     {
         private readonly SessionController _sessionController;
+        private readonly SourceController _sourceController;
         private readonly User _user;
         private int questionNumber;
         private List<Question> _questionsList;
+        private readonly int difficulty;
         private Stopwatch stopwatch;
         private int totalQuestions;
         private int correctAnswers;
+        private IQuestionnaireSource pSource;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> questionsList, SessionController sessionController, User user)
+        public Game(List<Question> questionsList, SessionController sessionController, User user, String pDifficulty, Set pSet)
         {
             _sessionController = sessionController;
             _questionsList = questionsList;
@@ -29,6 +33,11 @@ namespace UI
             questionNumber = 1;
             lblQuestionNumber.Text = questionNumber.ToString();
 
+            pSource = SourceFactory.GetSourceByName(pSet.Name);
+            int difficulty = pSource.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
+
+            //var difficulty = sourceController.GetAllDifficulties(setName).FirstOrDefault(x => x == cmbDificulty);
+            //difficulty =  pSource.DifficultyDictionary.FirstOrDefault(x => x.Value == cmbDificulty).Key;
             stopwatch = new Stopwatch();
             totalQuestions = questionsList.Count;
             timer1.Start();
@@ -65,13 +74,14 @@ namespace UI
                 stopwatch.Stop();
 
                 var time = stopwatch.Elapsed;
+                double timeNumber = Convert.ToDouble(time.Seconds.ToString());
 
                 try
                 {
                     //TODO: hacer una funcion que calcule el puntaje 
                     //var score = session.getScore()
-                    //var score = _sessionController.getScore(pSource, correctAnswers, totalQuestions, difficulty, time);
-                    _sessionController.SaveSession(_user, 11, time);
+                    var score = _sessionController.getScore(pSource, correctAnswers, totalQuestions, difficulty, timeNumber);
+                    _sessionController.SaveSession(_user, score, time);
                 }
                 catch (NpgsqlException ex)
                 {
