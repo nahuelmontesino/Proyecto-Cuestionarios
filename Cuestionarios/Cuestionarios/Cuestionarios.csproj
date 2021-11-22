@@ -101,11 +101,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLayer\QuestionController.cs" />
-    <Compile Include="BusinessLayer\SessionController.cs" />
-    <Compile Include="BusinessLayer\SetController.cs" />
-    <Compile Include="BusinessLayer\SourceController.cs" />
-    <Compile Include="BusinessLayer\UserController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SetController.cs" />
+    <Compile Include="Controllers\SourceController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccessLayer\CuestionaryDbContext.cs" />
     <Compile Include="DataAccessLayer\DatabaseInitializationStrategy.cs" />
     <Compile Include="DataAccessLayer\Mappings\OptionMap.cs" />
