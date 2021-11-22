@@ -1,10 +1,10 @@
-﻿using Cuestionarios.Models.Domain;
+﻿using Cuestionarios.Domain;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cuestionarios.Models.DAL
+namespace Cuestionarios.DataAccessLayer
 {
     public class QuestionRepository : Repository<Question, QuestionnaireDbContext>
     {
@@ -19,18 +19,20 @@ namespace Cuestionarios.Models.DAL
             {
                 foreach (Question question in pQuestionList)
                 {
-                    //Add the question to the DB
-                    Set existing_set = iDbContext.Sets.Find(set.Id);
-                    question.Set = existing_set;
-                    question.QuestionSentence = CleanString(question.QuestionSentence);//ver
-                    dbSet.Add(question);
+                    if (!IsAlreadySaved(question.QuestionSentence))
+                    {
+                        //Add the question to the DB
+                        Set existing_set = iDbContext.Sets.Find(set.Id);
+                        question.Set = existing_set;
+                        dbSet.Add(question);
+                    }
                 }
 
                 iDbContext.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new NpgsqlException("Error trying to load questions: " + ex.ToString());
+                throw new NpgsqlException("Error trying to load questions");
             }
         }
 
@@ -53,12 +55,12 @@ namespace Cuestionarios.Models.DAL
                     throw new InvalidOperationException("The number of available questions is less than requested");
                 }
 
-                Shuffle(questionsList); 
-                //questionsList.;
-            }
             catch (Exception ex)
-            {
+                //questionsList.;
                 throw new NpgsqlException("Error trying to get questions: ", ex);
+            catch (Exception)
+            {
+                throw new NpgsqlException("Error trying to get questions");
             }
 
             foreach (Question question in questionsList)
@@ -93,6 +95,7 @@ namespace Cuestionarios.Models.DAL
 
         public IEnumerable<int> GetCategoriesOfSet(Set pSet)
         {
+
             IEnumerable<int> categoriesKeys = Get(q => q.Set.Id == pSet.Id).Select(q => q.Category).Distinct();
 
             return categoriesKeys;
@@ -136,8 +139,21 @@ namespace Cuestionarios.Models.DAL
             pSentence = pSentence.Replace("&oacute;", "ó");
             pSentence = pSentence.Replace("&uacute;", "ú");
             pSentence = pSentence.Replace("&ocirc;", "ô");
-            pSentence = pSentence.Replace("&ucirc;", "û");
-            return pSentence;
+
+            return difficultiesKeys;
+        }
+
+        /// <summary>
+        /// Returns if the question is already in the database
+        /// </summary>
+        private bool IsAlreadySaved(string pQuestion)
+        {
+            IEnumerable<Question> questionsList = new List<Question>();
+            questionsList = Get();
+
+            Question result = questionsList.ToList().Find(s => s.QuestionSentence == pQuestion);
+
+            return difficultiesKeys;
         }
     }
 }

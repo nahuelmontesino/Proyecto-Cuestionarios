@@ -1,5 +1,5 @@
-﻿using Cuestionarios.Models.DAL;
-using Cuestionarios.Models.Domain;
+﻿using Cuestionarios.DataAccessLayer;
+using Cuestionarios.Domain;
 using System.Collections.Generic;
 
 

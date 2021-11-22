@@ -1,7 +1,7 @@
-﻿using Cuestionarios.Models.Domain;
+﻿using Cuestionarios.Domain;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Cuestionarios.Models.DAL.Mappings
+namespace Cuestionarios.DataAccessLayer.Mappings
 {
     public class QuestionMap : EntityTypeConfiguration<Question>
     {

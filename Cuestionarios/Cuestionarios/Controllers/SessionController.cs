@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Cuestionarios.Models.DAL;
-using Cuestionarios.Models.Domain;
+using Cuestionarios.DataAccessLayer;
 using System;
 using Cuestionarios.Sources;
+using Cuestionarios.Domain;
 
 namespace Cuestionarios.Controllers
 {

@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.Models.Domain;
+using Cuestionarios.Domain;
+using Npgsql;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace UI
         private readonly SessionController _sessionController;
         private Set setSelected;
         private User _user = null;
+        private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public AdminPanel(SetController setController, SessionController sessionController, SourceController sourceController, QuestionController questionController, User user)
         {
             _sessionController = sessionController;
@@ -62,9 +65,32 @@ namespace UI
 
         private void btnSaveQuestion_Click(object sender, EventArgs e)
         {
-            _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value));
-            MessageBox.Show("Questions saved successfully");
+            try
+            {
+                _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
 
+                MessageBox.Show("Questions saved successfully");
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Debug("The API doesn't have enough questions for your query:" + ex.StackTrace);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Debug(ex.ToString());
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Debug(ex.ToString);
+                
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

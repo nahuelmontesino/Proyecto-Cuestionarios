@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 using System;
-using Cuestionarios.Models.Domain;
+using Cuestionarios.Domain;
 
 namespace Cuestionarios.Sources
 {
@@ -80,20 +80,8 @@ namespace Cuestionarios.Sources
             }
             catch (WebException ex)
             {
-                WebResponse mErrorResponse = ex.Response;
-                using (Stream mResponseStream = mErrorResponse.GetResponseStream())
-                {
-                    StreamReader mReader = new StreamReader(mResponseStream, Encoding.GetEncoding("utf-8"));
-                    string mErrorText = mReader.ReadToEnd();
-
-                    Console.WriteLine("Error: {0}", mErrorText);
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: {0}", ex.Message);
-                return null;
+                var mErrorResponse = ex.Message;
+                throw new Exception("error trying to get the data from the api");
             }
         }
 
@@ -122,6 +110,15 @@ namespace Cuestionarios.Sources
 
 
             dynamic mResponseJSON = CallTheAPI(apiUrl);
+
+            if (mResponseJSON.response_code == 1)
+            {
+                throw new NullReferenceException("The API doesn't have enough questions for your query");
+            }
+            else if (mResponseJSON.response_code == 2)
+            {
+                throw new ArgumentException("One of the parameters entered is not valid");
+            }
 
             List<Question> questionsList = new List<Question>();
 

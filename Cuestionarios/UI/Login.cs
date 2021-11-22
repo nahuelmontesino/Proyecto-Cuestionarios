@@ -1,5 +1,5 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.Models.Domain;
+using Cuestionarios.Domain;
 using Npgsql;
 using System;
 using System.Windows.Forms;
@@ -13,6 +13,7 @@ namespace UI
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
         private readonly SourceController _sourceController;
+        private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController, SourceController sourceController)
         {
@@ -114,13 +115,15 @@ namespace UI
                     }                    
                 }
             }
-            catch (NpgsqlException exc)
+            catch (NpgsqlException ex)
             {
-                MessageBox.Show("Error on the database operation: ", exc.Message);
+                logger.Debug(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
-                MessageBox.Show("Unknown Error: ", exc.Message);
+                logger.Debug(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

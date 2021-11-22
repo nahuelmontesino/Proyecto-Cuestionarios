@@ -1,11 +1,10 @@
-﻿using Npgsql;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Cuestionarios.Models.DAL
+namespace Cuestionarios.DataAccessLayer
 {
     public abstract class Repository<TEntity, TDbContext>: IRepository<TEntity>
         where TEntity: class
@@ -16,15 +15,8 @@ namespace Cuestionarios.Models.DAL
 
         public Repository(TDbContext pContext)
         {
-            try
-            {
-                iDbContext = pContext;
-                dbSet = pContext.Set<TEntity>();
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
+            iDbContext = pContext;
+            dbSet = pContext.Set<TEntity>();
         }
 
         /// <summary>
@@ -32,23 +24,13 @@ namespace Cuestionarios.Models.DAL
         /// </summary>
         public void Add(TEntity pEntity)
         {
-            try
-            {
-                dbSet.Add(pEntity);
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
-
+            dbSet.Add(pEntity);
         }
 
         public IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
         {
-            try
-            {
                 IQueryable<TEntity> query = dbSet;
 
                 if (filter != null)
@@ -64,11 +46,6 @@ namespace Cuestionarios.Models.DAL
                 {
                     return query.ToList();
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
-            }
         }
 
 
@@ -77,20 +54,12 @@ namespace Cuestionarios.Models.DAL
         /// </summary>
         public void Delete(TEntity pEntity)
         {
-            try
+            if (iDbContext.Entry(pEntity).State == EntityState.Detached)
             {
-                if (iDbContext.Entry(pEntity).State == EntityState.Detached)
-                {
-                    dbSet.Attach(pEntity);
-                }
-
-                dbSet.Remove(pEntity);
-            }
-            catch (Exception ex)
-            {
-                throw new NpgsqlException(ex.ToString());
+                dbSet.Attach(pEntity);
             }
 
+            dbSet.Remove(pEntity);
         }
     }
 }

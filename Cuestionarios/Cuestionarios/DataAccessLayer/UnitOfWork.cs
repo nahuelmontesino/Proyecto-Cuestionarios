@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System;
 
-namespace Cuestionarios.Models.DAL
+namespace Cuestionarios.DataAccessLayer
 {
     public class UnitOfWork : IUnitOfWork
     {

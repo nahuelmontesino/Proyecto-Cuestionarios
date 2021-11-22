@@ -1,10 +1,10 @@
-﻿using Cuestionarios.Models.Domain;
+﻿using Cuestionarios.Domain;
 using Npgsql;
 using System;
 using System.Linq;
 
 
-namespace Cuestionarios.Models.DAL
+namespace Cuestionarios.DataAccessLayer
 {
     public class UserRepository: Repository<User, QuestionnaireDbContext>
     {
@@ -23,8 +23,8 @@ namespace Cuestionarios.Models.DAL
             }
             catch (Exception ex)
             {
-                throw new NpgsqlException(ex.ToString());
-            }
+                throw new NpgsqlException("Error trying to get user", ex);
+            }             
         }
     }
 }
