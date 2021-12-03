@@ -13,7 +13,6 @@ namespace UI
     public partial class Game : Form
     {
         private readonly SessionController _sessionController;
-        private readonly SourceController _sourceController;
         private readonly User _user;
         private int questionNumber;
         private List<Question> _questionsList;
@@ -57,6 +56,7 @@ namespace UI
             if (questionNumber <= totalQuestions)
             {
                 lblQuestionNumber.Text = _questionsList[questionNumber - 1].QuestionSentence;
+                //textQuestion.Text = _questionsList[questionNumber - 1].QuestionSentence;
 
                 btnOption1.Text = _questionsList[questionNumber - 1].Options[0].Answer;
                 btnOption2.Text = _questionsList[questionNumber - 1].Options[1].Answer;
@@ -155,6 +155,11 @@ namespace UI
         private void btnOption4_Click(object sender, EventArgs e)
         {
             CheckAnswer(4);
+        }
+
+        private void textQuestion_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

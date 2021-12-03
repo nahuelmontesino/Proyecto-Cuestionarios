@@ -31,7 +31,6 @@ namespace UI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            this.currentUser1 = new UI.CurrentUser(this._user.Username);
             this.lblGame = new System.Windows.Forms.Label();
             this.txtMin = new System.Windows.Forms.TextBox();
             this.txtSeg = new System.Windows.Forms.TextBox();
@@ -89,7 +88,7 @@ namespace UI
             this.btnOption1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption1.ForeColor = System.Drawing.Color.Black;
-            this.btnOption1.Location = new System.Drawing.Point(187, 146);
+            this.btnOption1.Location = new System.Drawing.Point(225, 155);
             this.btnOption1.Name = "btnOption1";
             this.btnOption1.Size = new System.Drawing.Size(404, 60);
             this.btnOption1.TabIndex = 18;
@@ -104,7 +103,7 @@ namespace UI
             this.btnOption2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption2.ForeColor = System.Drawing.Color.Black;
-            this.btnOption2.Location = new System.Drawing.Point(187, 212);
+            this.btnOption2.Location = new System.Drawing.Point(225, 221);
             this.btnOption2.Name = "btnOption2";
             this.btnOption2.Size = new System.Drawing.Size(404, 60);
             this.btnOption2.TabIndex = 19;
@@ -119,7 +118,7 @@ namespace UI
             this.btnOption3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption3.ForeColor = System.Drawing.Color.Black;
-            this.btnOption3.Location = new System.Drawing.Point(187, 278);
+            this.btnOption3.Location = new System.Drawing.Point(225, 287);
             this.btnOption3.Name = "btnOption3";
             this.btnOption3.Size = new System.Drawing.Size(404, 61);
             this.btnOption3.TabIndex = 20;
@@ -134,7 +133,7 @@ namespace UI
             this.btnOption4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption4.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption4.ForeColor = System.Drawing.Color.Black;
-            this.btnOption4.Location = new System.Drawing.Point(187, 345);
+            this.btnOption4.Location = new System.Drawing.Point(225, 354);
             this.btnOption4.Name = "btnOption4";
             this.btnOption4.Size = new System.Drawing.Size(404, 61);
             this.btnOption4.TabIndex = 21;
@@ -144,12 +143,11 @@ namespace UI
             // 
             // lblQuestionNumber
             // 
-            this.lblQuestionNumber.AutoSize = true;
             this.lblQuestionNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestionNumber.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionNumber.Location = new System.Drawing.Point(367, 83);
+            this.lblQuestionNumber.Location = new System.Drawing.Point(221, 66);
             this.lblQuestionNumber.Name = "lblQuestionNumber";
-            this.lblQuestionNumber.Size = new System.Drawing.Size(22, 24);
+            this.lblQuestionNumber.Size = new System.Drawing.Size(624, 72);
             this.lblQuestionNumber.TabIndex = 4;
             this.lblQuestionNumber.Text = "...";
             this.lblQuestionNumber.UseWaitCursor = true;
@@ -158,10 +156,10 @@ namespace UI
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Time.Location = new System.Drawing.Point(776, 205);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(56, 29);
+            this.Time.Size = new System.Drawing.Size(69, 29);
             this.Time.TabIndex = 22;
             this.Time.Text = "Time";
             this.Time.UseWaitCursor = true;
@@ -170,10 +168,10 @@ namespace UI
             // 
             this.lblQuestion.AutoSize = true;
             this.lblQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.lblQuestion.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion.Location = new System.Drawing.Point(25, 81);
+            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion.Location = new System.Drawing.Point(40, 62);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(96, 29);
+            this.lblQuestion.Size = new System.Drawing.Size(116, 29);
             this.lblQuestion.TabIndex = 23;
             this.lblQuestion.Text = "Question:";
             this.lblQuestion.UseWaitCursor = true;
@@ -193,14 +191,6 @@ namespace UI
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
-            //
-            // currentUser1
-            // 
-            this.currentUser1.BackColor = System.Drawing.Color.Transparent;
-            this.currentUser1.Location = new System.Drawing.Point(12, 12);
-            this.currentUser1.Name = "currentUser1";
-            this.currentUser1.Size = new System.Drawing.Size(113, 27);
-            this.currentUser1.TabIndex = 26;
             // 
             // Game
             // 
@@ -211,7 +201,6 @@ namespace UI
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.Time);
-            this.Controls.Add(this.currentUser1);
             this.Controls.Add(this.btnOption4);
             this.Controls.Add(this.btnOption3);
             this.Controls.Add(this.btnOption2);
