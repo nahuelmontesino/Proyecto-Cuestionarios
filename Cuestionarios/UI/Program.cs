@@ -1,4 +1,5 @@
 ﻿using Cuestionarios.Controllers;
+using Cuestionarios.Mappings;
 using System;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            var automapper = new Automapper();
+            automapper.ConfigureAutomapper();
             UserController userController = new UserController();
             SetController setController = new SetController();
             QuestionController questionController = new QuestionController();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Cuestionarios.Controllers;
 using Npgsql;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 
 namespace UI
 {
@@ -13,16 +14,16 @@ namespace UI
         private readonly SessionController _sessionController;
         private readonly List<Question> _questionsList;
         private readonly User _user;
-        private readonly Set _selectedSet;
+        private readonly SetDTO _selectedSet;
         private readonly string _difficulty;
         private Stopwatch stopwatch;
         private int questionNumber;
         private int totalQuestions;
         private int correctAnswers;
-        
+
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> pQuestionsList, SessionController pSessionController, User pUser, string pDifficulty, Set pSet)
+        public Game(List<Question> pQuestionsList, SessionController pSessionController, User pUser, string pDifficulty, SetDTO pSet)
         {
             _sessionController = pSessionController;
             _questionsList = pQuestionsList;

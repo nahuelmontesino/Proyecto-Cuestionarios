@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,9 +12,9 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
+        private SetDTO selectedSet;
         private readonly User _user;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        private Set selectedSet;
 
         public CreateGame(SetController pSetController, QuestionController pQuestionController, SessionController pSessionController, User pUser)
         {
@@ -46,7 +47,7 @@ namespace UI
             cmbCategory.Enabled = true;
             selectedSet = _setController.GetSetByName(cmbSet.Text);
 
-            cmbCategory.DataSource = _questionController.GetCategoriesOfSet(selectedSet);
+            cmbCategory.DataSource = _questionController.GetCategoriesOfSet(selectedSet.Name);
         }
 
         private void cmbDificulty_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,13 +56,13 @@ namespace UI
 
             btnNewGame.Enabled = true;
 
-            this.nupAmount.Maximum = _questionController.GetNumberQuestions(selectedSet, cmbCategory.Text, cmbDificulty.Text);
+            this.nupAmount.Maximum = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
            
         }
 
         private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
         {
-            int maxAmount = _questionController.GetNumberQuestions(selectedSet, cmbCategory.Text, cmbDificulty.Text);
+            int maxAmount = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
 
             if (!(e.KeyData == Keys.Back || e.KeyData == Keys.Delete))
                 if (nupAmount.Value >= maxAmount || e.KeyValue == 109)
@@ -75,14 +76,14 @@ namespace UI
         {
             cmbDificulty.Enabled = true;
 
-            cmbDificulty.DataSource = _questionController.GetDifficultiesOfCategory(selectedSet, cmbCategory.Text);
+            cmbDificulty.DataSource = _questionController.GetDifficultiesOfCategory(selectedSet.Name, cmbCategory.Text);
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             try
             {
-                var questionsList = _questionController.GetQuestions(selectedSet, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
+                var questionsList = _questionController.GetQuestions(selectedSet.Name, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
                 this.Hide();
                 Game game = new Game(questionsList, _sessionController, _user, cmbDificulty.Text, selectedSet);
                 game.ShowDialog();
