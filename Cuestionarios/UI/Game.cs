@@ -3,10 +3,9 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Collections.Generic;
 using Cuestionarios.Controllers;
-using System.Linq;
 using Npgsql;
 using Cuestionarios.Domain;
-using Cuestionarios.Sources;
+using Cuestionarios.DTOs;
 
 namespace UI
 {
@@ -21,10 +20,10 @@ namespace UI
         private Stopwatch stopwatch;
         private int totalQuestions;
         private int correctAnswers;
-        private readonly Set selectedSet;
+        private readonly SetDTO selectedSet;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> questionsList, SessionController sessionController, User user, string pDifficulty, Set pSet)
+        public Game(List<Question> questionsList, SessionController sessionController, User user, string pDifficulty, SetDTO pSet)
         {
             _sessionController = sessionController;
             _questionsList = questionsList;

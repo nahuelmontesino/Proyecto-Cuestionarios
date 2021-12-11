@@ -4,6 +4,7 @@ using System;
 using Cuestionarios.Sources;
 using Cuestionarios.Domain;
 using System.Linq;
+using Cuestionarios.DTOs;
 
 namespace Cuestionarios.Controllers
 {
@@ -23,11 +24,11 @@ namespace Cuestionarios.Controllers
             iUOfW.Complete();
         }
 
-        public double GetScore(Set set, int correctAnswers, int totalQuestions, string difficulty, double time)
+        public double GetScore(SetDTO pSet, int correctAnswers, int totalQuestions, string difficulty, double time)
         {
             int difficultyFactor, timeFactor;
 
-            var source = SourceFactory.GetSourceByName(set.Name);
+            var source = SourceFactory.GetSourceByName(pSet.Name);
             int difficultyKey = source.DifficultyDictionary.FirstOrDefault(x => x.Value == difficulty).Key;
 
             difficultyFactor = source.GetDifficultyFactor(difficultyKey);

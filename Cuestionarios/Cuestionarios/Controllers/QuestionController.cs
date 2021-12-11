@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.DataAccessLayer;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using Cuestionarios.Sources;
 using System;
 using System.Collections.Generic;
@@ -11,27 +12,27 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
-        public void LoadQuestions(Set pSet, string pDificulty, string pCategory, int pAmount)
+        public void LoadQuestions(string pSetName, string pDificulty, string pCategory, int pAmount)
         {
-            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
             int categoryNumber = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
             List<Question> questionsList = source.GetQuestions(pDificulty, categoryNumber, pAmount).ToList();
 
-            iUOfW.QuestionRepository.SaveQuestions(pSet, questionsList);
+            iUOfW.QuestionRepository.SaveQuestions(pSetName, questionsList);
 
             iUOfW.Complete();
         }
 
-        public IEnumerable<Question> GetQuestions(Set pSet,string pDifficulty, string pCategory, int pAmount)
+        public IEnumerable<Question> GetQuestions(string pSetName, string pDifficulty, string pCategory, int pAmount)
         {
-            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
             var questionsList = new List<Question>();
 
             if (source.DifficultyDictionary.ContainsValue(pDifficulty) && source.CategoryDictionary.ContainsValue(pCategory))
             {
                 int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
                 int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
-                questionsList = iUOfW.QuestionRepository.GetQuestions(pSet, difficulty, category, pAmount).ToList();
+                questionsList = iUOfW.QuestionRepository.GetQuestions(pSetName, difficulty, category, pAmount).ToList();
             }
             else
             {
@@ -44,10 +45,10 @@ namespace Cuestionarios.Controllers
         /// <summary>
         /// Get list of categories from questions in DB that correspond to a Set
         /// </summary>
-        public IEnumerable<string> GetCategoriesOfSet(Set pSet)
+        public IEnumerable<string> GetCategoriesOfSet(string pSetName)
         {
-            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
-            var categoriesKeys = iUOfW.QuestionRepository.GetCategoriesOfSet(pSet);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
+            var categoriesKeys = iUOfW.QuestionRepository.GetCategoriesOfSet(pSetName);
             List<string> categories = new List<string>();
             foreach (int key in categoriesKeys)
             {
@@ -60,11 +61,11 @@ namespace Cuestionarios.Controllers
         /// <summary>
         /// Get list of difficulties from questions in DB that correspond to a Set and a category
         /// </summary>
-        public IEnumerable<string> GetDifficultiesOfCategory(Set pSet, string pCategory)
+        public IEnumerable<string> GetDifficultiesOfCategory(string pSetName, string pCategory)
         {
-            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
             int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
-            IEnumerable<int> difficultiesKeys = iUOfW.QuestionRepository.GetDifficultiesOfCategory(pSet, category).ToList();
+            IEnumerable<int> difficultiesKeys = iUOfW.QuestionRepository.GetDifficultiesOfCategory(pSetName, category).ToList();
             List<string> difficulties = new List<string>();
             foreach (int key in difficultiesKeys)
             {
@@ -74,13 +75,13 @@ namespace Cuestionarios.Controllers
             return difficulties;
         }
 
-        public int GetNumberQuestions(Set pSet, string pCategory, string pDifficulty)
+        public int GetNumberQuestions(string pSetName, string pCategory, string pDifficulty)
         {
-            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSet.Name);
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
             int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
             int category = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
 
-            var numbersQuestions = iUOfW.QuestionRepository.GetMaxNumberQuestions(pSet, difficulty, category);
+            var numbersQuestions = iUOfW.QuestionRepository.GetMaxNumberQuestions(pSetName, difficulty, category);
             return numbersQuestions;
         }
 

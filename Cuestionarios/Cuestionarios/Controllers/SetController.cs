@@ -1,5 +1,7 @@
-﻿using Cuestionarios.DataAccessLayer;
+﻿using AutoMapper;
+using Cuestionarios.DataAccessLayer;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using System.Collections.Generic;
 
 
@@ -10,14 +12,23 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
-        public Set GetSetByName(string name)
+        public SetDTO GetSetByName(string name)
         {
-            return iUOfW.SetRepository.GetSetByName(name);
+            var set = iUOfW.SetRepository.GetSetByName(name);
+            return Mapper.Map<Set, SetDTO>(set);
         }
 
-        public IEnumerable<Set> GetAllSets()
+        public IEnumerable<SetDTO> GetAllSets()
         {
-            return iUOfW.SetRepository.Get();
+            List<SetDTO> result =  new List<SetDTO>();
+            var sets =  iUOfW.SetRepository.Get();
+
+            foreach (var set in sets)
+            {
+                result.Add(Mapper.Map<Set, SetDTO>(set));
+            }
+
+            return result;
         }
     }
 }

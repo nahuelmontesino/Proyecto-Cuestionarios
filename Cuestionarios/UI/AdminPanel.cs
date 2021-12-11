@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using Npgsql;
 using System;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace UI
         private readonly SourceController _sourceController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
-        private Set setSelected;
+        private SetDTO setSelected;
         private User _user = null;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
@@ -67,7 +68,7 @@ namespace UI
         {
             try
             {
-                _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
+                _questionController.LoadQuestions(setSelected.Name, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
 
                 MessageBox.Show("Questions saved successfully");
             }
