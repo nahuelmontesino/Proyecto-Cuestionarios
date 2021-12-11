@@ -13,15 +13,15 @@ namespace UI
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
         private SetDTO selectedSet;
-        private readonly User _user = null;
+        private readonly User _user;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public CreateGame(SetController setController, QuestionController questionController, SessionController sessionController, User user)
+        public CreateGame(SetController pSetController, QuestionController pQuestionController, SessionController pSessionController, User pUser)
         {
-            _user = user;
-            _sessionController = sessionController;
-            _setController = setController;
-            _questionController = questionController;
+            _user = pUser;
+            _sessionController = pSessionController;
+            _setController = pSetController;
+            _questionController = pQuestionController;
             InitializeComponent();
             // Load the sets into the comboBox
             cmbSet.DataSource = _setController.GetAllSets().ToList();
@@ -39,9 +39,6 @@ namespace UI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Menu menu = new Menu(_setController, _questionController, _sessionController, _user);
-            menu.ShowDialog();
             this.Close();
         }
 
@@ -102,14 +99,6 @@ namespace UI
                 MessageBox.Show(ex.Message);
                 logger.Debug(ex.ToString());
             }
-
-
-
-        }
-
-        private void nupAmount_ValueChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -12,31 +12,30 @@ namespace UI
     public partial class Game : Form
     {
         private readonly SessionController _sessionController;
-        private readonly SourceController _sourceController;
+        private readonly List<Question> _questionsList;
         private readonly User _user;
-        private int questionNumber;
-        private List<Question> _questionsList;
-        private readonly string difficulty;
-        private Stopwatch stopwatch;
-        private int totalQuestions;
-        private int correctAnswers;
         private readonly SetDTO selectedSet;
+        private readonly string _difficulty;
+        private Stopwatch stopwatch;
+        private int questionNumber;
+        private int totalQuestions;
+        
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> questionsList, SessionController sessionController, User user, string pDifficulty, SetDTO pSet)
+        public Game(List<Question> pQuestionsList, SessionController pSessionController, User pUser, string pDifficulty, Set pSet)
         {
-            _sessionController = sessionController;
-            _questionsList = questionsList;
-            _user = user;
-            selectedSet = pSet;
-            difficulty = pDifficulty;
+            _sessionController = pSessionController;
+            _questionsList = pQuestionsList;
+            _user = pUser;
+            _selectedSet = pSet;
+            _difficulty = pDifficulty;
 
             InitializeComponent();
             questionNumber = 1;
             lblQuestionNumber.Text = questionNumber.ToString();
 
             stopwatch = new Stopwatch();
-            totalQuestions = questionsList.Count;
+            totalQuestions = _questionsList.Count;
             timer1.Start();
             stopwatch.Start();
 
@@ -75,7 +74,7 @@ namespace UI
 
                 try
                 {
-                    var score = _sessionController.GetScore(selectedSet, correctAnswers, totalQuestions, difficulty, timeNumber);
+                    var score = _sessionController.GetScore(_selectedSet, correctAnswers, totalQuestions, _difficulty, timeNumber);
                     _sessionController.SaveSession(_user, score, time);
                 }
                 catch (NpgsqlException ex)
@@ -114,11 +113,6 @@ namespace UI
             //Show next question
             questionNumber++;
             ShowQuestion();
-        }
-
-        private void txtMin_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void exitBox_Click(object sender, EventArgs e)

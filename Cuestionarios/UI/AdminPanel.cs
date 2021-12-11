@@ -14,17 +14,18 @@ namespace UI
         private readonly SourceController _sourceController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
+        private readonly User _user;
         private SetDTO setSelected;
-        private User _user = null;
+        
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public AdminPanel(SetController setController, SessionController sessionController, QuestionController questionController, User user, SourceController sourceController)
+        public AdminPanel(SetController pSetController, SessionController pSessionController, QuestionController pQuestionController, User pUser, SourceController pSourceController)
         {
-            _sessionController = sessionController;
-            _questionController = questionController;
-            _setController = setController;
-            _sourceController = sourceController;
-            _user = user;
+            _sessionController = pSessionController;
+            _questionController = pQuestionController;
+            _setController = pSetController;
+            _sourceController = pSourceController;
+            _user = pUser;
             InitializeComponent();
         }
 
@@ -41,11 +42,6 @@ namespace UI
         private void AdminPanel_Load(object sender, EventArgs e)
         {
             cmbSet.DataSource = _setController.GetAllSets().ToList();
-        }
-
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
