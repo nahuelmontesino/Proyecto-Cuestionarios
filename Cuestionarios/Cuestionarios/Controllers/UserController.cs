@@ -1,5 +1,7 @@
-﻿using Cuestionarios.DataAccessLayer;
+﻿using AutoMapper;
+using Cuestionarios.DataAccessLayer;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using System;
 using System.Collections.Generic;
 
@@ -11,9 +13,11 @@ namespace Cuestionarios.Controllers
 
         public UserController() { }
 
-        public User GetUserByName(string name)
+        public UserDTO GetUserByName(string name)
         {
-            return iUOfW.UserRepository.GetByUserName(name);
+            var user = iUOfW.UserRepository.GetByUserName(name);
+
+            return Mapper.Map<User, UserDTO>(user);
         }
 
         public void AddUser(string pUsername, string pPassword, bool pAdmin = false)

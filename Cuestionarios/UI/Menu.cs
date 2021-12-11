@@ -1,5 +1,5 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using System;
 using System.Windows.Forms;
 
@@ -10,9 +10,9 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questController;
         private readonly SessionController _sessionController;
-        private readonly User user;
+        private readonly UserDTO user;
 
-        public Menu(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
+        public Menu(SetController _setController, QuestionController _questController, SessionController _sessionController, UserDTO user)
         {
             this.user = user;
             this._sessionController = _sessionController;

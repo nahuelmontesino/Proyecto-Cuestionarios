@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using Npgsql;
 using System;
 using System.Windows.Forms;
@@ -73,7 +74,7 @@ namespace UI
         {
             try
             {
-                User usr = _userController.GetUserByName(txtuser.Text);
+                UserDTO usr = _userController.GetUserByName(txtuser.Text);
 
                 if (usr == null)
                 {

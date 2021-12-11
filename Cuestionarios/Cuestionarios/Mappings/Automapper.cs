@@ -16,11 +16,15 @@ namespace Cuestionarios.Mappings
 
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Question, QuestionDTO>();
+                cfg.CreateMap<Question, QuestionDTO>().ReverseMap();
 
-                cfg.CreateMap<Set, SetDTO>();
+                cfg.CreateMap<Set, SetDTO>().ReverseMap();
 
-                cfg.CreateMap<SetDTO, Set>();
+                cfg.CreateMap<User, UserDTO>();
+
+                cfg.CreateMap<Session, SessionDTO>()
+                .ForMember(dest => dest.TotalTimeInSecond, origin => origin.MapFrom(c => c.TotalTime.TotalSeconds))
+                .ForMember(dest => dest.UserName, origin => origin.MapFrom(c => c.User.Username));
             });
         }
     }

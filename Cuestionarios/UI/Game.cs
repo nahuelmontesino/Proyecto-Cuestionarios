@@ -12,7 +12,7 @@ namespace UI
     public partial class Game : Form
     {
         private readonly SessionController _sessionController;
-        private readonly User _user;
+        private readonly UserDTO _user;
         private readonly SetDTO _selectedSet;
         private readonly string _difficulty;
         private readonly List<Question> _questionsList;
@@ -23,7 +23,7 @@ namespace UI
 
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> pQuestionsList, SessionController pSessionController, User pUser, string pDifficulty, SetDTO pSet)
+        public Game(List<Question> pQuestionsList, SessionController pSessionController, UserDTO pUser, string pDifficulty, SetDTO pSet)
         {
             _sessionController = pSessionController;
             _questionsList = pQuestionsList;
@@ -77,7 +77,7 @@ namespace UI
                 try
                 {
                     var score = _sessionController.GetScore(_selectedSet, correctAnswers, totalQuestions, _difficulty, timeNumber);
-                    _sessionController.SaveSession(_user, score, time);
+                    _sessionController.SaveSession(_user.Username, score, time);
                 }
                 catch (NpgsqlException ex)
                 {

@@ -5,6 +5,7 @@ using Cuestionarios.Sources;
 using Cuestionarios.Domain;
 using System.Linq;
 using Cuestionarios.DTOs;
+using AutoMapper;
 
 namespace Cuestionarios.Controllers
 {
@@ -12,15 +13,23 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
-        public IEnumerable<Session> GetHighScores()
+        public IEnumerable<SessionDTO> GetHighScores()
         {
-            return iUOfW.SessionRepository.GetHighScores();
+            List<SessionDTO> result = new List<SessionDTO>();
+            var sessions = iUOfW.SessionRepository.GetHighScores();
+
+            foreach (var session in sessions)
+            {
+                result.Add(Mapper.Map<Session, SessionDTO>(session));
+            }
+
+            return result;
         }
 
 
-        public void SaveSession(User pUser, double pScoreValue, TimeSpan pTotalTime)
+        public void SaveSession(string pUserName, double pScoreValue, TimeSpan pTotalTime)
         {
-            iUOfW.SessionRepository.SaveSession(pUser, pScoreValue, pTotalTime);
+            iUOfW.SessionRepository.SaveSession(pUserName, pScoreValue, pTotalTime);
             iUOfW.Complete();
         }
 

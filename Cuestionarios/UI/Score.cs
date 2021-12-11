@@ -18,9 +18,9 @@ namespace UI
             {
                 dataGridView1.DataSource = _sessionController.GetHighScores().Select(o => new
                 { 
-                    Username = o.User.Username, 
+                    Username = o.UserName, 
                     Score = o.Score, 
-                    TimeOnSeconds = Convert.ToDouble(o.TotalTime.Seconds.ToString()), 
+                    TimeOnSeconds = o.TotalTimeInSecond, 
                     DateOfScore = o.Date 
                 }).ToList();
             }

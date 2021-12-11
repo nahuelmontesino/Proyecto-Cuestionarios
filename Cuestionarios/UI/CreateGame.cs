@@ -13,10 +13,10 @@ namespace UI
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
         private SetDTO selectedSet;
-        private readonly User _user;
+        private readonly UserDTO _user;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public CreateGame(SetController pSetController, QuestionController pQuestionController, SessionController pSessionController, User pUser)
+        public CreateGame(SetController pSetController, QuestionController pQuestionController, SessionController pSessionController, UserDTO pUser)
         {
             _user = pUser;
             _sessionController = pSessionController;

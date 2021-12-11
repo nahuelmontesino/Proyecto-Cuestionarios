@@ -13,17 +13,17 @@ namespace Cuestionarios.DataAccessLayer
 
         } 
 
-        public void SaveSession(User pUser, double pScoreValue, TimeSpan pTotalTime)
+        public void SaveSession(string pUserName, double pScoreValue, TimeSpan pTotalTime)
         {
             try
             {
-                User user = iDbContext.Users.Find(pUser.Id);
+                User userDB = iDbContext.Users.Where(user => user.Username == pUserName).FirstOrDefault();
 
                 Session session = new Session
                 {
                     TotalTime = pTotalTime,
                     Score = pScoreValue,
-                    User = user,
+                    User = userDB,
                     Date = DateTime.Now
                 };
 

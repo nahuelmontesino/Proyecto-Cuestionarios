@@ -14,12 +14,12 @@ namespace UI
         private readonly SourceController _sourceController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
-        private readonly User _user;
+        private readonly UserDTO _user;
         private SetDTO setSelected;
         
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public AdminPanel(SetController pSetController, SessionController pSessionController, QuestionController pQuestionController, User pUser, SourceController pSourceController)
+        public AdminPanel(SetController pSetController, SessionController pSessionController, QuestionController pQuestionController, UserDTO pUser, SourceController pSourceController)
         {
             _sessionController = pSessionController;
             _questionController = pQuestionController;
