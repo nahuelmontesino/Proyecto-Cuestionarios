@@ -15,35 +15,21 @@ namespace UI
         private readonly SourceController _sourceController;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Login(UserController usrController, SetController setController, QuestionController questionController, SessionController sessionController, SourceController sourceController)
+        public Login(UserController pUserController, SetController pSetController, QuestionController pQuestionController, SessionController pSessionController, SourceController pSourceController)
         {
-            _userController = usrController;
-            _setController = setController;
-            _questionController = questionController;
-            _sessionController = sessionController;
-            _sourceController = sourceController;
-
-            _userController.AddUser("p", "p", false);
-            User u = _userController.GetUserByName("p");
-            TimeSpan duration1 = new TimeSpan(0, 0, 23, 62);
-            TimeSpan duration2 = new TimeSpan(0, 0, 10, 0);
-            TimeSpan duration3 = new TimeSpan(0, 0, 15, 6);
-            TimeSpan duration4 = new TimeSpan(0, 0, 23, 2);
-
-            _sessionController.SaveSession(u, 12.0, duration1);
-            _sessionController.SaveSession(u, 20.0, duration2);
-            _sessionController.SaveSession(u, 45.0, duration3);
-            _sessionController.SaveSession(u, 5.0, duration4);
+            _userController = pUserController;
+            _setController = pSetController;
+            _questionController = pQuestionController;
+            _sessionController = pSessionController;
+            _sourceController = pSourceController;
 
             InitializeComponent();
-            
         }
         private void txtuser_Enter(object sender, EventArgs e)
         {
             if (txtuser.Text == "User")
             {
                 txtuser.Text = "";
-
             }
         }
 
@@ -128,7 +114,7 @@ namespace UI
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            NewUser newUser = new NewUser(_setController, _questionController, _sessionController, _userController);
+            NewUser newUser = new NewUser(_userController);
             newUser.ShowDialog();
         }
     }

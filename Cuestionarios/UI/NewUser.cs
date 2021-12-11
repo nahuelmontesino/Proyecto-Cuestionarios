@@ -7,16 +7,11 @@ namespace UI
 {
     public partial class NewUser : Form
     {
-        private UserController _usrController;
-        private SetController _setController;
-        private QuestionController _questController;
-        private SessionController _sessionController;
-        public NewUser(SetController _setController, QuestionController _questController, SessionController _sessionController, UserController _usrController)
+        private UserController _userController;
+
+        public NewUser( UserController pUserController)
         {
-            this._sessionController = _sessionController;
-            this._questController = _questController;
-            this._setController = _setController;
-            this._usrController = _usrController;
+            this._userController = pUserController;
             InitializeComponent();
         }
 
@@ -26,7 +21,7 @@ namespace UI
             {
                 if (!string.IsNullOrEmpty(txtuser.Text) && !string.IsNullOrEmpty(txtpass.Text))
                 {
-                    _usrController.AddUser(txtuser.Text, txtpass.Text);
+                    _userController.AddUser(txtuser.Text, txtpass.Text);
                     MessageBox.Show("User added successfully");
                     this.Close();
                 }

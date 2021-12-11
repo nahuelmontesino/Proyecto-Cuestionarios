@@ -1,5 +1,4 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.Domain;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,16 +7,11 @@ namespace UI
 {
     public partial class Score : Form
     {
-        private readonly SetController _setController;
-        private readonly QuestionController _questController;
         private readonly SessionController _sessionController;
-        private readonly SourceController _sourceController;
-        private User user = null;
-        public Score(SessionController sessionController, SourceController sourceController, User user)
+        public Score(SessionController pSessionController)
         {
-            _sessionController = sessionController;
-            _sourceController = sourceController;
-            this.user = user;
+            _sessionController = pSessionController;
+
             InitializeComponent();
 
             try
@@ -33,9 +27,6 @@ namespace UI
 
         private void brnAtras_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Menu menu = new Menu(_setController, _questController, _sessionController, user);
-            menu.ShowDialog();
             this.Close();
         }
 
