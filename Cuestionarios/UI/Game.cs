@@ -15,6 +15,7 @@ namespace UI
         private readonly User _user;
         private readonly SetDTO _selectedSet;
         private readonly string _difficulty;
+        private readonly List<Question> _questionsList;
         private Stopwatch stopwatch;
         private int questionNumber;
         private int totalQuestions;
@@ -149,11 +150,6 @@ namespace UI
         private void btnOption4_Click(object sender, EventArgs e)
         {
             CheckAnswer(4);
-        }
-
-        private void textQuestion_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
