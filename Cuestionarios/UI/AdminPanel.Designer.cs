@@ -55,10 +55,9 @@ namespace UI
             this.lblAdminPanel.BackColor = System.Drawing.Color.Transparent;
             this.lblAdminPanel.Font = new System.Drawing.Font("Gadugi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminPanel.ForeColor = System.Drawing.Color.White;
-            this.lblAdminPanel.Location = new System.Drawing.Point(206, 24);
-            this.lblAdminPanel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAdminPanel.Location = new System.Drawing.Point(275, 30);
             this.lblAdminPanel.Name = "lblAdminPanel";
-            this.lblAdminPanel.Size = new System.Drawing.Size(147, 28);
+            this.lblAdminPanel.Size = new System.Drawing.Size(182, 35);
             this.lblAdminPanel.TabIndex = 3;
             this.lblAdminPanel.Text = "Admin Panel";
             this.lblAdminPanel.UseWaitCursor = true;
@@ -70,10 +69,10 @@ namespace UI
             this.btnSaveQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveQuestion.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveQuestion.Location = new System.Drawing.Point(346, 116);
-            this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveQuestion.Location = new System.Drawing.Point(461, 143);
+            this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSaveQuestion.Name = "btnSaveQuestion";
-            this.btnSaveQuestion.Size = new System.Drawing.Size(151, 49);
+            this.btnSaveQuestion.Size = new System.Drawing.Size(201, 60);
             this.btnSaveQuestion.TabIndex = 19;
             this.btnSaveQuestion.Text = "Save Question";
             this.btnSaveQuestion.UseVisualStyleBackColor = false;
@@ -86,10 +85,10 @@ namespace UI
             this.btnDeleteQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteQuestion.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteQuestion.Location = new System.Drawing.Point(346, 195);
-            this.btnDeleteQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteQuestion.Location = new System.Drawing.Point(461, 240);
+            this.btnDeleteQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteQuestion.Name = "btnDeleteQuestion";
-            this.btnDeleteQuestion.Size = new System.Drawing.Size(151, 49);
+            this.btnDeleteQuestion.Size = new System.Drawing.Size(201, 60);
             this.btnDeleteQuestion.TabIndex = 20;
             this.btnDeleteQuestion.Text = "Delete Questions";
             this.btnDeleteQuestion.UseVisualStyleBackColor = false;
@@ -98,10 +97,10 @@ namespace UI
             // 
             this.exitBox.BackColor = System.Drawing.Color.Transparent;
             this.exitBox.Image = ((System.Drawing.Image)(resources.GetObject("exitBox.Image")));
-            this.exitBox.Location = new System.Drawing.Point(516, 0);
-            this.exitBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitBox.Location = new System.Drawing.Point(688, 0);
+            this.exitBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitBox.Name = "exitBox";
-            this.exitBox.Size = new System.Drawing.Size(26, 18);
+            this.exitBox.Size = new System.Drawing.Size(35, 22);
             this.exitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.exitBox.TabIndex = 22;
             this.exitBox.TabStop = false;
@@ -111,10 +110,10 @@ namespace UI
             // 
             this.minimizeBox.BackColor = System.Drawing.Color.Transparent;
             this.minimizeBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBox.Image")));
-            this.minimizeBox.Location = new System.Drawing.Point(486, 0);
-            this.minimizeBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimizeBox.Location = new System.Drawing.Point(648, 0);
+            this.minimizeBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minimizeBox.Name = "minimizeBox";
-            this.minimizeBox.Size = new System.Drawing.Size(26, 18);
+            this.minimizeBox.Size = new System.Drawing.Size(35, 22);
             this.minimizeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.minimizeBox.TabIndex = 21;
             this.minimizeBox.TabStop = false;
@@ -123,41 +122,44 @@ namespace UI
             // nupAmount
             // 
             this.nupAmount.Enabled = false;
-            this.nupAmount.Location = new System.Drawing.Point(154, 238);
-            this.nupAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nupAmount.Location = new System.Drawing.Point(205, 293);
+            this.nupAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nupAmount.Name = "nupAmount";
-            this.nupAmount.Size = new System.Drawing.Size(158, 20);
+            this.nupAmount.Size = new System.Drawing.Size(211, 22);
             this.nupAmount.TabIndex = 30;
             // 
             // cmbDificulty
             // 
+            this.cmbDificulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDificulty.Enabled = false;
             this.cmbDificulty.FormattingEnabled = true;
-            this.cmbDificulty.Location = new System.Drawing.Point(154, 198);
-            this.cmbDificulty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDificulty.Location = new System.Drawing.Point(205, 244);
+            this.cmbDificulty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDificulty.Name = "cmbDificulty";
-            this.cmbDificulty.Size = new System.Drawing.Size(159, 21);
+            this.cmbDificulty.Size = new System.Drawing.Size(211, 24);
             this.cmbDificulty.TabIndex = 29;
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Enabled = false;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(154, 157);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategory.Location = new System.Drawing.Point(205, 193);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(159, 21);
+            this.cmbCategory.Size = new System.Drawing.Size(211, 24);
             this.cmbCategory.TabIndex = 28;
             // 
             // cmbSet
             // 
             this.cmbSet.DisplayMember = "Name";
+            this.cmbSet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSet.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbSet.FormattingEnabled = true;
-            this.cmbSet.Location = new System.Drawing.Point(154, 116);
-            this.cmbSet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSet.Location = new System.Drawing.Point(205, 143);
+            this.cmbSet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSet.Name = "cmbSet";
-            this.cmbSet.Size = new System.Drawing.Size(159, 21);
+            this.cmbSet.Size = new System.Drawing.Size(211, 24);
             this.cmbSet.TabIndex = 27;
             this.cmbSet.SelectedIndexChanged += new System.EventHandler(this.cmbSet_SelectedIndexChanged);
             // 
@@ -167,10 +169,9 @@ namespace UI
             this.lblAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblAmount.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAmount.ForeColor = System.Drawing.Color.White;
-            this.lblAmount.Location = new System.Drawing.Point(68, 235);
-            this.lblAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmount.Location = new System.Drawing.Point(91, 289);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(65, 19);
+            this.lblAmount.Size = new System.Drawing.Size(81, 24);
             this.lblAmount.TabIndex = 26;
             this.lblAmount.Text = "Amount";
             // 
@@ -180,10 +181,9 @@ namespace UI
             this.lblDificulty.BackColor = System.Drawing.Color.Transparent;
             this.lblDificulty.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDificulty.ForeColor = System.Drawing.Color.White;
-            this.lblDificulty.Location = new System.Drawing.Point(68, 196);
-            this.lblDificulty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDificulty.Location = new System.Drawing.Point(91, 241);
             this.lblDificulty.Name = "lblDificulty";
-            this.lblDificulty.Size = new System.Drawing.Size(66, 19);
+            this.lblDificulty.Size = new System.Drawing.Size(82, 24);
             this.lblDificulty.TabIndex = 25;
             this.lblDificulty.Text = "Dificulty";
             // 
@@ -193,10 +193,9 @@ namespace UI
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblCategory.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.Color.White;
-            this.lblCategory.Location = new System.Drawing.Point(67, 154);
-            this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCategory.Location = new System.Drawing.Point(89, 190);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(72, 19);
+            this.lblCategory.Size = new System.Drawing.Size(90, 24);
             this.lblCategory.TabIndex = 24;
             this.lblCategory.Text = "Category";
             // 
@@ -206,28 +205,27 @@ namespace UI
             this.lblSet.BackColor = System.Drawing.Color.Transparent;
             this.lblSet.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSet.ForeColor = System.Drawing.Color.Transparent;
-            this.lblSet.Location = new System.Drawing.Point(67, 114);
-            this.lblSet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSet.Location = new System.Drawing.Point(89, 140);
             this.lblSet.Name = "lblSet";
-            this.lblSet.Size = new System.Drawing.Size(31, 19);
+            this.lblSet.Size = new System.Drawing.Size(38, 24);
             this.lblSet.TabIndex = 23;
             this.lblSet.Text = "Set";
             // 
             // logOutComponent
             // 
             this.logOutComponent.BackColor = System.Drawing.Color.Transparent;
-            this.logOutComponent.Location = new System.Drawing.Point(9, 296);
-            this.logOutComponent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logOutComponent.Location = new System.Drawing.Point(12, 364);
+            this.logOutComponent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOutComponent.Name = "logOutComponent";
-            this.logOutComponent.Size = new System.Drawing.Size(97, 61);
+            this.logOutComponent.Size = new System.Drawing.Size(129, 75);
             this.logOutComponent.TabIndex = 31;
             // 
             // AdminPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(543, 366);
+            this.ClientSize = new System.Drawing.Size(724, 450);
             this.Controls.Add(this.logOutComponent);
             this.Controls.Add(this.nupAmount);
             this.Controls.Add(this.cmbDificulty);
@@ -243,7 +241,7 @@ namespace UI
             this.Controls.Add(this.btnSaveQuestion);
             this.Controls.Add(this.lblAdminPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";

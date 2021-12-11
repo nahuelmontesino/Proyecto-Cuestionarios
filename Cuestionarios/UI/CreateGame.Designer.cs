@@ -130,6 +130,7 @@ namespace UI
             // 
             // cmbDificulty
             // 
+            this.cmbDificulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDificulty.Enabled = false;
             this.cmbDificulty.FormattingEnabled = true;
             this.cmbDificulty.Location = new System.Drawing.Point(229, 247);
@@ -141,6 +142,7 @@ namespace UI
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Enabled = false;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(229, 196);
@@ -153,6 +155,7 @@ namespace UI
             // cmbSet
             // 
             this.cmbSet.DisplayMember = "Name";
+            this.cmbSet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSet.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbSet.FormattingEnabled = true;
             this.cmbSet.Location = new System.Drawing.Point(229, 146);
