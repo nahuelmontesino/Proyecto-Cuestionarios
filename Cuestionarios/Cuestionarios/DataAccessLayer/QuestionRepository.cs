@@ -24,7 +24,17 @@ namespace Cuestionarios.DataAccessLayer
                         //Add the question to the DB
                         Set existing_set = iDbContext.Sets.Where(set => set.Name == pSetName).FirstOrDefault();
                         question.Set = existing_set;
+                        
+
+                        //clear options
+                        foreach (Option option in question.Options)
+                        {
+                            option.Answer = CleanString(option.Answer);
+                        }
+
+                        //clear questions
                         question.QuestionSentence = CleanString(question.QuestionSentence);
+
                         dbSet.Add(question);
                     }
                 }
