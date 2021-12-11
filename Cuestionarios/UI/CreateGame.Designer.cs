@@ -126,7 +126,6 @@ namespace UI
             this.nupAmount.Name = "nupAmount";
             this.nupAmount.Size = new System.Drawing.Size(211, 22);
             this.nupAmount.TabIndex = 38;
-            this.nupAmount.ValueChanged += new System.EventHandler(this.nupAmount_ValueChanged);
             this.nupAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
             // 
             // cmbDificulty

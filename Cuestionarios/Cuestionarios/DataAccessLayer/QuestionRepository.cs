@@ -13,7 +13,7 @@ namespace Cuestionarios.DataAccessLayer
         {
         }
 
-        public void SaveQuestions(Set set, IList<Question> pQuestionList)
+        public void SaveQuestions(string pSetName, IList<Question> pQuestionList)
         {
             try
             {
@@ -22,8 +22,7 @@ namespace Cuestionarios.DataAccessLayer
                     if (!IsAlreadySaved(CleanString(question.QuestionSentence)))
                     {
                         //Add the question to the DB
-                        Set existing_set = iDbContext.Sets.Find(set.Id);
-
+                        Set existing_set = iDbContext.Sets.Where(set => set.Name == pSetName).FirstOrDefault();
                         question.Set = existing_set;
                         
 
@@ -47,13 +46,13 @@ namespace Cuestionarios.DataAccessLayer
         }
 
 
-        public IEnumerable<Question> GetQuestions(Set pSet, int pDifficulty, int pCategory, int pAmount)
+        public IEnumerable<Question> GetQuestions(string pSetName, int pDifficulty, int pCategory, int pAmount)
         {
             var questionsList = new List<Question>();
 
             try
             {
-                var query = Get(question => question.Set.Id == pSet.Id &&
+                var query = Get(question => question.Set.Name == pSetName &&
                                             question.Difficulty == pDifficulty &&
                                             question.Category == pCategory);
 
@@ -79,13 +78,13 @@ namespace Cuestionarios.DataAccessLayer
             return questionsList.Take(pAmount);
         }
 
-        public int GetMaxNumberQuestions(Set pSet, int pDifficulty, int pCategory)
+        public int GetMaxNumberQuestions(string pSetName, int pDifficulty, int pCategory)
         {
             int numberQuestions = 0;
 
             try
             {
-                var number = Get(question => question.Set.Id == pSet.Id &&
+                var number = Get(question => question.Set.Name == pSetName &&
                                             question.Difficulty == pDifficulty &&
                                             question.Category == pCategory);
 
@@ -100,17 +99,16 @@ namespace Cuestionarios.DataAccessLayer
             return numberQuestions;
         }
 
-        public IEnumerable<int> GetCategoriesOfSet(Set pSet)
+        public IEnumerable<int> GetCategoriesOfSet(string pSetName)
         {
-
-            IEnumerable<int> categoriesKeys = Get(q => q.Set.Id == pSet.Id).Select(q => q.Category).Distinct();
+            IEnumerable<int> categoriesKeys = Get(q => q.Set.Name == pSetName).Select(q => q.Category).Distinct();
 
             return categoriesKeys;
         }
 
-        public IEnumerable<int> GetDifficultiesOfCategory(Set pSet, int category)
+        public IEnumerable<int> GetDifficultiesOfCategory(string pSetName, int category)
         {
-            IEnumerable<int> difficultiesKeys = Get(q => q.Set.Id == pSet.Id && q.Category == category)
+            IEnumerable<int> difficultiesKeys = Get(q => q.Set.Name == pSetName && q.Category == category)
                                                       .Select(q => q.Difficulty)
                                                       .Distinct();
 

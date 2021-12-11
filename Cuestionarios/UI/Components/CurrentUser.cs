@@ -1,19 +1,11 @@
-﻿using Cuestionarios.Domain;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class CurrentUser : UserControl
     {
-        public CurrentUser(String userName)
+        public CurrentUser(string userName)
         {
             InitializeComponent();
             this.lblUserData.Text = userName;

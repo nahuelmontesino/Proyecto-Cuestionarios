@@ -1,5 +1,6 @@
 ﻿using Cuestionarios.Controllers;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using Npgsql;
 using System;
 using System.Linq;
@@ -13,17 +14,18 @@ namespace UI
         private readonly SourceController _sourceController;
         private readonly QuestionController _questionController;
         private readonly SessionController _sessionController;
-        private Set setSelected;
-        private User _user = null;
+        private readonly User _user;
+        private SetDTO setSelected;
+        
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public AdminPanel(SetController setController, SessionController sessionController, QuestionController questionController, User user, SourceController sourceController)
+        public AdminPanel(SetController pSetController, SessionController pSessionController, QuestionController pQuestionController, User pUser, SourceController pSourceController)
         {
-            _sessionController = sessionController;
-            _questionController = questionController;
-            _setController = setController;
-            _sourceController = sourceController;
-            _user = user;
+            _sessionController = pSessionController;
+            _questionController = pQuestionController;
+            _setController = pSetController;
+            _sourceController = pSourceController;
+            _user = pUser;
             InitializeComponent();
         }
 
@@ -40,11 +42,6 @@ namespace UI
         private void AdminPanel_Load(object sender, EventArgs e)
         {
             cmbSet.DataSource = _setController.GetAllSets().ToList();
-        }
-
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,7 +64,7 @@ namespace UI
         {
             try
             {
-                _questionController.LoadQuestions(setSelected, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
+                _questionController.LoadQuestions(setSelected.Name, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
 
                 MessageBox.Show("Questions saved successfully");
             }
