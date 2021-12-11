@@ -10,7 +10,6 @@ namespace UI
         private readonly SetController _setController;
         private readonly QuestionController _questController;
         private readonly SessionController _sessionController;
-        private readonly SourceController _sourceController;
         private readonly User user;
 
         public Menu(SetController _setController, QuestionController _questController, SessionController _sessionController, User user)
@@ -25,20 +24,21 @@ namespace UI
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
+            this.Hide();
             CreateGame createGame = new CreateGame(_setController, _questController, _sessionController, user)
             {
                 Owner = this
             };
             createGame.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void btnHighScore_Click(object sender, EventArgs e)
         {
-            Score score = new Score(_sessionController, _sourceController, user);
+            Score score = new Score(_sessionController);
             this.Hide();
             score.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void exitBox_Click(object sender, EventArgs e)

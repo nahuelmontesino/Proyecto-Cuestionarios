@@ -67,7 +67,6 @@ namespace UI
             this.txtMin.ReadOnly = true;
             this.txtMin.Size = new System.Drawing.Size(42, 27);
             this.txtMin.TabIndex = 6;
-            this.txtMin.TextChanged += new System.EventHandler(this.txtMin_TextChanged);
             // 
             // txtSeg
             // 
