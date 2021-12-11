@@ -132,6 +132,7 @@ namespace UI
             // 
             this.cmbDificulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDificulty.Enabled = false;
+            this.cmbDificulty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbDificulty.FormattingEnabled = true;
             this.cmbDificulty.Location = new System.Drawing.Point(229, 247);
             this.cmbDificulty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -144,6 +145,7 @@ namespace UI
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Enabled = false;
+            this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(229, 196);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -156,7 +158,7 @@ namespace UI
             // 
             this.cmbSet.DisplayMember = "Name";
             this.cmbSet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSet.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbSet.FormattingEnabled = true;
             this.cmbSet.Location = new System.Drawing.Point(229, 146);
             this.cmbSet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
