@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace Cuestionarios.DataAccessLayer
 {
-    class DatabaseInitializationStrategy : DropCreateDatabaseAlways<QuestionnaireDbContext>
+    class DatabaseInitializationStrategy : DropCreateDatabaseIfModelChanges<QuestionnaireDbContext>
     {
 
         protected override void Seed(QuestionnaireDbContext context)
