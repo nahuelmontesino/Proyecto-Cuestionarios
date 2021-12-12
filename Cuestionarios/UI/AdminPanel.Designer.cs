@@ -32,7 +32,6 @@ namespace UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             this.lblAdminPanel = new System.Windows.Forms.Label();
             this.btnSaveQuestion = new System.Windows.Forms.Button();
-            this.btnDeleteQuestion = new System.Windows.Forms.Button();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
             this.nupAmount = new System.Windows.Forms.NumericUpDown();
@@ -70,7 +69,7 @@ namespace UI
             this.btnSaveQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveQuestion.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveQuestion.Location = new System.Drawing.Point(346, 116);
+            this.btnSaveQuestion.Location = new System.Drawing.Point(361, 160);
             this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveQuestion.Name = "btnSaveQuestion";
             this.btnSaveQuestion.Size = new System.Drawing.Size(151, 49);
@@ -78,21 +77,6 @@ namespace UI
             this.btnSaveQuestion.Text = "Save Question";
             this.btnSaveQuestion.UseVisualStyleBackColor = false;
             this.btnSaveQuestion.Click += new System.EventHandler(this.btnSaveQuestion_Click);
-            // 
-            // btnDeleteQuestion
-            // 
-            this.btnDeleteQuestion.BackColor = System.Drawing.Color.White;
-            this.btnDeleteQuestion.FlatAppearance.BorderSize = 0;
-            this.btnDeleteQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteQuestion.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteQuestion.Location = new System.Drawing.Point(346, 195);
-            this.btnDeleteQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnDeleteQuestion.Name = "btnDeleteQuestion";
-            this.btnDeleteQuestion.Size = new System.Drawing.Size(151, 49);
-            this.btnDeleteQuestion.TabIndex = 20;
-            this.btnDeleteQuestion.Text = "Delete Questions";
-            this.btnDeleteQuestion.UseVisualStyleBackColor = false;
             // 
             // exitBox
             // 
@@ -255,7 +239,6 @@ namespace UI
             this.Controls.Add(this.lblSet);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.minimizeBox);
-            this.Controls.Add(this.btnDeleteQuestion);
             this.Controls.Add(this.btnSaveQuestion);
             this.Controls.Add(this.lblAdminPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -276,7 +259,6 @@ namespace UI
 
         private System.Windows.Forms.Label lblAdminPanel;
         private System.Windows.Forms.Button btnSaveQuestion;
-        private System.Windows.Forms.Button btnDeleteQuestion;
         private System.Windows.Forms.PictureBox exitBox;
         private System.Windows.Forms.PictureBox minimizeBox;
         private LogOut logOut1;
