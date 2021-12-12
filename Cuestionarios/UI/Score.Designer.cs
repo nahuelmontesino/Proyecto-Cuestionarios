@@ -34,15 +34,15 @@ namespace UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Score));
             this.lblScores = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.scoreGridView = new System.Windows.Forms.DataGridView();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
             this.exitBox = new System.Windows.Forms.PictureBox();
             this.brnAtras = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).BeginInit();
+            this.sessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.scoreGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScores
@@ -59,22 +59,20 @@ namespace UI
             this.lblScores.Text = "Scores";
             this.lblScores.UseWaitCursor = true;
             // 
-            // dataGridView1
+            // scoreGridView
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 63);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(490, 236);
-            this.dataGridView1.TabIndex = 5;
-            // 
-            // sessionBindingSource
-            // 
-            this.sessionBindingSource.DataSource = typeof(Session);
+            this.scoreGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.scoreGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.scoreGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.scoreGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scoreGridView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.scoreGridView.Location = new System.Drawing.Point(27, 72);
+            this.scoreGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.scoreGridView.Name = "scoreGridView";
+            this.scoreGridView.RowHeadersWidth = 51;
+            this.scoreGridView.RowTemplate.Height = 24;
+            this.scoreGridView.Size = new System.Drawing.Size(490, 236);
+            this.scoreGridView.TabIndex = 5;
             // 
             // minimizeBox
             // 
@@ -118,6 +116,10 @@ namespace UI
             this.brnAtras.UseVisualStyleBackColor = false;
             this.brnAtras.Click += new System.EventHandler(this.brnAtras_Click);
             // 
+            // sessionBindingSource
+            // 
+            this.sessionBindingSource.DataSource = typeof(Cuestionarios.Domain.Session);
+            // 
             // Score
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,17 +129,17 @@ namespace UI
             this.Controls.Add(this.brnAtras);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.exitBox);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.scoreGridView);
             this.Controls.Add(this.lblScores);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Score";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Score";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,7 +148,7 @@ namespace UI
         #endregion
 
         private System.Windows.Forms.Label lblScores;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView scoreGridView;
         private System.Windows.Forms.BindingSource sessionBindingSource;
         private System.Windows.Forms.PictureBox minimizeBox;
         private System.Windows.Forms.PictureBox exitBox;

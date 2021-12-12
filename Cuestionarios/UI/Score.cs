@@ -16,7 +16,7 @@ namespace UI
 
             try
             {
-                dataGridView1.DataSource = _sessionController.GetHighScores().Select(o => new
+                scoreGridView.DataSource = _sessionController.GetHighScores().Select(o => new
                 { 
                     Username = o.UserName, 
                     Score = o.Score, 
