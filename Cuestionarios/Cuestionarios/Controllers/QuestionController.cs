@@ -1,5 +1,7 @@
-﻿using Cuestionarios.DataAccessLayer;
+﻿using AutoMapper;
+using Cuestionarios.DataAccessLayer;
 using Cuestionarios.Domain;
+using Cuestionarios.DTOs;
 using Cuestionarios.Sources;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,7 @@ namespace Cuestionarios.Controllers
             iUOfW.Complete();
         }
 
-        public IEnumerable<Question> GetQuestions(string pSetName, string pDifficulty, string pCategory, int pAmount)
+        public IEnumerable<QuestionDTO> GetQuestions(string pSetName, string pDifficulty, string pCategory, int pAmount)
         {
             IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
             var questionsList = new List<Question>();
@@ -38,7 +40,14 @@ namespace Cuestionarios.Controllers
                 throw new ArgumentException("One of the parameters entered is not valid");
             }
 
-            return questionsList;
+            List<QuestionDTO> result = new List<QuestionDTO>();
+
+            foreach (var question in questionsList)
+            {
+                result.Add(Mapper.Map<Question, QuestionDTO>(question));
+            }
+
+            return result;
         }
 
         /// <summary>

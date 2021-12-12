@@ -1,5 +1,4 @@
-﻿using System;
-namespace Cuestionarios.DTOs
+﻿namespace Cuestionarios.DTOs
 {
     public class UserDTO
     {

@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using Cuestionarios.Controllers;
 using Npgsql;
-using Cuestionarios.Domain;
 using Cuestionarios.DTOs;
 
 namespace UI
@@ -15,7 +14,7 @@ namespace UI
         private readonly UserDTO _user;
         private readonly SetDTO _selectedSet;
         private readonly string _difficulty;
-        private readonly List<Question> _questionsList;
+        private readonly List<QuestionDTO> _questionsList;
         private Stopwatch stopwatch;
         private int questionNumber;
         private int totalQuestions;
@@ -23,7 +22,7 @@ namespace UI
 
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Game(List<Question> pQuestionsList, SessionController pSessionController, UserDTO pUser, string pDifficulty, SetDTO pSet)
+        public Game(List<QuestionDTO> pQuestionsList, SessionController pSessionController, UserDTO pUser, string pDifficulty, SetDTO pSet)
         {
             _sessionController = pSessionController;
             _questionsList = pQuestionsList;

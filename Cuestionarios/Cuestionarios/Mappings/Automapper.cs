@@ -16,9 +16,11 @@ namespace Cuestionarios.Mappings
 
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Question, QuestionDTO>().ReverseMap();
+                cfg.CreateMap<Option, OptionDTO>();
 
-                cfg.CreateMap<Set, SetDTO>().ReverseMap();
+                cfg.CreateMap<Question, QuestionDTO>();
+
+                cfg.CreateMap<Set, SetDTO>();
 
                 cfg.CreateMap<User, UserDTO>();
 
