@@ -51,29 +51,32 @@ namespace UI
             this.lblGame.BackColor = System.Drawing.Color.Transparent;
             this.lblGame.Font = new System.Drawing.Font("Gadugi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGame.ForeColor = System.Drawing.Color.White;
-            this.lblGame.Location = new System.Drawing.Point(338, 9);
+            this.lblGame.Location = new System.Drawing.Point(254, 7);
+            this.lblGame.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGame.Name = "lblGame";
-            this.lblGame.Size = new System.Drawing.Size(93, 35);
+            this.lblGame.Size = new System.Drawing.Size(74, 28);
             this.lblGame.TabIndex = 2;
             this.lblGame.Text = "Game";
             this.lblGame.UseWaitCursor = true;
             // 
             // txtMin
             // 
-            this.txtMin.Location = new System.Drawing.Point(757, 244);
+            this.txtMin.Location = new System.Drawing.Point(568, 198);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMin.Multiline = true;
             this.txtMin.Name = "txtMin";
             this.txtMin.ReadOnly = true;
-            this.txtMin.Size = new System.Drawing.Size(42, 27);
+            this.txtMin.Size = new System.Drawing.Size(32, 23);
             this.txtMin.TabIndex = 6;
             // 
             // txtSeg
             // 
-            this.txtSeg.Location = new System.Drawing.Point(805, 244);
+            this.txtSeg.Location = new System.Drawing.Point(604, 198);
+            this.txtSeg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSeg.Multiline = true;
             this.txtSeg.Name = "txtSeg";
             this.txtSeg.ReadOnly = true;
-            this.txtSeg.Size = new System.Drawing.Size(41, 27);
+            this.txtSeg.Size = new System.Drawing.Size(32, 23);
             this.txtSeg.TabIndex = 8;
             // 
             // timer1
@@ -87,9 +90,10 @@ namespace UI
             this.btnOption1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption1.ForeColor = System.Drawing.Color.Black;
-            this.btnOption1.Location = new System.Drawing.Point(225, 155);
+            this.btnOption1.Location = new System.Drawing.Point(169, 126);
+            this.btnOption1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOption1.Name = "btnOption1";
-            this.btnOption1.Size = new System.Drawing.Size(404, 60);
+            this.btnOption1.Size = new System.Drawing.Size(303, 49);
             this.btnOption1.TabIndex = 18;
             this.btnOption1.Text = "Option 1";
             this.btnOption1.UseVisualStyleBackColor = false;
@@ -102,9 +106,10 @@ namespace UI
             this.btnOption2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption2.ForeColor = System.Drawing.Color.Black;
-            this.btnOption2.Location = new System.Drawing.Point(225, 221);
+            this.btnOption2.Location = new System.Drawing.Point(169, 180);
+            this.btnOption2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOption2.Name = "btnOption2";
-            this.btnOption2.Size = new System.Drawing.Size(404, 60);
+            this.btnOption2.Size = new System.Drawing.Size(303, 49);
             this.btnOption2.TabIndex = 19;
             this.btnOption2.Text = "Option2";
             this.btnOption2.UseVisualStyleBackColor = false;
@@ -117,9 +122,10 @@ namespace UI
             this.btnOption3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption3.ForeColor = System.Drawing.Color.Black;
-            this.btnOption3.Location = new System.Drawing.Point(225, 287);
+            this.btnOption3.Location = new System.Drawing.Point(169, 233);
+            this.btnOption3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOption3.Name = "btnOption3";
-            this.btnOption3.Size = new System.Drawing.Size(404, 61);
+            this.btnOption3.Size = new System.Drawing.Size(303, 50);
             this.btnOption3.TabIndex = 20;
             this.btnOption3.Text = "Option 3";
             this.btnOption3.UseVisualStyleBackColor = false;
@@ -132,9 +138,10 @@ namespace UI
             this.btnOption4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption4.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOption4.ForeColor = System.Drawing.Color.Black;
-            this.btnOption4.Location = new System.Drawing.Point(225, 354);
+            this.btnOption4.Location = new System.Drawing.Point(169, 288);
+            this.btnOption4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOption4.Name = "btnOption4";
-            this.btnOption4.Size = new System.Drawing.Size(404, 61);
+            this.btnOption4.Size = new System.Drawing.Size(303, 50);
             this.btnOption4.TabIndex = 21;
             this.btnOption4.Text = "Option 4";
             this.btnOption4.UseVisualStyleBackColor = false;
@@ -144,21 +151,22 @@ namespace UI
             // 
             this.lblQuestionNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestionNumber.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionNumber.Location = new System.Drawing.Point(221, 66);
+            this.lblQuestionNumber.Location = new System.Drawing.Point(166, 54);
+            this.lblQuestionNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuestionNumber.Name = "lblQuestionNumber";
-            this.lblQuestionNumber.Size = new System.Drawing.Size(624, 72);
+            this.lblQuestionNumber.Size = new System.Drawing.Size(468, 58);
             this.lblQuestionNumber.TabIndex = 4;
             this.lblQuestionNumber.Text = "...";
-            this.lblQuestionNumber.UseWaitCursor = true;
             // 
             // Time
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
             this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Time.Location = new System.Drawing.Point(776, 205);
+            this.Time.Location = new System.Drawing.Point(582, 167);
+            this.Time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(69, 29);
+            this.Time.Size = new System.Drawing.Size(53, 24);
             this.Time.TabIndex = 22;
             this.Time.Text = "Time";
             this.Time.UseWaitCursor = true;
@@ -168,9 +176,10 @@ namespace UI
             this.lblQuestion.AutoSize = true;
             this.lblQuestion.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion.Location = new System.Drawing.Point(40, 62);
+            this.lblQuestion.Location = new System.Drawing.Point(30, 50);
+            this.lblQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(116, 29);
+            this.lblQuestion.Size = new System.Drawing.Size(91, 24);
             this.lblQuestion.TabIndex = 23;
             this.lblQuestion.Text = "Question:";
             this.lblQuestion.UseWaitCursor = true;
@@ -182,10 +191,10 @@ namespace UI
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuit.ForeColor = System.Drawing.Color.Black;
-            this.btnQuit.Location = new System.Drawing.Point(738, 457);
-            this.btnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnQuit.Location = new System.Drawing.Point(554, 371);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(132, 42);
+            this.btnQuit.Size = new System.Drawing.Size(99, 34);
             this.btnQuit.TabIndex = 24;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
@@ -193,10 +202,10 @@ namespace UI
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(884, 504);
+            this.ClientSize = new System.Drawing.Size(663, 410);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.Time);
@@ -209,6 +218,7 @@ namespace UI
             this.Controls.Add(this.lblQuestionNumber);
             this.Controls.Add(this.lblGame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gamecs";
