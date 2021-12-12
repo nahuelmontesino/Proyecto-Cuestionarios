@@ -1,5 +1,4 @@
-﻿using Cuestionarios.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 
 namespace Cuestionarios.DTOs

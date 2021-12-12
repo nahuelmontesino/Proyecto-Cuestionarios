@@ -19,8 +19,8 @@ namespace UI
                 scoreGridView.DataSource = _sessionController.GetHighScores().Select(o => new
                 { 
                     Username = o.UserName, 
-                    Score = o.Score, 
-                    TimeOnSeconds = o.TotalTimeInSecond, 
+                    Score = o.Score.ToString("N2"), 
+                    TimeOnSeconds = o.TotalTimeInSecond.ToString("N2"), 
                     DateOfScore = o.Date 
                 }).ToList();
             }

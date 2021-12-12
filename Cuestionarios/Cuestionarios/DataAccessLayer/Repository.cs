@@ -27,6 +27,9 @@ namespace Cuestionarios.DataAccessLayer
             dbSet.Add(pEntity);
         }
 
+        /// <summary>
+        /// Generic method to dynamic database filtering with Linq Expression
+        /// </summary>
         public IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)

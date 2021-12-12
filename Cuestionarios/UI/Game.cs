@@ -77,7 +77,7 @@ namespace UI
                     var score = _sessionController.GetScore(_selectedSet, correctAnswers, totalQuestions, _difficulty, timeNumber);
                     _sessionController.SaveSession(_user.Username, score, time);
 
-                    MessageBox.Show("Your score is: "+ score, "Score");
+                    MessageBox.Show("Your score is: "+ score.ToString("N2"), "Score");
                 }
                 catch (NpgsqlException ex)
                 {

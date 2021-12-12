@@ -3,7 +3,6 @@ using Cuestionarios.DataAccessLayer.Mappings;
 using System;
 using System.Data.Entity;
 
-
 namespace Cuestionarios.DataAccessLayer
 {
     public class QuestionnaireDbContext : DbContext
