@@ -32,7 +32,7 @@ namespace UI
 
         private void brnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void exitBox_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

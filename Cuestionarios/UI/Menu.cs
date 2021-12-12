@@ -24,21 +24,21 @@ namespace UI
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             CreateGame createGame = new CreateGame(_setController, _questController, _sessionController, user)
             {
                 Owner = this
             };
             createGame.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void btnHighScore_Click(object sender, EventArgs e)
         {
             Score score = new Score(_sessionController);
-            this.Hide();
+            Hide();
             score.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void exitBox_Click(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

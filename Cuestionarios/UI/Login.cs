@@ -61,7 +61,7 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void exitBox_Click(object sender, EventArgs e)

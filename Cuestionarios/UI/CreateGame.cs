@@ -28,7 +28,7 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void exitBox_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace UI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,8 +55,7 @@ namespace UI
 
             btnNewGame.Enabled = true;
 
-            this.nupAmount.Maximum = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
-           
+            nupAmount.Maximum = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
         }
 
         private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
@@ -83,10 +82,10 @@ namespace UI
             try
             {
                 var questionsList = _questionController.GetQuestions(selectedSet.Name, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
-                this.Hide();
+                Hide();
                 Game game = new Game(questionsList, _sessionController, _user, cmbDificulty.Text, selectedSet);
                 game.ShowDialog();
-                this.Show();
+                Show();
             }
             catch(InvalidOperationException ex)
             {

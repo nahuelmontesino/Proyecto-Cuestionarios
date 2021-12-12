@@ -90,7 +90,7 @@ namespace UI
                     MessageBox.Show(ex.Message);
                 }
 
-                this.Close();
+                Close();
             }
         }
 
@@ -124,12 +124,12 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnOption1_Click(object sender, EventArgs e)
