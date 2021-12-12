@@ -31,12 +31,12 @@ namespace UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewUser));
             this.lblNewUser = new System.Windows.Forms.Label();
-            this.txtpass = new System.Windows.Forms.TextBox();
-            this.txtuser = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.minimizeBox = new System.Windows.Forms.PictureBox();
             this.exitBox = new System.Windows.Forms.PictureBox();
+            this.txtuser = new System.Windows.Forms.TextBox();
+            this.txtpass = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             this.SuspendLayout();
@@ -53,32 +53,6 @@ namespace UI
             this.lblNewUser.TabIndex = 4;
             this.lblNewUser.Text = "New User";
             this.lblNewUser.UseWaitCursor = true;
-            // 
-            // txtpass
-            // 
-            this.txtpass.BackColor = System.Drawing.Color.White;
-            this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtpass.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.ForeColor = System.Drawing.Color.Black;
-            this.txtpass.Location = new System.Drawing.Point(156, 167);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(413, 27);
-            this.txtpass.TabIndex = 7;
-            this.txtpass.Text = "Password";
-            // 
-            // txtuser
-            // 
-            this.txtuser.BackColor = System.Drawing.Color.White;
-            this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtuser.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.ForeColor = System.Drawing.Color.Black;
-            this.txtuser.Location = new System.Drawing.Point(156, 107);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(413, 27);
-            this.txtuser.TabIndex = 5;
-            this.txtuser.Text = "User";
             // 
             // btnRegister
             // 
@@ -138,18 +112,48 @@ namespace UI
             this.exitBox.TabStop = false;
             this.exitBox.Click += new System.EventHandler(this.exitBox_Click);
             // 
+            // txtuser
+            // 
+            this.txtuser.BackColor = System.Drawing.Color.White;
+            this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtuser.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtuser.ForeColor = System.Drawing.Color.Black;
+            this.txtuser.Location = new System.Drawing.Point(156, 119);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtuser.Name = "txtuser";
+            this.txtuser.Size = new System.Drawing.Size(413, 27);
+            this.txtuser.TabIndex = 24;
+            this.txtuser.Text = "User";
+            this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
+            this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
+            // 
+            // txtpass
+            // 
+            this.txtpass.BackColor = System.Drawing.Color.White;
+            this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtpass.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpass.ForeColor = System.Drawing.Color.Black;
+            this.txtpass.Location = new System.Drawing.Point(156, 168);
+            this.txtpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpass.Name = "txtpass";
+            this.txtpass.Size = new System.Drawing.Size(413, 27);
+            this.txtpass.TabIndex = 25;
+            this.txtpass.Text = "Password";
+            this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
+            this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
+            // 
             // NewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(725, 330);
+            this.Controls.Add(this.txtpass);
+            this.Controls.Add(this.txtuser);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.txtpass);
-            this.Controls.Add(this.txtuser);
             this.Controls.Add(this.lblNewUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -166,11 +170,11 @@ namespace UI
         #endregion
 
         private System.Windows.Forms.Label lblNewUser;
-        private System.Windows.Forms.TextBox txtpass;
-        private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.PictureBox minimizeBox;
         private System.Windows.Forms.PictureBox exitBox;
+        private System.Windows.Forms.TextBox txtuser;
+        private System.Windows.Forms.TextBox txtpass;
     }
 }

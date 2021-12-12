@@ -58,5 +58,39 @@ namespace UI
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void txtpass_Enter(object sender, EventArgs e)
+        {
+            if (txtpass.Text == "Password")
+            {
+                txtpass.Text = "";
+                txtpass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtpass_Leave(object sender, EventArgs e)
+        {
+            if (txtpass.Text == "")
+            {
+                txtpass.Text = "Password";
+                txtpass.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtuser_Enter(object sender, EventArgs e)
+        {
+            if (txtuser.Text == "User")
+            {
+                txtuser.Text = "";
+            }
+        }
+
+        private void txtuser_Leave(object sender, EventArgs e)
+        {
+            if (txtuser.Text == "")
+            {
+                txtuser.Text = "User";
+            }
+        }
     }
 }

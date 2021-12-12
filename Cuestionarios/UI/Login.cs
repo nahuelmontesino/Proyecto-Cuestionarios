@@ -1,5 +1,4 @@
 ﻿using Cuestionarios.Controllers;
-using Cuestionarios.Domain;
 using Cuestionarios.DTOs;
 using Npgsql;
 using System;
@@ -115,8 +114,10 @@ namespace UI
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             NewUser newUser = new NewUser(_userController);
             newUser.ShowDialog();
+            this.Show();
         }
     }
 }
