@@ -55,7 +55,6 @@ namespace UI
             if (questionNumber <= totalQuestions)
             {
                 lblQuestionNumber.Text = _questionsList[questionNumber - 1].QuestionSentence;
-                //textQuestion.Text = _questionsList[questionNumber - 1].QuestionSentence;
 
                 btnOption1.Text = _questionsList[questionNumber - 1].Options[0].Answer;
                 btnOption2.Text = _questionsList[questionNumber - 1].Options[1].Answer;
@@ -77,6 +76,8 @@ namespace UI
                 {
                     var score = _sessionController.GetScore(_selectedSet, correctAnswers, totalQuestions, _difficulty, timeNumber);
                     _sessionController.SaveSession(_user.Username, score, time);
+
+                    MessageBox.Show("Your score is: "+ score, "Score");
                 }
                 catch (NpgsqlException ex)
                 {

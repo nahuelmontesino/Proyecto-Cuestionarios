@@ -108,12 +108,6 @@
     <Compile Include="AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Minimize.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Components\Minimize.Designer.cs">
-      <DependentUpon>Minimize.cs</DependentUpon>
-    </Compile>
     <Compile Include="CreateGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     </Compile>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Components\Minimize.resx">
-      <DependentUpon>Minimize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateGame.resx">
       <DependentUpon>CreateGame.cs</DependentUpon>

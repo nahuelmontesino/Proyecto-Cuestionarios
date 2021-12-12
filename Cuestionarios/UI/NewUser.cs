@@ -11,7 +11,7 @@ namespace UI
 
         public NewUser( UserController pUserController)
         {
-            this._userController = pUserController;
+            _userController = pUserController;
             InitializeComponent();
         }
 
@@ -23,7 +23,7 @@ namespace UI
                 {
                     _userController.AddUser(txtuser.Text, txtpass.Text);
                     MessageBox.Show("User added successfully");
-                    this.Close();
+                    Close();
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace UI
 
         private void brnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void exitBox_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace UI
 
         private void minimizeBox_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void txtpass_Enter(object sender, EventArgs e)

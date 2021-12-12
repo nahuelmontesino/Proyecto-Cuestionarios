@@ -88,16 +88,16 @@ namespace UI
                     if(usr.Admin)
                     {
                         AdminPanel admin = new AdminPanel(_setController, _sessionController, _questionController, usr, _sourceController);
-                        this.Hide();
+                        Hide();
                         admin.ShowDialog();
-                        this.Show();
+                        Show();
                     }
                     else
                     {
-                        this.Hide();
+                        Hide();
                         Menu menu = new Menu(_setController, _questionController, _sessionController, usr);
                         menu.ShowDialog();
-                        this.Show();
+                        Show();
                     }                    
                 }
             }
@@ -114,10 +114,10 @@ namespace UI
         }
         private void registerLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+            Hide();
             NewUser newUser = new NewUser(_userController);
             newUser.ShowDialog();
-            this.Show();
+            Show();
         }
     }
 }
