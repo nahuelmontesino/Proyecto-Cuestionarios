@@ -10,7 +10,9 @@ namespace Cuestionarios.Mappings
         {
         }
 
-        //Crea los mapeos necesarios
+        /// <summary>
+        /// Create the necessary mappings
+        /// </summary>
         public void ConfigureAutomapper()
         {
 
