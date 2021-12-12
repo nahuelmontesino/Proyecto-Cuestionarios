@@ -129,8 +129,11 @@
     <Compile Include="Domain\Session.cs" />
     <Compile Include="Domain\Set.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="DTOs\OptionDTO.cs" />
     <Compile Include="DTOs\QuestionDTO.cs" />
+    <Compile Include="DTOs\SessionDTO.cs" />
     <Compile Include="DTOs\SetDTO.cs" />
+    <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="Mappings\Automapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\IQuestionnaireSource.cs" />

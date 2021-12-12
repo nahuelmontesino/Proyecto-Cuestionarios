@@ -112,7 +112,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void registerLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             NewUser newUser = new NewUser(_userController);

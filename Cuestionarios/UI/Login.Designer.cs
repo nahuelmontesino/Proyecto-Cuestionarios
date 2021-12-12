@@ -40,7 +40,7 @@ namespace UI
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.registerlbl = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
@@ -53,18 +53,18 @@ namespace UI
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 330);
+            this.panel1.Size = new System.Drawing.Size(188, 268);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(251, 330);
+            this.pictureBox3.Size = new System.Drawing.Size(188, 268);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -75,10 +75,10 @@ namespace UI
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.Black;
-            this.txtuser.Location = new System.Drawing.Point(308, 73);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtuser.Location = new System.Drawing.Point(231, 59);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(2);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(413, 27);
+            this.txtuser.Size = new System.Drawing.Size(310, 22);
             this.txtuser.TabIndex = 1;
             this.txtuser.Text = "User";
             this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
@@ -89,9 +89,10 @@ namespace UI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gadugi", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(495, 0);
+            this.label2.Location = new System.Drawing.Point(371, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 41);
+            this.label2.Size = new System.Drawing.Size(93, 31);
             this.label2.TabIndex = 6;
             this.label2.Text = "LOGIN";
             // 
@@ -103,10 +104,10 @@ namespace UI
             this.btnGetIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnGetIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetIn.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGetIn.Location = new System.Drawing.Point(308, 231);
-            this.btnGetIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetIn.Location = new System.Drawing.Point(231, 188);
+            this.btnGetIn.Margin = new System.Windows.Forms.Padding(2);
             this.btnGetIn.Name = "btnGetIn";
-            this.btnGetIn.Size = new System.Drawing.Size(413, 39);
+            this.btnGetIn.Size = new System.Drawing.Size(310, 32);
             this.btnGetIn.TabIndex = 0;
             this.btnGetIn.Text = "GET IN";
             this.btnGetIn.UseVisualStyleBackColor = false;
@@ -115,10 +116,10 @@ namespace UI
             // exitBox
             // 
             this.exitBox.Image = ((System.Drawing.Image)(resources.GetObject("exitBox.Image")));
-            this.exitBox.Location = new System.Drawing.Point(749, 0);
-            this.exitBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.exitBox.Location = new System.Drawing.Point(562, 0);
+            this.exitBox.Margin = new System.Windows.Forms.Padding(2);
             this.exitBox.Name = "exitBox";
-            this.exitBox.Size = new System.Drawing.Size(35, 22);
+            this.exitBox.Size = new System.Drawing.Size(26, 18);
             this.exitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.exitBox.TabIndex = 8;
             this.exitBox.TabStop = false;
@@ -127,10 +128,10 @@ namespace UI
             // minimizeBox
             // 
             this.minimizeBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeBox.Image")));
-            this.minimizeBox.Location = new System.Drawing.Point(719, 0);
-            this.minimizeBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.minimizeBox.Location = new System.Drawing.Point(539, 0);
+            this.minimizeBox.Margin = new System.Windows.Forms.Padding(2);
             this.minimizeBox.Name = "minimizeBox";
-            this.minimizeBox.Size = new System.Drawing.Size(35, 22);
+            this.minimizeBox.Size = new System.Drawing.Size(26, 18);
             this.minimizeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.minimizeBox.TabIndex = 9;
             this.minimizeBox.TabStop = false;
@@ -142,10 +143,10 @@ namespace UI
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.Black;
-            this.txtpass.Location = new System.Drawing.Point(308, 145);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpass.Location = new System.Drawing.Point(231, 118);
+            this.txtpass.Margin = new System.Windows.Forms.Padding(2);
             this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(413, 27);
+            this.txtpass.Size = new System.Drawing.Size(310, 22);
             this.txtpass.TabIndex = 2;
             this.txtpass.Text = "Password";
             this.txtpass.Enter += new System.EventHandler(this.texpass_Enter);
@@ -155,9 +156,10 @@ namespace UI
             // 
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(308, 175);
+            this.label3.Location = new System.Drawing.Point(231, 142);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(413, 1);
+            this.label3.Size = new System.Drawing.Size(310, 1);
             this.label3.TabIndex = 4;
             // 
             // label1
@@ -165,30 +167,32 @@ namespace UI
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(308, 103);
+            this.label1.Location = new System.Drawing.Point(231, 84);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(413, 1);
+            this.label1.Size = new System.Drawing.Size(310, 1);
             this.label1.TabIndex = 1;
             // 
-            // linkLabel1
+            // registerlbl
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(488, 284);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(61, 17);
-            this.linkLabel1.TabIndex = 10;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Register";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.registerlbl.AutoSize = true;
+            this.registerlbl.LinkColor = System.Drawing.Color.DimGray;
+            this.registerlbl.Location = new System.Drawing.Point(366, 231);
+            this.registerlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerlbl.Name = "registerlbl";
+            this.registerlbl.Size = new System.Drawing.Size(46, 13);
+            this.registerlbl.TabIndex = 10;
+            this.registerlbl.TabStop = true;
+            this.registerlbl.Text = "Register";
+            this.registerlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registerLabel_LinkClicked);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(780, 330);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(585, 268);
+            this.Controls.Add(this.registerlbl);
             this.Controls.Add(this.minimizeBox);
             this.Controls.Add(this.exitBox);
             this.Controls.Add(this.btnGetIn);
@@ -200,7 +204,7 @@ namespace UI
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.DimGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
@@ -225,6 +229,6 @@ namespace UI
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel registerlbl;
     }
 }
