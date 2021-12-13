@@ -13,6 +13,7 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
+        //Get the scores
         public IEnumerable<SessionDTO> GetHighScores()
         {
             List<SessionDTO> result = new List<SessionDTO>();
@@ -26,13 +27,14 @@ namespace Cuestionarios.Controllers
             return result;
         }
 
-
+        //Save the session
         public void SaveSession(string pUserName, double pScoreValue, TimeSpan pTotalTime)
         {
             iUOfW.SessionRepository.SaveSession(pUserName, pScoreValue, pTotalTime);
             iUOfW.Complete();
         }
 
+        //Calcuate the score of a game
         public double GetScore(SetDTO pSet, int correctAnswers, int totalQuestions, string difficulty, double time)
         {
             int difficultyFactor, timeFactor;

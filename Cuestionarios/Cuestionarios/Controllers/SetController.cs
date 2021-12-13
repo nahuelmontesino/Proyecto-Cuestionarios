@@ -12,12 +12,14 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
+        //Get a set by name
         public SetDTO GetSetByName(string name)
         {
             var set = iUOfW.SetRepository.GetSetByName(name);
             return Mapper.Map<Set, SetDTO>(set);
         }
 
+        //Obtiene todos los sets
         public IEnumerable<SetDTO> GetAllSets()
         {
             List<SetDTO> result =  new List<SetDTO>();

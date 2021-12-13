@@ -6,6 +6,11 @@ using System.Linq.Expressions;
 
 namespace Cuestionarios.DataAccessLayer
 {
+    /// <summary>
+    /// Base implementation of a repository
+    /// </summary>
+    /// <typeparam name="TEntity">Domain entity of the repository</typeparam>
+    /// <typeparam name="TDbContext">Context of the DB</typeparam>
     public abstract class Repository<TEntity, TDbContext>: IRepository<TEntity>
         where TEntity: class
         where TDbContext: DbContext

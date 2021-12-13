@@ -13,6 +13,11 @@ namespace Cuestionarios.DataAccessLayer
         {
         }
 
+        /// <summary>
+        /// Save questions in the DB
+        /// </summary>
+        /// <param name="pSetName">Set to which the question belongs</param>
+        /// <param name="pQuestionList"> List of questions </param>
         public void SaveQuestions(string pSetName, IList<Question> pQuestionList)
         {
             try
@@ -45,7 +50,7 @@ namespace Cuestionarios.DataAccessLayer
             }
         }
 
-
+        //Get the questions from the DB
         public IEnumerable<Question> GetQuestions(string pSetName, int pDifficulty, int pCategory, int pAmount)
         {
             var questionsList = new List<Question>();
@@ -78,6 +83,7 @@ namespace Cuestionarios.DataAccessLayer
             return questionsList.Take(pAmount);
         }
 
+        //Get the total number of questions from the DB
         public int GetMaxNumberQuestions(string pSetName, int pDifficulty, int pCategory)
         {
             int numberQuestions = 0;
@@ -99,6 +105,7 @@ namespace Cuestionarios.DataAccessLayer
             return numberQuestions;
         }
 
+        //Get the categories of a set
         public IEnumerable<int> GetCategoriesOfSet(string pSetName)
         {
             IEnumerable<int> categoriesKeys = Get(q => q.Set.Name == pSetName).Select(q => q.Category).Distinct();
@@ -106,6 +113,7 @@ namespace Cuestionarios.DataAccessLayer
             return categoriesKeys;
         }
 
+        //Get the difficulties of a category
         public IEnumerable<int> GetDifficultiesOfCategory(string pSetName, int category)
         {
             IEnumerable<int> difficultiesKeys = Get(q => q.Set.Name == pSetName && q.Category == category)

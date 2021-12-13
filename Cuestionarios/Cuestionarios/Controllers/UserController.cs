@@ -13,6 +13,7 @@ namespace Cuestionarios.Controllers
 
         public UserController() { }
 
+        //Get a user by name
         public UserDTO GetUserByName(string name)
         {
             var user = iUOfW.UserRepository.GetByUserName(name);
@@ -20,6 +21,7 @@ namespace Cuestionarios.Controllers
             return Mapper.Map<User, UserDTO>(user);
         }
 
+        //Add a user
         public void AddUser(string pUsername, string pPassword, bool pAdmin = false)
         {
             if (iUOfW.UserRepository.GetByUserName(pUsername) == null)
