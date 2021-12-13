@@ -85,6 +85,9 @@ namespace Cuestionarios.Sources
             }
         }
 
+        /// <summary>
+        /// Difficulty mapping
+        /// </summary>
         private Dictionary<int, string> GetDifficulties()
         {
             var difficulties = new Dictionary<int, string>()
@@ -98,6 +101,9 @@ namespace Cuestionarios.Sources
             return difficulties;
         }
 
+        /// <summary>
+        /// Get the questions from the api
+        /// </summary>
         public IEnumerable<Question> GetQuestions(string pDificulty, int pCategory, int pAmount)
         {
             string category, dificulty;

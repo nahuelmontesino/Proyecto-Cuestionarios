@@ -13,7 +13,9 @@ namespace Cuestionarios.DataAccessLayer
 
         }
 
-        //Save a user session
+        /// <summary>
+        /// Save a user session
+        /// </summary>
         public void SaveSession(string pUserName, double pScoreValue, TimeSpan pTotalTime)
         {
             try
@@ -37,7 +39,9 @@ namespace Cuestionarios.DataAccessLayer
             }     
         }
 
-        //Get a user's scores
+        /// <summary>
+        /// Get a user's scores
+        /// </summary>
         public IEnumerable<Session> GetHighScores()
         {
             var sessionList = new List<Session>();

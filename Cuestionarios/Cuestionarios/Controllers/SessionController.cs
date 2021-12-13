@@ -13,7 +13,9 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
-        //Get the scores
+        /// <summary>
+        /// Get the scores
+        /// </summary>
         public IEnumerable<SessionDTO> GetHighScores()
         {
             List<SessionDTO> result = new List<SessionDTO>();
@@ -27,14 +29,18 @@ namespace Cuestionarios.Controllers
             return result;
         }
 
-        //Save the session
+        /// <summary>
+        /// Save the session
+        /// </summary>
         public void SaveSession(string pUserName, double pScoreValue, TimeSpan pTotalTime)
         {
             iUOfW.SessionRepository.SaveSession(pUserName, pScoreValue, pTotalTime);
             iUOfW.Complete();
         }
 
-        //Calcuate the score of a game
+        /// <summary>
+        /// Calcuate the score of a game
+        /// </summary>
         public double GetScore(SetDTO pSet, int correctAnswers, int totalQuestions, string difficulty, double time)
         {
             int difficultyFactor, timeFactor;

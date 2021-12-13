@@ -50,7 +50,10 @@ namespace Cuestionarios.DataAccessLayer
             }
         }
 
-        //Get the questions from the DB
+        /// <summary>
+        /// Get the questions from the DB
+        /// </summary>
+
         public IEnumerable<Question> GetQuestions(string pSetName, int pDifficulty, int pCategory, int pAmount)
         {
             var questionsList = new List<Question>();

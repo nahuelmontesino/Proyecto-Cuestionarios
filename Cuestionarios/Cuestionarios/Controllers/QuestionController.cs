@@ -13,7 +13,9 @@ namespace Cuestionarios.Controllers
     {
         readonly UnitOfWork iUOfW = new UnitOfWork();
 
-        //Save the questions
+        /// <summary>
+        /// Save the questions
+        /// </summary>
         public void LoadQuestions(string pSetName, string pDificulty, string pCategory, int pAmount)
         {
             IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
@@ -25,7 +27,9 @@ namespace Cuestionarios.Controllers
             iUOfW.Complete();
         }
 
-        //Get saved questions
+        /// <summary>
+        /// Get saved questions
+        /// </summary>
         public IEnumerable<QuestionDTO> GetQuestions(string pSetName, string pDifficulty, string pCategory, int pAmount)
         {
             IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
@@ -85,7 +89,9 @@ namespace Cuestionarios.Controllers
             return difficulties;
         }
 
-        //Get the maximum number of questions
+        /// <summary>
+        /// Get the maximum number of questions
+        /// </summary>
         public int GetNumberQuestions(string pSetName, string pCategory, string pDifficulty)
         {
             IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
