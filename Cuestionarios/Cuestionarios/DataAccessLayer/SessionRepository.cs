@@ -11,8 +11,11 @@ namespace Cuestionarios.DataAccessLayer
         public SessionRepository(QuestionnaireDbContext pContext) : base(pContext)
         {
 
-        } 
+        }
 
+        /// <summary>
+        /// Save a user session
+        /// </summary>
         public void SaveSession(string pUserName, double pScoreValue, TimeSpan pTotalTime)
         {
             try
@@ -36,6 +39,9 @@ namespace Cuestionarios.DataAccessLayer
             }     
         }
 
+        /// <summary>
+        /// Get a user's scores
+        /// </summary>
         public IEnumerable<Session> GetHighScores()
         {
             var sessionList = new List<Session>();
