@@ -2,6 +2,7 @@
 using Cuestionarios.DataAccessLayer.Mappings;
 using System;
 using System.Data.Entity;
+using Npgsql;
 
 namespace Cuestionarios.DataAccessLayer
 {
@@ -12,9 +13,8 @@ namespace Cuestionarios.DataAccessLayer
         /// </summary>
         public QuestionnaireDbContext() : base(nameOrConnectionString: "Default")
         {
-            // The customized initialization strategy of the DB is established.  
-            Database.SetInitializer(new DatabaseInitializationStrategy());
-            Database.Initialize(false);
+                // The customized initialization strategy of the DB is established.  
+                Database.SetInitializer(new DatabaseInitializationStrategy());
         }
 
         public virtual DbSet<Question> Questions { get; set; }
