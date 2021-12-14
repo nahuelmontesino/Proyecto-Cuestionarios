@@ -24,13 +24,21 @@ namespace UI
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            Hide();
-            CreateGame createGame = new CreateGame(_setController, _questController, _sessionController, user)
+            if (!_questController.HaveAnyQuestion())
             {
-                Owner = this
-            };
-            createGame.ShowDialog();
-            Show();
+                MessageBox.Show("There are no questions loaded yet");
+            }
+            else
+            {
+                Hide();
+                CreateGame createGame = new CreateGame(_setController, _questController, _sessionController, user)
+                {
+                    Owner = this
+                };
+                createGame.ShowDialog();
+                Show();
+            }
+            
         }
 
         private void btnHighScore_Click(object sender, EventArgs e)

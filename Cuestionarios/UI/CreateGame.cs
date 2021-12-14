@@ -45,7 +45,6 @@ namespace UI
         {
             cmbCategory.Enabled = true;
             selectedSet = _setController.GetSetByName(cmbSet.Text);
-
             cmbCategory.DataSource = _questionController.GetCategoriesOfSet(selectedSet.Name);
         }
 
