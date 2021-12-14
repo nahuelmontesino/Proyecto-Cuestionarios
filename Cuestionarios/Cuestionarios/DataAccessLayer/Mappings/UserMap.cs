@@ -5,6 +5,9 @@ namespace Cuestionarios.DataAccessLayer.Mappings
 {
     class UserMap: EntityTypeConfiguration<User>
     {
+        /// <summary>
+        /// Maps User Class to the database
+        /// </summary>
         public UserMap()
         {
             ToTable("User");
