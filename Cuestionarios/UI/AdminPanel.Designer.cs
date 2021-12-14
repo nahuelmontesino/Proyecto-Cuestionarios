@@ -109,12 +109,7 @@ namespace UI
             this.nupAmount.Location = new System.Drawing.Point(205, 293);
             this.nupAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nupAmount.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nupAmount.Minimum = new decimal(new int[] {
-            10,
+            10000,
             0,
             0,
             0});
