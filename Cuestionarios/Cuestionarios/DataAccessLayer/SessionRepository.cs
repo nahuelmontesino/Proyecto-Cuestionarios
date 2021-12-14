@@ -48,7 +48,7 @@ namespace Cuestionarios.DataAccessLayer
 
             try
             {
-                var query = Get(null, session => session.OrderByDescending(x => x.Score));
+                var query = Get(orderBy: session => session.OrderByDescending(x => x.Score));
                 sessionList = query.Take(20).ToList();
             }
             catch (Exception ex)
