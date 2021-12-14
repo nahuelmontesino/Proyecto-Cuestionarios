@@ -10,10 +10,12 @@ namespace UI
     {
         private readonly SetController _setController;
         private readonly QuestionController _questionController;
-        private readonly SessionController _sessionController;
-        private SetDTO selectedSet;
+        private readonly SessionController _sessionController;        
         private readonly UserDTO _user;
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private SetDTO selectedSet;
+        private int maxAmountQuestions;
+        private int minAmountQuestions;
 
         public CreateGame(SetController pSetController, QuestionController pQuestionController, SessionController pSessionController, UserDTO pUser)
         {
@@ -24,6 +26,8 @@ namespace UI
             InitializeComponent();
             // Load the sets into the comboBox
             cmbSet.DataSource = _setController.GetAllSets().ToList();
+            maxAmountQuestions = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
+            minAmountQuestions = 10;
         }
 
         private void minimizeBox_Click(object sender, EventArgs e)
@@ -43,7 +47,6 @@ namespace UI
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbCategory.Enabled = true;
             selectedSet = _setController.GetSetByName(cmbSet.Text);
             cmbCategory.DataSource = _questionController.GetCategoriesOfSet(selectedSet.Name);
         }
@@ -54,19 +57,7 @@ namespace UI
 
             btnNewGame.Enabled = true;
 
-            nupAmount.Maximum = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
-        }
-
-        private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
-        {
-            int maxAmount = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
-
-            if (!(e.KeyData == Keys.Back || e.KeyData == Keys.Delete))
-                if (nupAmount.Value >= maxAmount || e.KeyValue == 109)
-                {
-                    e.SuppressKeyPress = true;
-                    e.Handled = true;
-                }
+            maxAmountQuestions = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,27 +65,44 @@ namespace UI
             cmbDificulty.Enabled = true;
 
             cmbDificulty.DataSource = _questionController.GetDifficultiesOfCategory(selectedSet.Name, cmbCategory.Text);
+
+            maxAmountQuestions = _questionController.GetNumberQuestions(selectedSet.Name, cmbCategory.Text, cmbDificulty.Text);
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            try
+            if (nupAmount.Value > maxAmountQuestions)
             {
-                var questionsList = _questionController.GetQuestions(selectedSet.Name, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
-                Hide();
-                Game game = new Game(questionsList, _sessionController, _user, cmbDificulty.Text, selectedSet);
-                game.ShowDialog();
-                Show();
+                MessageBox.Show("The maximum number of questions is: " + maxAmountQuestions);
+
+                nupAmount.Value = maxAmountQuestions;
             }
-            catch(InvalidOperationException ex)
+            else if (nupAmount.Value < minAmountQuestions)
             {
-                MessageBox.Show(ex.Message);
-                logger.Debug(ex.ToString());
+                MessageBox.Show("The minimum number of questions is: " + minAmountQuestions);
+
+                nupAmount.Value = minAmountQuestions;
             }
-            catch (ArgumentException ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-                logger.Debug(ex.ToString());
+                try
+                {
+                    var questionsList = _questionController.GetQuestions(selectedSet.Name, cmbDificulty.Text, cmbCategory.Text, Decimal.ToInt32(nupAmount.Value)).ToList();
+                    Hide();
+                    Game game = new Game(questionsList, _sessionController, _user, cmbDificulty.Text, selectedSet);
+                    game.ShowDialog();
+                    Show();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    logger.Debug(ex.ToString());
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    logger.Debug(ex.ToString());
+                }
             }
         }
     }
