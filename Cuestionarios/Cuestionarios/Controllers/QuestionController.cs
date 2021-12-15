@@ -58,6 +58,20 @@ namespace Cuestionarios.Controllers
 
 
         /// <summary>
+        /// Remove the questions
+        /// </summary>
+        public void RemoveQuestions(string pSetName, string pDifficulty, string pCategory, int pAmount)
+        {
+            IQuestionnaireSource source = SourceFactory.GetSourceByName(pSetName);
+            int categoryNumber = source.CategoryDictionary.FirstOrDefault(x => x.Value == pCategory).Key;
+            int difficulty = source.DifficultyDictionary.FirstOrDefault(x => x.Value == pDifficulty).Key;
+
+            iUOfW.QuestionRepository.RemoveQuestions(pSetName, difficulty, categoryNumber, pAmount);
+
+            iUOfW.Complete();
+        }
+
+        /// <summary>
         /// Check if there are any questions
         /// </summary>
         public bool HaveAnyQuestion()
