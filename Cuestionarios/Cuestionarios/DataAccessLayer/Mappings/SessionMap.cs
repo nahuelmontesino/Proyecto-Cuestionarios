@@ -5,6 +5,9 @@ namespace Cuestionarios.DataAccessLayer.Mappings
 {
     class SessionMap : EntityTypeConfiguration<Session>
     {
+        /// <summary>
+        /// Maps Session Class to the database
+        /// </summary>
         public SessionMap()
         {
             ToTable("Session");

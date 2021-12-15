@@ -33,7 +33,7 @@ namespace Cuestionarios.DataAccessLayer
         }
 
         /// <summary>
-        /// Generic method to dynamic database filtering with Linq Expression
+        /// Generic method to dynamic filtering with Linq Expression
         /// </summary>
         public IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,

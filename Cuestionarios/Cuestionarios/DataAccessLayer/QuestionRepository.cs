@@ -51,6 +51,14 @@ namespace Cuestionarios.DataAccessLayer
         }
 
         /// <summary>
+        /// Check if there are any questions in DB
+        /// </summary>
+        public bool HaveAnyQuestion()
+        {
+            return dbSet.Any();
+        }
+
+        /// <summary>
         /// Get the questions from the DB
         /// </summary>
 

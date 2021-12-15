@@ -56,6 +56,16 @@ namespace Cuestionarios.Controllers
             return result;
         }
 
+
+        /// <summary>
+        /// Check if there are any questions
+        /// </summary>
+        public bool HaveAnyQuestion()
+        {
+            return iUOfW.QuestionRepository.HaveAnyQuestion();
+        }
+        
+
         /// <summary>
         /// Get list of categories from questions in DB that correspond to a Set
         /// </summary>

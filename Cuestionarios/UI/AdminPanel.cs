@@ -15,7 +15,8 @@ namespace UI
         private readonly SessionController _sessionController;
         private readonly UserDTO _user;
         private SetDTO setSelected;
-        
+        private int minAmountQuestions;
+
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public AdminPanel(SetController pSetController, SessionController pSessionController, QuestionController pQuestionController, UserDTO pUser, SourceController pSourceController)
@@ -26,7 +27,9 @@ namespace UI
             _sourceController = pSourceController;
             _user = pUser;
             InitializeComponent();
-        }
+
+            minAmountQuestions = 10;
+    }
 
         private void exitBox_Click(object sender, EventArgs e)
         {
@@ -61,6 +64,15 @@ namespace UI
 
         private void btnSaveQuestion_Click(object sender, EventArgs e)
         {
+            if (nupAmount.Value < minAmountQuestions)
+            {
+                MessageBox.Show("The minimum number of questions is: " + minAmountQuestions);
+
+                nupAmount.Value = minAmountQuestions;
+
+                return;
+            }
+
             try
             {
                 _questionController.LoadQuestions(setSelected.Name, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
