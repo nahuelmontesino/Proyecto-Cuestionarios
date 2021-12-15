@@ -117,7 +117,7 @@ namespace Cuestionarios.Sources
 
             if (pAmount > 50)
             {
-                throw new NullReferenceException("The maximum number of questions is: " + 50);
+                throw new NullReferenceException("The maximum number of questions that can be request is: " + 50);
             }
 
             dynamic mResponseJSON = CallTheAPI(apiUrl);
