@@ -115,9 +115,14 @@ namespace Cuestionarios.Sources
             var apiUrl = UrlBase + "amount=" + pAmount + category + dificulty + "&type=multiple";
 
 
+            if (pAmount > 50)
+            {
+                throw new NullReferenceException("The maximum number of questions that can be request is: " + 50);
+            }
+
             dynamic mResponseJSON = CallTheAPI(apiUrl);
 
-            if (mResponseJSON.response_code == 1)
+            if (mResponseJSON.response_code == 1 || pAmount > 50)
             {
                 throw new NullReferenceException("The API doesn't have enough questions for your query");
             }

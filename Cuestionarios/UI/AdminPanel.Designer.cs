@@ -42,6 +42,7 @@ namespace UI
             this.lblDificulty = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblSet = new System.Windows.Forms.Label();
+            this.btnRemoveQuestions = new System.Windows.Forms.Button();
             this.logOutComponent = new UI.LogOut();
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).BeginInit();
@@ -68,12 +69,12 @@ namespace UI
             this.btnSaveQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveQuestion.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveQuestion.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveQuestion.Location = new System.Drawing.Point(481, 197);
+            this.btnSaveQuestion.Location = new System.Drawing.Point(481, 157);
             this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSaveQuestion.Name = "btnSaveQuestion";
             this.btnSaveQuestion.Size = new System.Drawing.Size(201, 60);
             this.btnSaveQuestion.TabIndex = 19;
-            this.btnSaveQuestion.Text = "Save Question";
+            this.btnSaveQuestion.Text = "Save Questions";
             this.btnSaveQuestion.UseVisualStyleBackColor = false;
             this.btnSaveQuestion.Click += new System.EventHandler(this.btnSaveQuestion_Click);
             // 
@@ -126,7 +127,6 @@ namespace UI
             // 
             this.cmbDificulty.BackColor = System.Drawing.SystemColors.Window;
             this.cmbDificulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDificulty.Enabled = false;
             this.cmbDificulty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbDificulty.FormattingEnabled = true;
             this.cmbDificulty.Location = new System.Drawing.Point(205, 244);
@@ -134,11 +134,11 @@ namespace UI
             this.cmbDificulty.Name = "cmbDificulty";
             this.cmbDificulty.Size = new System.Drawing.Size(211, 24);
             this.cmbDificulty.TabIndex = 29;
+            this.cmbDificulty.SelectedIndexChanged += new System.EventHandler(this.cmbDificulty_SelectedIndexChanged);
             // 
             // cmbCategory
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Enabled = false;
             this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(205, 193);
@@ -146,6 +146,7 @@ namespace UI
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(211, 24);
             this.cmbCategory.TabIndex = 28;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // cmbSet
             // 
@@ -208,6 +209,23 @@ namespace UI
             this.lblSet.TabIndex = 23;
             this.lblSet.Text = "Set";
             // 
+            // btnRemoveQuestions
+            // 
+            this.btnRemoveQuestions.BackColor = System.Drawing.Color.White;
+            this.btnRemoveQuestions.Enabled = false;
+            this.btnRemoveQuestions.FlatAppearance.BorderSize = 0;
+            this.btnRemoveQuestions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveQuestions.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveQuestions.ForeColor = System.Drawing.Color.Black;
+            this.btnRemoveQuestions.Location = new System.Drawing.Point(481, 244);
+            this.btnRemoveQuestions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveQuestions.Name = "btnRemoveQuestions";
+            this.btnRemoveQuestions.Size = new System.Drawing.Size(201, 60);
+            this.btnRemoveQuestions.TabIndex = 32;
+            this.btnRemoveQuestions.Text = "Remove Questions";
+            this.btnRemoveQuestions.UseVisualStyleBackColor = false;
+            this.btnRemoveQuestions.Click += new System.EventHandler(this.btnRemoveQuestions_Click);
+            // 
             // logOutComponent
             // 
             this.logOutComponent.BackColor = System.Drawing.Color.Transparent;
@@ -223,6 +241,7 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(724, 450);
+            this.Controls.Add(this.btnRemoveQuestions);
             this.Controls.Add(this.logOutComponent);
             this.Controls.Add(this.nupAmount);
             this.Controls.Add(this.cmbDificulty);
@@ -241,7 +260,6 @@ namespace UI
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
-            this.Load += new System.EventHandler(this.AdminPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.exitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupAmount)).EndInit();
@@ -266,5 +284,6 @@ namespace UI
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblSet;
         private LogOut logOutComponent;
+        private System.Windows.Forms.Button btnRemoveQuestions;
     }
 }

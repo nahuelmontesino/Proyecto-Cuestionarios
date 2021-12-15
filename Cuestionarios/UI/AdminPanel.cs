@@ -16,6 +16,7 @@ namespace UI
         private readonly UserDTO _user;
         private SetDTO setSelected;
         private int minAmountQuestions;
+        private int maxAmountQuestions;
 
         private readonly static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
@@ -27,9 +28,15 @@ namespace UI
             _sourceController = pSourceController;
             _user = pUser;
             InitializeComponent();
+            
+            cmbSet.DataSource = _setController.GetAllSets().ToList();
+            setSelected = _setController.GetSetByName(cmbSet.Text);
 
             minAmountQuestions = 10;
-    }
+            maxAmountQuestions = _questionController.GetNumberQuestions(setSelected.Name, cmbCategory.Text, cmbDificulty.Text);
+
+            btnRemoveQuestions.Enabled = maxAmountQuestions > 0;
+        }
 
         private void exitBox_Click(object sender, EventArgs e)
         {
@@ -39,11 +46,6 @@ namespace UI
         private void minimizeBox_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void AdminPanel_Load(object sender, EventArgs e)
-        {
-            cmbSet.DataSource = _setController.GetAllSets().ToList();
         }
 
         private void cmbSet_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +80,10 @@ namespace UI
                 _questionController.LoadQuestions(setSelected.Name, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
 
                 MessageBox.Show("Questions saved successfully");
+
+                maxAmountQuestions = _questionController.GetNumberQuestions(setSelected.Name, cmbCategory.Text, cmbDificulty.Text);
+
+                btnRemoveQuestions.Enabled = maxAmountQuestions > 0;
             }
             catch (NullReferenceException ex)
             {
@@ -96,8 +102,7 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                logger.Debug(ex.ToString);
-                
+                logger.Debug(ex.ToString);  
             }
         }
 
@@ -107,6 +112,52 @@ namespace UI
             Menu menu = new Menu(_setController, _questionController, _sessionController, _user);
             menu.ShowDialog();
             this.Show();
+        }
+
+        private void btnRemoveQuestions_Click(object sender, EventArgs e)
+        {
+            if (nupAmount.Value > maxAmountQuestions)
+            {
+                MessageBox.Show("The maximum number of questions to remove is: " + maxAmountQuestions);
+
+                nupAmount.Value = maxAmountQuestions;
+
+                return;
+            }
+
+            try
+            {
+                _questionController.RemoveQuestions(setSelected.Name, cmbDificulty.Text, cmbCategory.Text, decimal.ToInt32(nupAmount.Value));
+
+                MessageBox.Show(decimal.ToInt32(nupAmount.Value) + " questions were successfully removed");
+
+                maxAmountQuestions = _questionController.GetNumberQuestions(setSelected.Name, cmbCategory.Text, cmbDificulty.Text);
+
+                btnRemoveQuestions.Enabled = maxAmountQuestions > 0;
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Debug(ex.ToString);
+            }
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maxAmountQuestions = _questionController.GetNumberQuestions(setSelected.Name, cmbCategory.Text, cmbDificulty.Text);
+
+            btnRemoveQuestions.Enabled = maxAmountQuestions > 0;
+        }
+
+        private void cmbDificulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maxAmountQuestions = _questionController.GetNumberQuestions(setSelected.Name, cmbCategory.Text, cmbDificulty.Text);
+
+            btnRemoveQuestions.Enabled = maxAmountQuestions > 0;
         }
     }
 }
