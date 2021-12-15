@@ -5,7 +5,6 @@ namespace Cuestionarios.DataAccessLayer
 {
     class DatabaseInitializationStrategy : CreateDatabaseIfNotExists<QuestionnaireDbContext>
     {
-
         protected override void Seed(QuestionnaireDbContext context)
         {
             //Initialize sets with available sources
@@ -22,7 +21,7 @@ namespace Cuestionarios.DataAccessLayer
                 Admin = true
             });
 
-            //Adds the default admin user
+            //Adds the default user
             context.Users.Add(new User
             {
                 Username = "user",
@@ -31,9 +30,6 @@ namespace Cuestionarios.DataAccessLayer
             });
 
             context.SaveChanges();
-
-            base.Seed(context);
-
         }
     }
 }

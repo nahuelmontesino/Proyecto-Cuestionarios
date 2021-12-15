@@ -10,7 +10,7 @@ namespace Cuestionarios.Controllers
 
     public class SetController
     {
-        readonly UnitOfWork iUOfW = new UnitOfWork();
+        private readonly UnitOfWork iUOfW = new UnitOfWork();
 
         /// <summary>
         /// Get a set by name

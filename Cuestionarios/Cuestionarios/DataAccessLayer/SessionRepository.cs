@@ -40,7 +40,7 @@ namespace Cuestionarios.DataAccessLayer
         }
 
         /// <summary>
-        /// Get a user's scores
+        /// Get the user's high scores
         /// </summary>
         public IEnumerable<Session> GetHighScores()
         {

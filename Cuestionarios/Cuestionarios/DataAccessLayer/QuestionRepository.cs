@@ -59,6 +59,36 @@ namespace Cuestionarios.DataAccessLayer
         }
 
         /// <summary>
+        /// Remove questions from the DB
+        /// </summary>
+
+        public void RemoveQuestions(string pSetName, int pDifficulty, int pCategory, int pAmount)
+        {
+
+
+            try
+            {
+                var query = Get(question => question.Set.Name == pSetName &&
+                                            question.Difficulty == pDifficulty &&
+                                            question.Category == pCategory);
+
+
+                var questionsList = query.Take(pAmount);
+
+                foreach (var question in questionsList)
+                {
+                    Delete(question);
+                }
+            }
+
+            catch (Exception)
+            {
+                throw new NpgsqlException("Error trying to remove questions");
+            }
+
+        }
+
+        /// <summary>
         /// Get the questions from the DB
         /// </summary>
 

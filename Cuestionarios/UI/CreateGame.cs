@@ -73,13 +73,13 @@ namespace UI
         {
             if (nupAmount.Value > maxAmountQuestions)
             {
-                MessageBox.Show("The maximum number of questions is: " + maxAmountQuestions);
+                MessageBox.Show("The maximum number of questions available is: " + maxAmountQuestions);
 
                 nupAmount.Value = maxAmountQuestions;
             }
             else if (nupAmount.Value < minAmountQuestions)
             {
-                MessageBox.Show("The minimum number of questions is: " + minAmountQuestions);
+                MessageBox.Show("The minimum number of questions to play is: " + minAmountQuestions);
 
                 nupAmount.Value = minAmountQuestions;
             }

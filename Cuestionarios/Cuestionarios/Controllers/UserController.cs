@@ -9,7 +9,7 @@ namespace Cuestionarios.Controllers
 {
     public class UserController
     {
-        readonly UnitOfWork iUOfW = new UnitOfWork();
+        private readonly UnitOfWork iUOfW = new UnitOfWork();
 
         public UserController() { }
 

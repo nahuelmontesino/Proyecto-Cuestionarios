@@ -11,7 +11,7 @@ namespace Cuestionarios.Controllers
 {
     public class SessionController
     {
-        readonly UnitOfWork iUOfW = new UnitOfWork();
+        private readonly UnitOfWork iUOfW = new UnitOfWork();
 
         /// <summary>
         /// Get the scores
