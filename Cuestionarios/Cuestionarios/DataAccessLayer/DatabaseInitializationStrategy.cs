@@ -30,9 +30,6 @@ namespace Cuestionarios.DataAccessLayer
             });
 
             context.SaveChanges();
-
-            base.Seed(context);
-
         }
     }
 }
