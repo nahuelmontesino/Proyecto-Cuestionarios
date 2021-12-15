@@ -21,7 +21,7 @@ namespace Cuestionarios.DataAccessLayer
                 Admin = true
             });
 
-            //Adds the default admin user
+            //Adds the default user
             context.Users.Add(new User
             {
                 Username = "user",
