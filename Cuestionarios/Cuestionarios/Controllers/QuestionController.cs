@@ -11,7 +11,7 @@ namespace Cuestionarios.Controllers
 {
     public class QuestionController
     {
-        readonly UnitOfWork iUOfW = new UnitOfWork();
+        private readonly UnitOfWork iUOfW = new UnitOfWork();
 
         /// <summary>
         /// Save the questions
