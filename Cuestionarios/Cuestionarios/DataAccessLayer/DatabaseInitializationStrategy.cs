@@ -5,7 +5,6 @@ namespace Cuestionarios.DataAccessLayer
 {
     class DatabaseInitializationStrategy : CreateDatabaseIfNotExists<QuestionnaireDbContext>
     {
-
         protected override void Seed(QuestionnaireDbContext context)
         {
             //Initialize sets with available sources
